@@ -1,0 +1,8 @@
+login
+colin
+addcredit
+siyavash
+100
+addcredit
+colin
+100

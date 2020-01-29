@@ -1,0 +1,10 @@
+Please enter your username:
+Login successful!
+Please enter a username:
+Current Balance $350
+How much would you like to add?
+Credit added, Balance is $450
+Please enter a username:
+Current Balance $0
+How much would you like to add?
+Credit added, Balance is $100

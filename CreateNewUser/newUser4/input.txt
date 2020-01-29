@@ -1,6 +1,4 @@
 login
 colin
 create
-null
-create
-root
+thisnameistoolo

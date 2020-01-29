@@ -1,0 +1,7 @@
+logout
+create
+deleteUser
+advertise
+bid
+refund
+addCredit

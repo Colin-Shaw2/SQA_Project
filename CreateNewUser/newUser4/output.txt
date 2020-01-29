@@ -1,4 +1,6 @@
 Please enter your username:
 Login successful!
 Please Enter User Name:
-Invalid User Name, too long
+Invalid User Name
+Please Enter User Name:
+Invalid User Name

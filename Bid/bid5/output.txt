@@ -1,0 +1,11 @@
+Please enter your username:
+Login successful!
+Enter Product Name:
+Enter Username:
+Cannot find username
+Enter Product Name:
+Enter Username:
+Invalid username
+Enter Product Name:
+Enter Username:
+Invalid username

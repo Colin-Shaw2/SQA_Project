@@ -1,0 +1,10 @@
+Please enter your username:
+Login successful!
+Please enter a username:
+Current Balance $350
+How much would you like to add?
+Error Balance would be too high max value($999999.99)
+Please enter a username:
+Current Balance $50000
+How much would you like to add?
+Error Balance would be too high max value($999999.99)

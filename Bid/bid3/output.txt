@@ -1,0 +1,30 @@
+Please enter your username:
+Login successful!
+Enter Product Name:
+Enter Username:
+Current Bid $50
+Invalid Bid
+Enter Product Name:
+Enter Username:
+Current Bid $50
+Invalid Bid
+Enter Product Name:
+Enter Username:
+Current Bid $50
+Invalid Bid
+Enter Product Name:
+Enter Username:
+Current Bid $50
+Invalid Bid
+Enter Product Name:
+Enter Username:
+Current Bid $50
+Invalid Bid
+Enter Product Name:
+Enter Username:
+Current Bid $50
+Bid too small
+Enter Product Name:
+Enter Username:
+Current Bid $50
+Bid too small

@@ -2,6 +2,4 @@ Please enter your username:
 Login successful!
 Please Enter User Name:
 Type of user?(Admin(AA)/BuyAndSell(FS)/Buy(BS)/Sell(SS))
-Created User "siyavash" as Admin
-Please Enter User Name:
-User already exists
+Invalid type of user
