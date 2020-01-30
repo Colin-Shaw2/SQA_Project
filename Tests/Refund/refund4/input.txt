@@ -1,6 +1,13 @@
 login
-colin
+admin
 refund
-siyavash
-siyavash2
-50
+admin
+sellOnly
+5000
+addcredit
+sellOnly
+900000
+refund
+admin
+sellOnly
+6000000

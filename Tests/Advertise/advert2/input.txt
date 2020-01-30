@@ -1,7 +1,7 @@
 login
-colin
+admin
 advertise
-null
+\0
 advertise
 root
 advertise

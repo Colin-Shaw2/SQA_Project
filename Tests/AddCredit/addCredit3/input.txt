@@ -1,8 +1,8 @@
 login
-colin
+admin
 addcredit
-null
+\0
 addcredit
 root
 addcredit
-siyas
+siyas[]

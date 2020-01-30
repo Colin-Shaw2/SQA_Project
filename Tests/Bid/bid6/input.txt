@@ -1,6 +1,6 @@
 login
-colin
+buyOnly
 bid
-chair
-siyvsh
-100
+product
+admin
+110

@@ -1,6 +1,6 @@
 login
-colin
+admin
 create
-null
+\0
 create
 root

@@ -1,5 +1,5 @@
 login
-colin
+admin
 advertise
 chair
 10
@@ -19,7 +19,7 @@ chair
 advertise
 chair
 10
-null
+\0
 advertise
 chair
 10

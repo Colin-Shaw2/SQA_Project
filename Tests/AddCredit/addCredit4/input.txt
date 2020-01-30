@@ -1,8 +1,8 @@
 login
-colin
+admin
 addcredit
-colin
+admin
 1000000
 addcredit
-siyavash
-100000
+buySell
+999000

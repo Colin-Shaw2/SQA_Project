@@ -1,5 +1,5 @@
 Please enter your username:
 Login successful!
-Current Balance $100
+Current Balance $1000
 How much would you like to add?
-Credit added, Balance is $200
+Credit added, Balance is $1100

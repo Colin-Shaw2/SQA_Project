@@ -1,6 +1,6 @@
 login
-colin
+buySell
 bid
-chair
-siyavash
+product
+admin
 100

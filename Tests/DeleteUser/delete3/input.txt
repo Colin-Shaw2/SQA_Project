@@ -1,6 +1,6 @@
 login
-colin
+admin
 delete
-null
+\0
 delete
 root

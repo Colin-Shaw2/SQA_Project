@@ -1,5 +1,5 @@
 login
-colin
+admin
 advertise
 chair
 -1
@@ -14,7 +14,7 @@ chair
 thirty
 advertise
 chair
-null
+\0
 advertise
 chair
 root

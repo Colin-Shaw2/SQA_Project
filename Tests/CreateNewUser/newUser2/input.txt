@@ -1,7 +1,4 @@
 login
-colin
+admin
 create
-siyavash
-AA
-create
-siyavash
+buySell

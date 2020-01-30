@@ -1,4 +1,3 @@
 Please enter your username:
 Login successful!
-Please Enter User Name:
-User already exists
+Only admins can use that command

@@ -1,6 +1,6 @@
 login
-colin
+admin
 refund
-siyavash
-siyavash2
+buyOnly
+sellOnly
 50

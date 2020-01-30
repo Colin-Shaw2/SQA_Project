@@ -1,8 +1,8 @@
 login
-colin
+admin
 addcredit
-siyavash
+buyOnly
 100
 addcredit
-colin
+admin
 100

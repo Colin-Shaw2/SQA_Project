@@ -2,13 +2,17 @@ Please enter your username:
 Login successful!
 Please Enter User Name:
 Type of user?(Admin(AA)/BuyAndSell(FS)/Buy(BS)/Sell(SS))
-Created User "siyavash" as Admin
+Starting Balance?
+Created User "siyavash" as Admin with $0
 Please Enter User Name:
 Type of user?(Admin(AA)/BuyAndSell(FS)/Buy(BS)/Sell(SS))
-Created User "siyavash1" as BuyAndSell
+Starting Balance?
+Created User "siyavash1" as BuyAndSell with $200
 Please Enter User Name:
 Type of user?(Admin(AA)/BuyAndSell(FS)/Buy(BS)/Sell(SS))
-Created User "siyavash2" as Buy
+Starting Balance?
+Created User "siyavash2" as Buy with $300
 Please Enter User Name:
 Type of user?(Admin(AA)/BuyAndSell(FS)/Buy(BS)/Sell(SS))
-Created User "siyavash3" as Sell
+Starting Balance?
+Created User "siyavash3" as Sell with $400

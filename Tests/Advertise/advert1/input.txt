@@ -1,6 +1,6 @@
 login
-colin
+admin
 advertise
-Chair
+chair
 20
 10
