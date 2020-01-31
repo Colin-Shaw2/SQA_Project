@@ -6,3 +6,4 @@ buyOnly
 addcredit
 admin
 100
+logout

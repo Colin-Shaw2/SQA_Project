@@ -1,4 +1,5 @@
 Please enter your username:
 Login successful!
 Please enter a user name to be deleted
-User is deleted
+User is deleted!
+Logout successful!

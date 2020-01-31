@@ -3,4 +3,5 @@ Login successful!
 Name of product:
 Minimum Bid(CAD$ 00.01-999.99):
 Number of days:
-Item added succefully!
+Item added successfully!
+Logout successful!

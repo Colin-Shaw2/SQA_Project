@@ -3,4 +3,5 @@ Login successful!
 Please enter the buyer's username:
 Please enter the seller's username:
 Please enter the refund amount:
-Refund successful
+Refund successful!
+Logout successful!

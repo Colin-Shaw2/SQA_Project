@@ -8,3 +8,4 @@ Please enter a username:
 Current Balance $500000
 How much would you like to add?
 Credit added, Balance is $500100
+Logout successful!

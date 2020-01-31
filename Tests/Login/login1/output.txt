@@ -1,2 +1,3 @@
 Please enter your username:
 Login successful!
+Logout successful!
