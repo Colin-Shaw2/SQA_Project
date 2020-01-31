@@ -1,0 +1,12 @@
+login
+admin
+addcredit
+buyOnly
+1001
+addcredit
+buyOnly
+1000
+addcredit
+buyOnly
+1
+logout
