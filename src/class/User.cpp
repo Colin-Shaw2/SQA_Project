@@ -28,8 +28,13 @@ public:
     void createNewUser() = 0;
     void deleteUser() = 0;
     void refund() = 0;
-    void login();
-    void logout();
+    void login(){
+
+    }
+    void logout(){
+        
+    }
+
 
 };
 
@@ -41,10 +46,3 @@ User::~User()
 {
 }
 
-User::login(){
-    
-}
-
-User::logout(){
-    
-}
