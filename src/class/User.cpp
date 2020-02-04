@@ -19,7 +19,9 @@ protected:
     void addTransaction(TransactionType tranType);
 
 public:
-    User(/* args */);
+    User(/* args */){
+
+    }
     ~User();
 
     void addCredit() = 0;
@@ -28,21 +30,11 @@ public:
     void createNewUser() = 0;
     void deleteUser() = 0;
     void refund() = 0;
-    void login(){
-
+    void login()
+    {
     }
-    void logout(){
-        
+    void logout()
+    {
     }
-
-
 };
-
-User::User(/* args */)
-{
 }
-
-User::~User()
-{
-}
-

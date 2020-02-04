@@ -2,19 +2,21 @@
 
 using namespace std;
 
-class Admin: public User
+class Admin : public User
 {
 private:
     /* data */
 public:
-    Admin(/* args */);
+    Admin(/* args */)
+    {
+        userType = "AA";
+    };
     ~Admin();
+
+    void addCredit(){};
+    void advertise(){};
+    void bid(){};
+    void createNewUser(){};
+    void deleteUser(){};
+    void refund(){};
 };
-
-Admin::Admin(/* args */)
-{
-}
-
-Admin::~Admin()
-{
-}

@@ -2,19 +2,23 @@
 
 using namespace std;
 
-class SellStandard: public User
+class SellStandard : public User
 {
 private:
     /* data */
 public:
-    SellStandard(/* args */);
+    SellStandard(/* args */)
+    {
+        userType = "SS";
+    }
+
     ~SellStandard();
+
+    void addCredit(){};
+    void advertise(){};
+    void bid(){};
+    void createNewUser(){};
+    void deleteUser(){};
+    void refund(){};
 };
-
-SellStandard::SellStandard(/* args */)
-{
-}
-
-SellStandard::~SellStandard()
-{
 }
