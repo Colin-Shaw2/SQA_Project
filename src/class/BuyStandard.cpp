@@ -7,9 +7,8 @@ class BuyStandard : public User
 private:
     /* data */
 public:
-    BuyStandard(/* args */)
+    BuyStandard(string name, int accountBalance):User(name, accountBalance, "BS")
     {
-        userType = "BS";
     }
     ~BuyStandard();
 

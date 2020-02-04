@@ -7,9 +7,8 @@ class SellStandard : public User
 private:
     /* data */
 public:
-    SellStandard(/* args */)
+    SellStandard(string name, int accountBalance):User(name, accountBalance, "SS")
     {
-        userType = "SS";
     }
 
     ~SellStandard();

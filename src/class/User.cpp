@@ -19,8 +19,10 @@ protected:
     void addTransaction(TransactionType tranType);
 
 public:
-    User(/* args */){
-
+    User(string name, int accountBalance, string type){
+        this.userName = name;
+        this.balance = accountBalance;
+        this.userType = type;
     }
     ~User();
 

@@ -7,10 +7,9 @@ class Admin : public User
 private:
     /* data */
 public:
-    Admin(/* args */)
+    Admin(string name, int accountBalance):User(name, accountBalance, "AA")
     {
-        userType = "AA";
-    };
+    }
     ~Admin();
 
     void addCredit(){};

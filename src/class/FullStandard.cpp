@@ -7,9 +7,8 @@ class FullStandard : public User
 private:
     /* data */
 public:
-    FullStandard(/* args */)
+    FullStandard(string name, int accountBalance):User(name, accountBalance, "FS")
     {
-        userType = "FS";
     }
 
     ~FullStandard();
