@@ -22,14 +22,14 @@ public:
     User(/* args */);
     ~User();
 
-    void addCredit();
-    void advertise();
-    void bid();
-    void createNewUser();
-    void deleteUser();
+    void addCredit() = 0;
+    void advertise() = 0;
+    void bid() = 0;
+    void createNewUser() = 0;
+    void deleteUser() = 0;
+    void refund() = 0;
     void login();
     void logout();
-    void refund();
 
 };
 
@@ -39,4 +39,12 @@ User::User(/* args */)
 
 User::~User()
 {
+}
+
+User::login(){
+    
+}
+
+User::logout(){
+    
 }
