@@ -1,3 +1,7 @@
+/************
+
+
+************/
 #include <string>
 #include "TransactionEnums.h"
 #include "User.cpp"
@@ -13,6 +17,7 @@ private:
 public:
     TransactionCodeMaker(/* args */);
     ~TransactionCodeMaker();
+
     void makeCreate(User createdUser);
     void makeDelete(User deletedUser);
     void makeLogout(User currentUser);
@@ -28,8 +33,4 @@ TransactionCodeMaker::TransactionCodeMaker(/* args */)
 
 TransactionCodeMaker::~TransactionCodeMaker()
 {
-}
-
-makeCreate(User createdUser){
-/**/
 }
