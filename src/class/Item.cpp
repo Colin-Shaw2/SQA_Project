@@ -6,6 +6,11 @@ class Item
 {
 private:
     /* data */
+    int minimumBid;
+    int daysToBid;
+    int currentBid;
+    User topBidder;
+    User seller;
 public:
     Item(/* args */);
     ~Item();
