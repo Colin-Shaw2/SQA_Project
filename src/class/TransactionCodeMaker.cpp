@@ -1,7 +1,10 @@
-/************
+/***********************
 
 
-************/
+
+
+
+***********************/
 #include <string>
 #include "TransactionEnums.h"
 #include "User.cpp"
@@ -33,4 +36,11 @@ TransactionCodeMaker::TransactionCodeMaker(/* args */)
 
 TransactionCodeMaker::~TransactionCodeMaker()
 {
+}
+
+makeCreate(User createdUser){
+
+}
+void makeDelete(User deletedUser){
+
 }
