@@ -13,19 +13,19 @@ class TransactionCodeMaker
 {
 private:
     /* data */
-    void sorter(User user, TransactionType tranType);
+    void sorter(User &user, TransactionType tranType);
 
 public:
     TransactionCodeMaker(/* args */);
     ~TransactionCodeMaker();
 
-    void makeCreate(User createdUser);
-    void makeDelete(User deletedUser);
-    void makeLogout(User currentUser);
-    void makeAddCredit(User addedUser);
-    void makeRefund(User buyer, User seller);
-    void makeCreate(Item item, User seller);
-    void makeBid(Item item, User seller, User buyer);
+    void makeCreate(User &createdUser);
+    void makeDelete(User &deletedUser);
+    void makeLogout(User &currentUser);
+    void makeAddCredit(User &addedUser);
+    void makeRefund(User &buyer, User &seller);
+    void makeCreate(Item &item, User &seller);
+    void makeBid(Item &item, User &seller, User &buyer);
 };
 
 TransactionCodeMaker::TransactionCodeMaker(/* args */)
@@ -36,9 +36,9 @@ TransactionCodeMaker::~TransactionCodeMaker()
 {
 }
 
-makeCreate(User createdUser){
+void makeCreate(User &createdUser){
 
 }
-void makeDelete(User deletedUser){
+void makeDelete(User &deletedUser){
 
 }
