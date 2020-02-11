@@ -12,7 +12,8 @@ public:
     }
     ~Admin();
 
-    void addCredit(){};
+    void addCredit(){
+    };
     void advertise(){};
     void bid(){};
     void createNewUser(){};

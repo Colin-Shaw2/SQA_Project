@@ -1,4 +1,7 @@
-#include "User.cpp"
+// #ifndef ITEM_H
+// #define ITEM_H
+//#include "User.cpp"
+// #endif
 
 using namespace std;
 
@@ -9,17 +12,11 @@ private:
     int minimumBid;
     int daysToBid;
     int currentBid;
-    User topBidder;
-    User seller;
+    // User topBidder;
+    // User seller;
 public:
     Item(/* args */);
     ~Item();
 };
 
-Item::Item(/* args */)
-{
-}
-
-Item::~Item()
-{
-}
+main(){}
