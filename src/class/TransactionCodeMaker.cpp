@@ -1,4 +1,4 @@
-/************
+/***********************
 
 
 ************/
@@ -34,4 +34,11 @@ TransactionCodeMaker::TransactionCodeMaker(/* args */)
 
 TransactionCodeMaker::~TransactionCodeMaker()
 {
+}
+
+makeCreate(User createdUser){
+
+}
+void makeDelete(User deletedUser){
+
 }
