@@ -24,5 +24,5 @@ public:
     static string makeAddCredit(string username, string userType, int availableCredit);
     static string makeRefund(string buyerUsername, string sellerUsername, string userType, int availableCredit);
     static string makeBid(string buyerUsername, string sellerUsername, string itemName, int bid);
-    static string makeAdvertise(string buyerUsername, string sellerUsername, string itemName, int minimumBid);
+    static string makeAdvertise(string buyerUsername, int daysToAuction, string itemName, int minimumBid);
 };

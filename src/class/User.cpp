@@ -1,4 +1,3 @@
-//#pragma once
 #include "TransactionEnums.h"
 #include "TransactionCodeMaker.cpp"
 #include "Item.cpp"
@@ -20,24 +19,35 @@ protected:
     vector<string> transactions;
     string userType;
 
+    
+    /**
+     * Calls the transactionCodeMaker to create a transaction code and adds 
+     * it to the transactions array
+     * 
+     *  
+     * @return void
+     */
+    //TODO Method needs review
     void addTransaction(transactionType type){
+        string code = "";
         switch(type)
         {
-            case CREATE : cout << "CREATE"; // CREATE
-                break;       // and exits the switch
-            case DELETE : cout << "DELETE";
+            case CREATE : code = TransactionCodeMaker::makeCreate(userName, userType, balance);
+                break;       
+            case DELETE : code = TransactionCodeMaker::makeDelete(userName, userType, balance);
                 break;
-            case LOGOUT : cout << "LOGOUT"; // DELETE
-                break;       // and exits the switch
-            case ADD_CREDIT : cout << "ADD_CREDIT";
+            case LOGOUT : code = TransactionCodeMaker::makeLogout(userName, userType, balance);
                 break;
-            case REFUND : cout << "REFUND"; // prints "1"
-                break;       // and exits the switch
-            case ADVERTISE : cout << "ADVERTISE";
+            case ADD_CREDIT : code = TransactionCodeMaker::makeAddCredit(userName, userType, balance);
                 break;
-            case BID : cout << "BID"; // prints "1"
+            case REFUND : code = TransactionCodeMaker::makeRefund(userName,"refunder",userType, 0 /*refundamount*/);
+                break;
+            case ADVERTISE : code = TransactionCodeMaker::makeAdvertise(userName, 0/*daysToAuction*/ , "Itemname", balance);
+                break;
+            case BID : code = TransactionCodeMaker::makeBid(userName, "sellerName", "ItemName", /*Bid*/ 0);
                 break;
         }
+        transactions.push_back(code);
     }
 
 public:
