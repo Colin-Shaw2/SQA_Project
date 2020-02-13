@@ -8,9 +8,21 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-  cout << 0 << endl;
+  bool quit = false;
+  while (!quit)
+  {
+    string input = "";
+    cout << "Please Enter an input" << endl;
+    cin >> input;
+    if (input == "q")
+    {
+      quit = true;
+    }
+  }
+
   return 0;
 }
+
 void isValidString(string variable)
 {
 }
