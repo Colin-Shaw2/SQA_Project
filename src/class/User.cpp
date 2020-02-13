@@ -1,9 +1,7 @@
-// #ifndef USER_H
-// #define USER_H
-#include "Item.cpp"
+//#pragma once
 #include "TransactionEnums.h"
-//#include "TransactionCodeMaker.cpp"
-// #endif
+#include "TransactionCodeMaker.cpp"
+#include "Item.cpp"
 
 #include <string>
 #include <vector>
@@ -20,7 +18,22 @@ protected:
     vector<string> transactions;
     string userType;
 
-    void addTransaction(TransactionType tranType);
+    void addTransaction(transactionType transactiontype){
+     //    case CREATE : cout << '1'; // CREATE
+     //         break;       // and exits the switch
+     //    case DELETE : cout << '2';
+     //         break;
+     //    case LOGOUT : cout << '1'; // DELETE
+     //         break;       // and exits the switch
+     //    case ADD_CREDIT : cout << '2';
+     //         break;
+     //    case REFUND : cout << '1'; // prints "1"
+     //         break;       // and exits the switch
+     //    case ADVERTISE : cout << '2';
+     //         break;
+     //    case BID : cout << '1'; // prints "1"
+     //         break;
+    }
 
 public:
     User(string name, int accountBalance, string type){
@@ -51,24 +64,6 @@ public:
      //    transactionFile << transactions;
      //    transactionFile.close();
      //    cout << "Logout successful!" << endl;
-    }
-
-protected:
-    void addTransaction(TransactionType transactiontype){
-     //    case CREATE : cout << '1'; // CREATE
-     //         break;       // and exits the switch
-     //    case DELETE : cout << '2';
-     //         break;
-     //    case LOGOUT : cout << '1'; // DELETE
-     //         break;       // and exits the switch
-     //    case ADD_CREDIT : cout << '2';
-     //         break;
-     //    case REFUND : cout << '1'; // prints "1"
-     //         break;       // and exits the switch
-     //    case ADVERTISE : cout << '2';
-     //         break;
-     //    case BID : cout << '1'; // prints "1"
-     //         break;
     }
 };
 

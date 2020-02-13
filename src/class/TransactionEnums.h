@@ -1,2 +1,4 @@
-enum TransactionType 
-{CREATE, DELETE, LOGOUT, ADD_CREDIT, REFUND, ADVERTISE, BID};
+#pragma once
+enum transactionType {
+    CREATE, DELETE, LOGOUT, ADD_CREDIT, REFUND, ADVERTISE, BID
+    };

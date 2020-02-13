@@ -2,10 +2,9 @@
 
 
 ************/
-//#pragma once
+#pragma once
 #include <string>
 #include "TransactionEnums.h"
-#include "User.cpp"
 
 using namespace std;
 
@@ -13,32 +12,17 @@ class TransactionCodeMaker
 {
 private:
     /* data */
-    void sorter(User &user, TransactionType tranType);
+    //void sorter(User &user, transactionType tranType);
 
 public:
     TransactionCodeMaker(/* args */);
     ~TransactionCodeMaker();
 
-    void makeCreate(User &createdUser);
-    void makeDelete(User &deletedUser);
-    void makeLogout(User &currentUser);
-    void makeAddCredit(User &addedUser);
-    void makeRefund(User &buyer, User &seller);
-    void makeCreate(Item &item, User &seller);
-    void makeBid(Item &item, User &seller, User &buyer);
+    void makeCreate(string username, string userType, int availableCredit);
+    void makeDelete(string username, string userType, int availableCredit);
+    void makeLogout(string username, string userType, int availableCredit);
+    void makeAddCredit(string username, string userType, int availableCredit);
+    void makeRefund(string buyerUsername, string sellerUsername, string userType, int availableCredit);
+    void makeBid(string buyerUsername, string sellerUsername, string itemName, int bid);
+    void makeAdvertise(string buyerUsername, string sellerUsername, string itemName, int minimumBid);
 };
-
-TransactionCodeMaker::TransactionCodeMaker(/* args */)
-{
-}
-
-TransactionCodeMaker::~TransactionCodeMaker()
-{
-}
-
-void makeCreate(User &createdUser){
-
-}
-void makeDelete(User &deletedUser){
-
-}

@@ -1,22 +1,23 @@
 #include "User.cpp"
 #include "Item.cpp"
 #include "TransactionCodeMaker.cpp"
+#include <string>
+#include <iostream>
 
 using namespace std;
 
-int int main(int argc, char const *argv[]) {
-private:
-  String userType;
-
+int main(int argc, char const *argv[])
+{
+  cout << 0 << endl;
   return 0;
 }
-void isValidString(String variable){
-
+void isValidString(string variable)
+{
 }
-void isValidInt(Int variable){
-
+void isValidInt(int variable)
+{
 }
 
-void checkAdvertise(String itemName, int minimumBid, int daysToBid){
-
+void checkAdvertise(string itemName, int minimumBid, int daysToBid)
+{
 }

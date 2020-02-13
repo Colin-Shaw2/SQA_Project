@@ -1,8 +1,5 @@
-// #ifndef ITEM_H
-// #define ITEM_H
-//#include "User.cpp"
-// #endif
-
+#pragma once
+#include <string>
 using namespace std;
 
 class Item
@@ -12,11 +9,9 @@ private:
     int minimumBid;
     int daysToBid;
     int currentBid;
-    // User topBidder;
-    // User seller;
+    string topBidder;
+    string seller;
 public:
     Item(/* args */);
     ~Item();
 };
-
-main(){}

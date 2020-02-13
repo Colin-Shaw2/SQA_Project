@@ -7,8 +7,7 @@ class SellStandard : public User
 private:
     /* data */
 public:
-    SellStandard(string name, int accountBalance):User(name, accountBalance, "SS")
-    {
+    SellStandard(string name, int accountBalance):User(name, accountBalance, "SS"){
     }
 
     ~SellStandard();
@@ -20,4 +19,3 @@ public:
     void deleteUser(){};
     void refund(){};
 };
-}
