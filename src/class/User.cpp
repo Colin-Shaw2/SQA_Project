@@ -5,6 +5,8 @@
 
 #include <string>
 #include <vector>
+#include <fstream>
+#include <iostream>
 
 using namespace std;
 
@@ -18,21 +20,24 @@ protected:
     vector<string> transactions;
     string userType;
 
-    void addTransaction(transactionType transactiontype){
-     //    case CREATE : cout << '1'; // CREATE
-     //         break;       // and exits the switch
-     //    case DELETE : cout << '2';
-     //         break;
-     //    case LOGOUT : cout << '1'; // DELETE
-     //         break;       // and exits the switch
-     //    case ADD_CREDIT : cout << '2';
-     //         break;
-     //    case REFUND : cout << '1'; // prints "1"
-     //         break;       // and exits the switch
-     //    case ADVERTISE : cout << '2';
-     //         break;
-     //    case BID : cout << '1'; // prints "1"
-     //         break;
+    void addTransaction(transactionType type){
+        switch(type)
+        {
+            case CREATE : cout << "CREATE"; // CREATE
+                break;       // and exits the switch
+            case DELETE : cout << "DELETE";
+                break;
+            case LOGOUT : cout << "LOGOUT"; // DELETE
+                break;       // and exits the switch
+            case ADD_CREDIT : cout << "ADD_CREDIT";
+                break;
+            case REFUND : cout << "REFUND"; // prints "1"
+                break;       // and exits the switch
+            case ADVERTISE : cout << "ADVERTISE";
+                break;
+            case BID : cout << "BID"; // prints "1"
+                break;
+        }
     }
 
 public:
@@ -58,12 +63,14 @@ public:
     //TODO reaxamine this method once min is done
     void logout()
     {  
-     //    addTransaction(LOGOUT);
-     //    ofstream transactionFile;
-     //    transactionFile.open ("transactions.txt");
-     //    transactionFile << transactions;
-     //    transactionFile.close();
-     //    cout << "Logout successful!" << endl;
+        addTransaction(LOGOUT);
+        ofstream transactionFile;
+        transactionFile.open ("../storage/transactions.txt");
+        for(string code : transactions){
+            transactionFile << code;
+        }
+        transactionFile.close();
+        cout << "Logout successful!" << endl;
     }
 };
 
