@@ -18,6 +18,10 @@ int main(int argc, char const *argv[])
     {
       quit = true;
     }
+    else if (input == "i")
+    {
+      Item *testItem = new Item(0, 5, 0, "user", "user2");
+    }
   }
 
   return 0;

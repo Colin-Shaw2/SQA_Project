@@ -10,8 +10,16 @@ private:
     int daysToBid;
     int currentBid;
     string topBidder;
-    string seller;
+    const string seller;
+
 public:
-    Item(/* args */);
+    Item(int minimumBid, int daysToBid, int currentBid, string topBidder, string seller)
+    {
+        minimumBid = minimumBid;
+        daysToBid = daysToBid;
+        currentBid = currentBid;
+        topBidder = topBidder;
+        seller = seller;
+    }
     ~Item();
 };
