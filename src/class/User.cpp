@@ -19,12 +19,12 @@ protected:
     vector<string> transactions;
     string userType;
 
-    
+
     /**
-     * Calls the transactionCodeMaker to create a transaction code and adds 
+     * Calls the transactionCodeMaker to create a transaction code and adds
      * it to the transactions array
-     * 
-     *  
+     *
+     *
      * @return void
      */
     //TODO Method needs review
@@ -33,7 +33,7 @@ protected:
         switch(type)
         {
             case CREATE : code = TransactionCodeMaker::makeCreate(userName, userType, balance);
-                break;       
+                break;
             case DELETE : code = TransactionCodeMaker::makeDelete(userName, userType, balance);
                 break;
             case LOGOUT : code = TransactionCodeMaker::makeLogout(userName, userType, balance);
@@ -67,12 +67,12 @@ public:
     /**
      * logouts the current user
      * writes all transactions in the transactions array to transactions.txt
-     * 
+     *
      * @return void
      */
     //TODO reaxamine this method once min is done
     void logout()
-    {  
+    {
         addTransaction(LOGOUT);
         ofstream transactionFile;
         transactionFile.open ("../storage/transactions.txt");
@@ -83,4 +83,3 @@ public:
         cout << "Logout successful!" << endl;
     }
 };
-

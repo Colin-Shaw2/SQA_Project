@@ -1,7 +1,8 @@
-  /********************************
-  Main class is used to process the
-  inputs into their proper functions
-  *********************************/
+  /*************************************
+  * Main class is used to process the  *
+  * inputs into their proper functions *
+  * and passed into proper classes     *
+  *************************************/
 
 #include "User.cpp"
 #include "Item.cpp"
@@ -68,7 +69,7 @@ before a user is deleted*/
 
 }
 
-void checkAddCredit(string userName, string amount){
+void checkAddCredit(string amount){
 /*checkAddCredit is used to validate the inputs for adding credit to a user
 before credit is added to a user*/
 
