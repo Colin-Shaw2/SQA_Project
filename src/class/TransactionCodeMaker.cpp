@@ -80,7 +80,7 @@ public:
         code += to_string(availableCredit);
         return code;
     }
-    
+
     static string makeAddCredit(string username, string userType, int availableCredit)
     {
         string code = "";
@@ -101,7 +101,7 @@ public:
         code += to_string(availableCredit);
         return code;
     }
-    
+
     static string makeRefund(string buyerUsername, string sellerUsername, string userType, int availableCredit)
     {
         string code = "";
@@ -135,7 +135,7 @@ public:
         string code = "";
         code += "04_";
 
-        
+
         code += itemName;
         //assuming username length of 19
         for (int i = itemName.length(); i <= 19; i++)
@@ -160,7 +160,7 @@ public:
         }
         code += "_";
 
-        
+
         for (int i = to_string(bid).length(); i <= 6; i++)
         {
             code += "0";
@@ -173,7 +173,7 @@ public:
         string code = "";
         code += "03_";
 
-        
+
         code += itemName;
         //assuming username length of 19
         for (int i = itemName.length(); i <= 19; i++)
