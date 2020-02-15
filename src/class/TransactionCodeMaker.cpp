@@ -4,15 +4,12 @@
 ************/
 #pragma once
 #include <string>
-#include "TransactionEnums.h"
 
 using namespace std;
 
 class TransactionCodeMaker
 {
 private:
-    /* data */
-    //void sorter(User &user, transactionType tranType);
     static const int userNameLength = 15;//TODO
     static const int creditLength = 9;
     static const int bidLength = 6;
@@ -29,7 +26,7 @@ private:
         return outStr;
     } 
     
-    static string makeBufferedInt(int input, int length){
+    static string makeBufferedString(int input, int length){
         string outStr = "";
         for (int i = to_string(input).length(); i <= length; i++)
         {
@@ -45,11 +42,11 @@ private:
     
 
     static string makeBufferedBid(int input){
-        return makeBufferedInt(input, bidLength);
+        return makeBufferedString(input, bidLength);
     } 
 
     static string makeBufferedCredit(int input){
-        return makeBufferedInt(input, creditLength);
+        return makeBufferedString(input, creditLength);
     } 
     
     static string makeBufferedItem(string input){
@@ -57,7 +54,7 @@ private:
     } 
 
     static string makeBufferedAuction(int input){
-        return makeBufferedInt(input, auctionLength);
+        return makeBufferedString(input, auctionLength);
     } 
 
 public:
