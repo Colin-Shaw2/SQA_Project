@@ -16,7 +16,10 @@ public:
     }
     ~Admin();
 
-    void addCredit(string userName, string amount){
+    void addCredit(int amount){
+      /*adds amount credit to current user*/
+    }
+    void addCreditAdmin(string userName, int amount){
       /*adds amount credit to User userName*/
     }
     void advertise(string itemName, int minimumBid, int daysToBid){

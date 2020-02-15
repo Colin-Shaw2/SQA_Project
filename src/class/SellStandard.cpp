@@ -12,10 +12,12 @@ public:
 
     ~SellStandard();
 
-    void addCredit(){};
-    void advertise(){};
-    void bid(){};
-    void createNewUser(){};
-    void deleteUser(){};
-    void refund(){};
+    void addCredit(int amount){/*adds amount credit to current user*/};
+    void advertise(string itemName, int minimumBid, int daysToBid){
+      /*advertises Item itemName*/
+    };
+    void bid(){};//user is not allowed to bid
+    void createNewUser(){};//user is not allowed to create new users
+    void deleteUser(){};//user is not allowed to delete users
+    void refund(){};//user is not allowed to refund
 };
