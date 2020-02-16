@@ -34,7 +34,7 @@ bool isValidString(string variable)
 {
   /*isValidString is used to validate the Strings that are inputted*/
   if(!variable.empty()){//checks if it is a string and not a null
-    if(variable.length > 15){// checks if variable is shorter than 15 characters
+    if(variable.length() > 15){// checks if variable is shorter than 15 characters
       return false;
     }
   }
