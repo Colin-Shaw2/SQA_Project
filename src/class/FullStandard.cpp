@@ -29,3 +29,4 @@ public:
     void createNewUser(){};//user is not allowed to create new users
     void deleteUser(){};//user is not allowed to delete users
     void refund(){};//user is not allowed to refund
+};

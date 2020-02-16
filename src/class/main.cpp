@@ -30,10 +30,10 @@ int main(int argc, char const *argv[])
   return 0;
 }
 
-void isValidString(string variable)
+bool isValidString(string variable)
 {
   /*isValidString is used to validate the Strings that are inputted*/
-  if(isString(variable)){//checks if it is a string and not a null
+  if(!variable.empty()){//checks if it is a string and not a null
     if(variable.length > 15){// checks if variable is shorter than 15 characters
       return false;
     }
@@ -42,7 +42,7 @@ void isValidString(string variable)
   return false;
   }
 }
-void isValidInt(int variable)
+bool isValidInt(int variable)
 {
   /*isValidInt is used to validate the integers inputted */
   if(variable < 1 && variable > 1000000){//checks if variable is in range

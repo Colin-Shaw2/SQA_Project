@@ -147,19 +147,9 @@ public:
         string code = "";
         code += "04_";
 
-<<<<<<< HEAD
-
-        code += itemName;
-        //assuming username length of 19
-        for (int i = itemName.length(); i <= 19; i++)
-        {
-            code += "_";
-        }
-=======
         
         
         code += makeBufferedItem(itemName);
->>>>>>> faf87292cfe12bbda99c7c3dd7a3a555e4dd28d8
         code += "_";
 
         
@@ -169,18 +159,8 @@ public:
         
         code += makeBufferedUserName(sellerUsername);
         code += "_";
-<<<<<<< HEAD
-
-
-        for (int i = to_string(bid).length(); i <= 6; i++)
-        {
-            code += "0";
-        }
-        code += to_string(bid);
-=======
         
         code += makeBufferedCredit(bid);
->>>>>>> faf87292cfe12bbda99c7c3dd7a3a555e4dd28d8
 
         return code;
     }
@@ -189,19 +169,8 @@ public:
         string code = "";
         code += "03_";
 
-<<<<<<< HEAD
-
-        code += itemName;
-        //assuming username length of 19
-        for (int i = itemName.length(); i <= 19; i++)
-        {
-            code += "_";
-        }
-        code += "_";
-=======
         
         code += makeBufferedItem(itemName);
->>>>>>> faf87292cfe12bbda99c7c3dd7a3a555e4dd28d8
 
         
         code += makeBufferedUserName(username);
