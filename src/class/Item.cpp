@@ -23,3 +23,7 @@ public:
     }
     ~Item();
 };
+
+void newBid(Item item, int newPrice){
+  
+}

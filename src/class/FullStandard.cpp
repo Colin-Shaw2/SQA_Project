@@ -19,7 +19,7 @@ public:
 
     ~FullStandard();
 
-    void addCredit(int amount){/*adds amount credit to current user*/};
+    void addCredit(int amount){};
     void advertise(string itemName, int minimumBid, int daysToBid){
       /*advertises Item itemName*/
     };
