@@ -12,6 +12,15 @@
 
 using namespace std;
 
+
+/*
+ *
+ *
+ *
+ *
+ *
+ */
+
 int main(int argc, char const *argv[])
 {
   bool quit = false;
@@ -61,6 +70,7 @@ bool isValidString(string variable)
  *
  * @return boolean
  */
+
 bool isValidInt(int variable)
 {
   if(variable < 1 && variable > 1000000){
@@ -72,7 +82,8 @@ bool isValidInt(int variable)
  * checkAdvertise is called to validate inputs for advertise. The parameters
  * for checkAdvertise are string itemName, int minimumBid, and int daysToBid.
  * First, checkAdvertise calls isValidString and isValidInt for the parameters.
- * itemName is the first test on if it contains any special characters.
+ * Next it checks if userType is not BS as BuyStandard cannot advertise
+ * itemName is the test on if it contains any special characters.
  * Next, it checks if daysToBid is less than 100 and minimumBid is
  * less than 1000.
  * If any test fails, it will output a message to the corresponding failure.
@@ -80,6 +91,7 @@ bool isValidInt(int variable)
  *
  * @return void
  */
+
 void checkAdvertise(string itemName, int minimumBid, int daysToBid){};
 
 /*
@@ -137,8 +149,8 @@ void checkCreateNewUser(string userName, string userType, int credit){};
  * checkBid is called to validate inputs for Bid. The parameter
  * for checkBid is string itemName, string userName, and int amount
  * First isValidString and isValidInt is called to validate the parameters
- * Next, it checks if the item exists, if the user exists, if the item and
- * user match, and if the amount is at least 5% higher than the last bid
+ * Next, it checks if the item exists, if the user exists, and if the item and
+ * user match
  * If any test fails, it will output a message to the corresponding failure.
  * Otherwise, bid is called.
  *
