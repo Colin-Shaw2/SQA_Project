@@ -99,7 +99,8 @@ void checkAdvertise(string itemName, int minimumBid, int daysToBid){};
  * for checkRefund are string buyerUserName, string sellerUsername, and
  * int amount
  * First checkRefund calls isValidString and isValidInt for the parameters.
- * Next, it checks if the users exist.
+ * Next, it checks if the user has permission to apply a refund and if
+ * the seller and buyer users exist.
  * If any test fails, it will output a message to the corresponding failure.
  * If all these tests pass, refund is called.
  *
@@ -133,7 +134,7 @@ void checkAddCredit(int amount){};
 
 /*
  * checkCreateNewUser is called to validate inputs for CreateNewUser. The parameter
- * for checkCreateNewUser is string userName, string userType, and int credit
+ * for checkCreateNewUser are string userName, string userType, and int credit
  * First isValidString and isValidInt is called to validate the parameters
  * Next, it checks if the username already exists, and if userType fits the
  * four possibilities.
