@@ -23,7 +23,9 @@ public:
      * addCredit checks if the addition of amount to accountBalance is under 1,000,000.
      * If it's over 1,000,000, the attempt is rejected and a message is printed
      * If it's under 1,000,000, the amount is added to accountBalance
-     *
+     * Writes to the users file
+     * 
+     * 
      * @param username  the username that the credit should be added to, this reference itself
      * @param amount    the amount of credit to be added 
      * @return void
@@ -35,7 +37,7 @@ public:
      * advertise is called to put up a new item.
      * 
      * advertise will create a new Item output a successful message
-     * It will also write to the items file
+     * Writes to the items file
      * 
      * @param itemName      name of item to be sold
      * @param minimumBid    minimum bid on item
@@ -52,7 +54,8 @@ public:
      * limit. It also checks if the current user has sufficient funds
      * If all goes through, bid will raise the currentBid on the item
      * Otherwise, the attempt will be rejected and a message is printed
-     *
+     * Writes to the items file
+     * 
      * @param itemName the name of the item
      * @param userName the user selling the item
      * @param amount the amount to bid
@@ -62,6 +65,7 @@ public:
 
     /**
      * createNewUser is called to create a new User.
+     * Writes to the users file
      * 
      * @param userName name of new user
      * @param userType the privledge level of the new user
@@ -76,6 +80,8 @@ public:
      * 
      * Once the user has been deleted, there will
      * be a successful message
+     * Writes to the items file
+     * Writes to the users file
      * 
      * @param userName the username of the user to be deleted 
      * @return void
@@ -89,7 +95,8 @@ public:
      * sufficient funds for the amount to be removed from his accountBalance,
      * and if the buyer's accountBalance does not go over the limit if the
      * refund of amount is issued.
-     *  
+     * Writes to the users file
+     * 
      * @param buyerUsername     the username of the buyer
      * @param sellerUsername    the username of the seller
      * @param amount            the amount to transfer from seller to buyer
