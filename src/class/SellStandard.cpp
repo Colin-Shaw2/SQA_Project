@@ -1,3 +1,8 @@
+/*********************************
+* fullstandard class is used to process *
+* actions done by an fullstandard user  *
+*********************************/
+
 #include "User.cpp"
 
 using namespace std;
@@ -32,7 +37,7 @@ public:
      * @return void
      */
     void advertise(string itemName, int minimumBid, int daysToBid){};
-    
+
     void bid(){};//user is not allowed to bid
     void createNewUser(){};//user is not allowed to create new users
     void deleteUser(){};//user is not allowed to delete users
