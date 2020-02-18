@@ -24,8 +24,8 @@ protected:
      * Calls the transactionCodeMaker to create a transaction code and adds
      * it to the transactions array
      *
-     *
-     * @return void
+     * @param   type an enum representing the type of stransaction that just happened
+     * @return  void
      */
     //TODO Method needs review
     void addTransaction(transactionType type){
@@ -51,6 +51,13 @@ protected:
     }
 
 public:
+    /**
+     * Creates a user with a name, type and initial account balance
+     *
+     * @param name
+     * @param accountBalance
+     * @param type
+     */
     User(string name, int accountBalance, string type){
         this->userName = name;
         this->balance = accountBalance;
@@ -64,6 +71,7 @@ public:
     virtual void createNewUser() = 0;
     virtual void deleteUser() = 0;
     virtual void refund() = 0;
+    
     /**
      * logouts the current user
      * writes all transactions in the transactions array to transactions.txt
