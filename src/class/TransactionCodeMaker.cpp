@@ -18,7 +18,7 @@ private:
     static const int itemLength = 25;
     static const int auctionLength = 3;
     
-    /*
+    /**
      * takes in an input string and pads it with trailing '_' until it is equal to length
      * 
      * this method should not be called directly from a public method in this class
@@ -39,7 +39,7 @@ private:
     } 
     
     
-    /*
+    /**
      * takes in an input integer and returns a sttring padded
      * with leading '0' until it is equal to length
      * 
@@ -60,7 +60,7 @@ private:
         return outStr;
     } 
     
-    /*
+    /**
      * takes in a itemName and pads it
      * 
      * uses itemLength to determine final string length
@@ -72,7 +72,7 @@ private:
         return makeBufferedString(itemName, itemLength);
     } 
 
-    /*
+    /**
      * takes in a username and pads it
      * 
      * uses userNameLength to determine final string length
@@ -84,7 +84,7 @@ private:
         return makeBufferedString(username, userNameLength);
     } 
     
-    /*
+    /**
      * takes in a bid and pads it
      * 
      * uses bidLength to determine final string length
@@ -96,7 +96,7 @@ private:
         return makeBufferedString(bid, bidLength);
     } 
 
-    /*
+    /**
      * takes in a credit and pads it
      * 
      * uses creditLength to determine final string length
@@ -108,7 +108,7 @@ private:
         return makeBufferedString(credit, creditLength);
     } 
 
-    /*
+    /**
      * takes in a auction and pads it
      * 
      * uses auctionLength to determine final string length
@@ -126,7 +126,7 @@ public:
     ~TransactionCodeMaker();
 
 
-    /* creates a transaction code for the Create action
+    /*** creates a transaction code for the Create action
      * 
      * returns a string in the form 01_UUUUUUUUUUUUUUU_TT_CCCCCCCCC
      * U is username 
@@ -155,7 +155,7 @@ public:
     }
 
 
-    /* creates a transaction code for the Delete action
+    /** creates a transaction code for the Delete action
      * 
      * returns a string in the form 02_UUUUUUUUUUUUUUU_TT_CCCCCCCCC
      * U is username 
@@ -183,7 +183,7 @@ public:
         return code;
     }
 
-    /* creates a transaction code for the Logout action
+    /** creates a transaction code for the Logout action
      * 
      * returns a string in the form 00_UUUUUUUUUUUUUUU_TT_CCCCCCCCC
      * U is username 
@@ -211,7 +211,7 @@ public:
         return code;
     }
 
-    /* creates a transaction code for the AddCredit action
+    /** creates a transaction code for the AddCredit action
      * 
      * returns a string in the form 06_UUUUUUUUUUUUUUU_TT_CCCCCCCCC
      * U is username 
@@ -240,7 +240,7 @@ public:
     }
 
     
-    /* creates a transaction code for the Refund action
+    /** creates a transaction code for the Refund action
      * 
      * returns a string in the form 05_UUUUUUUUUUUUUUU_SSSSSSSSSSSSSSS_CCCCCCCCC
      * U is user getting credit 
@@ -270,7 +270,7 @@ public:
         return code;
     }
 
-    /* creates a transaction code for the Bid action
+    /** creates a transaction code for the Bid action
      * 
      * returns a string in the form 04_IIIIIIIIIIIIIIIIIIIIIIIII_SSSSSSSSSSSSSSS_UUUUUUUUUUUUUU_PPPPPP
      * I is item name
@@ -306,7 +306,7 @@ public:
         return code;
     }
     
-    /* creates a transaction code for the Advertise action
+    /** creates a transaction code for the Advertise action
      * 
      * returns a string in the form 03_IIIIIIIIIIIIIIIIIIIIIIIII_SSSSSSSSSSSSSSS_DDD_PPPPPP
      * I is item name
