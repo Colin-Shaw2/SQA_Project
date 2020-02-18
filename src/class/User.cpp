@@ -74,6 +74,7 @@ public:
     /**
      * logouts the current user
      * writes all transactions in the transactions array to transactions.txt
+     * writes and overites all items in the items array to items.txt
      *
      * @return void
      */
@@ -88,5 +89,6 @@ public:
         }
         transactionFile.close();
         cout << "Logout successful!" << endl;
+        //TODO write to items.txt
     }
 };
