@@ -1,7 +1,7 @@
 /*
 This is an abstract class with all non privileged methods implemented
 
-User class expects valid inputs to be passed to it from main and then calls the wanted method
+User class writes all transactions to items.txt, users.txt and/or transactions.txt
 */
 
 #include "TransactionEnums.h"
