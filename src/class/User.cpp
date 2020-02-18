@@ -1,3 +1,9 @@
+/*
+This is an abstract class with all non privileged methods implemented
+
+User class expects valid inputs to be passed to it from main and then calls the wanted method
+*/
+
 #include "TransactionEnums.h"
 #include "TransactionCodeMaker.cpp"
 #include "Item.cpp"
