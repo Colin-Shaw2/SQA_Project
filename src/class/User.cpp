@@ -40,7 +40,7 @@ protected:
                 break;
             case ADD_CREDIT : code = TransactionCodeMaker::makeAddCredit(userName, userType, balance);
                 break;
-            case REFUND : code = TransactionCodeMaker::makeRefund(userName,"refunder",userType, 0 /*refundamount*/);
+            case REFUND : code = TransactionCodeMaker::makeRefund(userName,"refunder", 0 /*refundamount*/);
                 break;
             case ADVERTISE : code = TransactionCodeMaker::makeAdvertise(userName, 0/*daysToAuction*/ , "Itemname", balance);
                 break;

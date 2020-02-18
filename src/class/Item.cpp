@@ -1,3 +1,8 @@
+/*********************************
+ * Item class used to store the
+*********************************/
+
+
 #pragma once
 #include <string>
 using namespace std;
@@ -5,7 +10,7 @@ using namespace std;
 class Item
 {
 private:
-    /* data */
+
     int minimumBid;
     int daysToBid;
     int currentBid;
@@ -22,8 +27,8 @@ public:
         seller = seller;
     }
     ~Item();
-};
 
 void newBid(Item item, int newPrice){
   
 }
+};
