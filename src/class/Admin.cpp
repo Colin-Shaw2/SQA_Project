@@ -19,7 +19,7 @@ public:
 
 
     /**
-     * addCredit is used to raise User's accountBalance. Before raising User's balance,
+     * addCredit is used to raise a user's accountBalance. Before raising the user's balance,
      * addCredit checks if the addition of amount to accountBalance is under 1,000,000.
      * If it's over 1,000,000, the attempt is rejected and a message is printed
      * If it's under 1,000,000, the amount is added to accountBalance
