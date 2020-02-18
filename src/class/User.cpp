@@ -12,10 +12,9 @@ using namespace std;
 class User
 {
 protected:
-    /* data */
     string userName;
     int balance;
-    vector<Item> items;
+    vector<Item> items;// list of items the user has changed
     vector<string> transactions;
     string userType;
 
@@ -71,7 +70,7 @@ public:
     virtual void createNewUser() = 0;
     virtual void deleteUser() = 0;
     virtual void refund() = 0;
-    
+
     /**
      * logouts the current user
      * writes all transactions in the transactions array to transactions.txt
