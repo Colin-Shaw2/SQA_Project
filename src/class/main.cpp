@@ -1,4 +1,4 @@
-  /*************************************
+/*************************************
   * Main class is used to process the  *
   * inputs into their proper functions *
   * and passed into proper classes     *
@@ -16,26 +16,51 @@ using namespace std;
  * main uses a loop on cin to take in the inputs
  *
  */
+
+enum inputState
+{
+  LOGGED_OUT
+  //CREATE, DELETE, LOGOUT, ADD_CREDIT, REFUND, ADVERTISE, BID
+};
+
 int main(int argc, char const *argv[])
 {
-
+  inputState currentState = LOGGED_OUT;
   bool quit = false;
+  string input = "";
+
   while (!quit)
   {
-    string input = "";
-    cout << "Please Enter an input" << endl;
+    input = "";
+    switch (currentState)
+    {
+    case LOGGED_OUT:
+      cout << "Please enter your username:" << endl;
+      break;
+    default:
+      cout << "Please Enter an input (default)" << endl;
+      break;
+    }
     cin >> input;
+    
+    switch (currentState)
+    {
+    case LOGGED_OUT:
+      break;
+    default:
+      cout << "Please Enter an input (default)" << endl;
+      break;
+    }
+
     //commented code below is for debugging
-    /*if (input == "q")
+    if (input == "q")
     {
       quit = true;
-    }*/
-
+    }
   }
 
   return 0;
 }
-
 
 /**
  * isValidUserName is called to validate string userName inputs. isValidUserName
@@ -48,17 +73,19 @@ int main(int argc, char const *argv[])
  */
 bool isValidUserName(string variable)
 {
-  if(!variable.empty()){
-    if(variable.length() < 15){
+  if (!variable.empty())
+  {
+    if (variable.length() < 15)
+    {
       return true;
     }
     return false;
   }
-  else{
-  return false;
+  else
+  {
+    return false;
   }
 }
-
 
 /**
  * isValidItemName is called to validate string itemName inputs. isValidItemName
@@ -71,17 +98,19 @@ bool isValidUserName(string variable)
  */
 bool isValidItemName(string variable)
 {
-  if(!variable.empty()){
-    if(variable.length() < 25){
+  if (!variable.empty())
+  {
+    if (variable.length() < 25)
+    {
       return true;
     }
     return false;
   }
-  else{
-  return false;
+  else
+  {
+    return false;
   }
 }
-
 
 /**
  * isValidInt is called to validate integer inputs. isValidInt takes in
@@ -94,7 +123,8 @@ bool isValidItemName(string variable)
  */
 bool isValidInt(int variable)
 {
-  if(variable < 1 || variable > 1000000){
+  if (variable < 1 || variable > 1000000)
+  {
     return false;
   }
 }
