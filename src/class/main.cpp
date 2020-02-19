@@ -12,7 +12,7 @@
 
 using namespace std;
 
-/*
+/**
  * main uses a loop on cin to take in the inputs
  *
  */
@@ -37,7 +37,7 @@ int main(int argc, char const *argv[])
 }
 
 
-/*
+/**
  * isValidUserName is called to validate string userName inputs. isValidUserName
  * takes in a string parameter, checks if it's not empty and it's less than 15
  * characters. If all tests pass, it returns true, and if they fail
@@ -60,7 +60,7 @@ bool isValidUserName(string variable)
 }
 
 
-/*
+/**
  * isValidItemName is called to validate string itemName inputs. isValidItemName
  * takes in a string parameter, checks if it's not empty and it's less than 25
  * characters. If all tests pass, it returns true, and if they fail
@@ -83,7 +83,7 @@ bool isValidItemName(string variable)
 }
 
 
-/*
+/**
  * isValidInt is called to validate integer inputs. isValidInt takes in
  * an int parameter, checks if it's between bigger than 0 and smaller than
  * 1000000. If the input satisfies the range, it returns true. Otherwise,
@@ -99,7 +99,7 @@ bool isValidInt(int variable)
   }
 }
 
-/*
+/**
  * checkAdvertise is called to validate inputs for advertise. The parameters
  * for checkAdvertise are string itemName, int minimumBid, and int daysToBid.
  * First, checkAdvertise calls isValidItemName, isValidUserName and isValidInt
@@ -119,7 +119,7 @@ bool isValidInt(int variable)
  */
 void checkAdvertise(string itemName, int minimumBid, int daysToBid){};
 
-/*
+/**
  * checkRefund is called to validate inputs for Refund. The parameters
  * for checkRefund are string buyerUserName, string sellerUsername, and
  * int amount
@@ -136,7 +136,7 @@ void checkAdvertise(string itemName, int minimumBid, int daysToBid){};
  */
 void checkRefund(string buyerUsername, string sellerUsername, int amount){};
 
-/*
+/**
  * checkDeleteUser is called to validate inputs for DeleteUser. The parameter
  * for checkDeleteUser is string userName.
  * isValidUserName is called to validate userName.
@@ -148,7 +148,7 @@ void checkRefund(string buyerUsername, string sellerUsername, int amount){};
  */
 void checkDeleteUser(string userName){};
 
-/*
+/**
  * checkAddCredit is called to validate inputs for AddCredit. The parameter
  * for checkAddCredit is int amount.
  * isValidInt is called to validate amount inputted.
@@ -160,7 +160,7 @@ void checkDeleteUser(string userName){};
  */
 void checkAddCredit(int amount){};
 
-/*
+/**
  * checkCreateNewUser is called to validate inputs for CreateNewUser. The parameter
  * for checkCreateNewUser are string userName, string userType, and int credit
  * First isValidUserName and isValidInt is called to validate the parameters
@@ -176,7 +176,7 @@ void checkAddCredit(int amount){};
  */
 void checkCreateNewUser(string userName, string userType, int credit){};
 
-/*
+/**
  * checkBid is called to validate inputs for Bid. The parameter
  * for checkBid is string itemName, string userName, and int amount
  * First isValidItemName, isValidUserName and isValidInt is called to validate
