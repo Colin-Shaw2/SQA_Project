@@ -41,17 +41,41 @@ int main(int argc, char const *argv[])
 
 
 /*
- * isValidString is called to validate string inputs. isValidString takes in
- * a string parameter, checks if it's not empty and if it's less than 15
+ * isValidUserName is called to validate string userName inputs. isValidUserName
+ * takes in a string parameter, checks if it's not empty and it's less than 15
  * characters. If all tests pass, it returns true, and if they fail
  * it returns false
  *
+ * @param variable   user name to be checked
  * @return boolean
  */
-bool isValidString(string variable)
+bool isValidUserName(string variable)
 {
   if(!variable.empty()){
     if(variable.length() < 15){
+      return true;
+    }
+    return false;
+  }
+  else{
+  return false;
+  }
+}
+
+
+/*
+ * isValidItemName is called to validate string itemName inputs. isValidItemName
+ * takes in a string parameter, checks if it's not empty and it's less than 25
+ * characters. If all tests pass, it returns true, and if they fail
+ * it returns false
+ *
+ * @param variable   item name to be checked
+ * @return boolean
+ */
+bool isValidItemName(string variable)
+{
+  if(!variable.empty()){
+    if(variable.length() < 25){
       return true;
     }
     return false;
@@ -68,12 +92,13 @@ bool isValidString(string variable)
  * 1000000. If the input satisfies the range, it returns true. Otherwise,
  * it returns false
  *
+ * @param variable     amount input to be checked if it's between 0 and 1000000
  * @return boolean
  */
 
 bool isValidInt(int variable)
 {
-  if(variable < 1 && variable > 1000000){
+  if(variable < 1 || variable > 1000000){
     return false;
   }
 }
@@ -81,7 +106,8 @@ bool isValidInt(int variable)
 /*
  * checkAdvertise is called to validate inputs for advertise. The parameters
  * for checkAdvertise are string itemName, int minimumBid, and int daysToBid.
- * First, checkAdvertise calls isValidString and isValidInt for the parameters.
+ * First, checkAdvertise calls isValidItemName, isValidUserName and isValidInt
+ * for the parameters.
  * Next it checks if userType is not BS as BuyStandard cannot advertise
  * itemName is the test on if it contains any special characters.
  * Next, it checks if daysToBid is less than 100 and minimumBid is
@@ -89,6 +115,8 @@ bool isValidInt(int variable)
  * If any test fails, it will output a message to the corresponding failure.
  * If all these tests pass, advertise is called.
  *
+ *
+ * @
  * @return void
  */
 
