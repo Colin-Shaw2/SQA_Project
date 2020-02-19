@@ -95,7 +95,6 @@ bool isValidItemName(string variable)
  * @param variable     amount input to be checked if it's between 0 and 1000000
  * @return boolean
  */
-
 bool isValidInt(int variable)
 {
   if(variable < 1 || variable > 1000000){
@@ -116,22 +115,26 @@ bool isValidInt(int variable)
  * If all these tests pass, advertise is called.
  *
  *
- * @
+ * @param itemName    name for the item to be posted
+ * @param minimumBid  starting bid for the items
+ * @param daysToBid   days left on the auction of the item
  * @return void
  */
-
 void checkAdvertise(string itemName, int minimumBid, int daysToBid){};
 
 /*
  * checkRefund is called to validate inputs for Refund. The parameters
  * for checkRefund are string buyerUserName, string sellerUsername, and
  * int amount
- * First checkRefund calls isValidString and isValidInt for the parameters.
+ * First checkRefund calls isValidUserName and isValidInt for the parameters.
  * Next, it checks if the user has permission to apply a refund and if
  * the seller and buyer users exist.
  * If any test fails, it will output a message to the corresponding failure.
  * If all these tests pass, refund is called.
  *
+ * @param buyerUsername   user refund is going to
+ * @param sellerUsername  user refund is coming from
+ * @param amount          amount of refund
  * @return void
  */
 void checkRefund(string buyerUsername, string sellerUsername, int amount){};
@@ -139,13 +142,13 @@ void checkRefund(string buyerUsername, string sellerUsername, int amount){};
 /*
  * checkDeleteUser is called to validate inputs for DeleteUser. The parameter
  * for checkDeleteUser is string userName.
- * isValidString is called to validate userName.
- * If isValidString fails, it will output a message in regards to the input.
+ * isValidUserName is called to validate userName.
+ * If isValidUserName fails, it will output a message in regards to the input.
  * Otherwise, deleteUser is called.
  *
+ * @param userName  user to be deleted
  * @return void
  */
-
 void checkDeleteUser(string userName){};
 
 /*
@@ -155,35 +158,40 @@ void checkDeleteUser(string userName){};
  * If isValidInt fails, it will output a message in regards to the input.
  * Otherwise, addCredit is called.
  *
+ * @param amount  amount to be added to current user
  * @return void
  */
-
 void checkAddCredit(int amount){};
 
 /*
  * checkCreateNewUser is called to validate inputs for CreateNewUser. The parameter
  * for checkCreateNewUser are string userName, string userType, and int credit
- * First isValidString and isValidInt is called to validate the parameters
+ * First isValidUserName and isValidInt is called to validate the parameters
  * Next, it checks if the username already exists, and if userType fits the
  * four possibilities.
  * If any test fails, it will output a message to the corresponding failure.
  * Otherwise, createNewUser is called.
  *
+ * @param userName    name of the new user
+ * @param userType    type of the new user
+ * @param credit      starting credit on the user
  * @return void
  */
-
 void checkCreateNewUser(string userName, string userType, int credit){};
 
 /*
  * checkBid is called to validate inputs for Bid. The parameter
  * for checkBid is string itemName, string userName, and int amount
- * First isValidString and isValidInt is called to validate the parameters
+ * First isValidItemName, isValidUserName and isValidInt is called to validate
+ * the parameters
  * Next, it checks if the item exists, if the user exists, and if the item and
  * user match
  * If any test fails, it will output a message to the corresponding failure.
  * Otherwise, bid is called.
  *
+ * @param itemName  name of the item to place the bid on
+ * @param userName  name of the user that placed the item
+ * @param amount    amount of the new bid
  * @return void
  */
-
 void checkBid(string itemName, string userName, int amount){};
