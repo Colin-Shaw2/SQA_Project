@@ -1,6 +1,9 @@
 /*********************************
 * buystandard class is used to process *
 * actions done by an buystandard user  *
+* can do the following actions
+* bid
+* addcredit to self
 *********************************/
 
 #include "User.cpp"

@@ -1,6 +1,10 @@
 /*********************************
 * fullstandard class is used to process *
-* actions done by an fullstandard user  *
+* actions done by an fullstandard user  
+* can do the following actions
+* advertise
+* bid
+* add credit to self
 *********************************/
 
 #include "User.cpp"

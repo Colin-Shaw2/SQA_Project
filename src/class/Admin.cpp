@@ -1,6 +1,13 @@
 /*********************************
 * admin class is used to process *
 * actions done by an admin user  *
+* can do the following actions
+* advertise
+* bid
+* create new user
+* add credit to any user
+* delete user
+* refund a user
 *********************************/
 #include "User.cpp"
 

@@ -1,6 +1,9 @@
 /*********************************
 * sellstandard class is used to process *
 * actions done by an sellstandard user  *
+* can do the following actions
+* advertise
+* add credit to self
 *********************************/
 
 #include "User.cpp"
