@@ -12,27 +12,24 @@
 
 using namespace std;
 
-
 /*
- *
- *
- *
- *
+ * main uses a loop on cin to take in the inputs
  *
  */
-
 int main(int argc, char const *argv[])
 {
+
   bool quit = false;
   while (!quit)
   {
     string input = "";
     cout << "Please Enter an input" << endl;
     cin >> input;
-    if (input == "q")
+    //commented code below is for debugging
+    /*if (input == "q")
     {
       quit = true;
-    }
+    }*/
 
   }
 
