@@ -80,7 +80,7 @@ private:
      * @param username a username to be buffered
      * @return a string that is usernameLength long padded with trailing '_'
      */
-    static string makeBufferedUserName(string username){
+    static string makeBufferedUsername(string username){
         return makeBufferedString(username, usernameLength);
     } 
     
@@ -143,7 +143,7 @@ public:
         string code = "";
         code += "01_";
 
-        code += makeBufferedUserName(username);
+        code += makeBufferedUsername(username);
         code += "_";
         
         code += userType;
@@ -172,7 +172,7 @@ public:
         string code = "";
         code += "02_";
 
-        code += makeBufferedUserName(username);
+        code += makeBufferedUsername(username);
         code += "_";
 
         code += userType;
@@ -200,7 +200,7 @@ public:
         string code = "";
         code += "00_";
         
-        code += makeBufferedUserName(username);
+        code += makeBufferedUsername(username);
         code += "_";
 
         code += userType;
@@ -228,7 +228,7 @@ public:
         string code = "";
         code += "06_";
         
-        code += makeBufferedUserName(username);
+        code += makeBufferedUsername(username);
         code += "_";
 
         code += userType;
@@ -258,11 +258,11 @@ public:
         code += "05_";
 
         
-        code += makeBufferedUserName(buyerUsername);
+        code += makeBufferedUsername(buyerUsername);
         code += "_";
 
         
-        code += makeBufferedUserName(sellerUsername);
+        code += makeBufferedUsername(sellerUsername);
         code += "_";
 
         
@@ -294,11 +294,11 @@ public:
         code += "_";
 
         
-        code += makeBufferedUserName(buyerUsername);
+        code += makeBufferedUsername(buyerUsername);
         code += "_";
 
         
-        code += makeBufferedUserName(sellerUsername);
+        code += makeBufferedUsername(sellerUsername);
         code += "_";
         
         code += makeBufferedCredit(bid);
@@ -329,7 +329,7 @@ public:
         code += "_";
 
         
-        code += makeBufferedUserName(username);
+        code += makeBufferedUsername(username);
         code += "_";
 
 
