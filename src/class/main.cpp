@@ -22,8 +22,7 @@ const int usernameLength = 15;
 
 enum inputState
 {
-  LOGGED_OUT, LOGGED_IN
-  //CREATE, DELETE, LOGOUT, ADD_CREDIT, REFUND, ADVERTISE, BID
+  LOGGED_OUT, WAITING, CREATE, DELETE, LOGOUT, ADD_CREDIT, REFUND, ADVERTISE, BID
 };
 
 
@@ -268,6 +267,9 @@ int main(int argc, char const *argv[])
     case LOGGED_OUT:
       cout << "Please enter your username:" << endl;
       break;
+    case WAITING:
+      cout << "Enter a command:" << endl;
+      break;
     default:
       cout << "Please Enter an input (default)" << endl;
       break;
@@ -280,6 +282,31 @@ int main(int argc, char const *argv[])
       quit = true;
       break;
     }
+
+    //If waiting get next command
+    if(currentState == WAITING){
+      if(input == "logout"){
+        currentState = LOGOUT;
+      }
+      else if(input == "addcredit"){
+        currentState = ADD_CREDIT;
+      }
+      else if(input == "advertise"){
+        currentState = ADVERTISE;
+      }
+      else if(input == "bid"){
+        currentState = BID;
+      }
+      else if(input == "create"){
+        currentState = CREATE;
+      }
+      else if(input == "delete"){
+        currentState = DELETE;
+      }
+      else if(input == "refund"){
+        currentState = REFUND;
+      }
+    }
     
     switch (currentState)
     {
@@ -287,11 +314,12 @@ int main(int argc, char const *argv[])
       if(isValidUserName(input)){
         currentUser = login(input, userFile);
         if(currentUser != NULL){
-          currentState = LOGGED_IN;
+          currentState = WAITING;
         }
       }
       break;
     default:
+      currentState = WAITING;
       cout << "DO stuff switch is (default)" << endl;
       break;
     }
