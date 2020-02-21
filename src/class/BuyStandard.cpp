@@ -53,13 +53,13 @@ public:
      * Writes to the items file
      * 
      * @param itemName the name of the item
-     * @param userName the user selling the item
+     * @param username the user selling the item
      * @param amount the amount to bid
      * @return void
      */
-    void bid(string itemName, string userName, int amount){};
+    void bid(string itemName, string username, int amount){};
     
-    void createNewUser(string userName, string userType, int credit){};//user is not allowed to create new users
-    void deleteUser(string userName){};//user is not allowed to delete users
+    void createNewUser(string username, string userType, int credit){};//user is not allowed to create new users
+    void deleteUser(string username){};//user is not allowed to delete users
     void refund(string buyerUsername, string sellerUsername, int amount){};//user is not allowed to refund
 };

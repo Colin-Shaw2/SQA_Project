@@ -33,7 +33,7 @@ enum inputState
 };
 
 /**
- * isValidUserName is called to validate string userName inputs. isValidUserName
+ * isValidUserName is called to validate string username inputs. isValidUserName
  * takes in a string parameter, checks if it's not empty and it's less than 15
  * characters. If all tests pass, it returns true, and if they fail
  * it returns false
@@ -138,15 +138,15 @@ void checkRefund(string buyerUsername, string sellerUsername, int amount){};
 
 /**
  * checkDeleteUser is called to validate inputs for DeleteUser. The parameter
- * for checkDeleteUser is string userName.
- * isValidUserName is called to validate userName.
+ * for checkDeleteUser is string username.
+ * isValidUserName is called to validate username.
  * If isValidUserName fails, it will output a message in regards to the input.
  * Otherwise, deleteUser is called.
  *
- * @param userName  user to be deleted
+ * @param username  user to be deleted
  * @return void
  */
-void checkDeleteUser(string userName){};
+void checkDeleteUser(string username){};
 
 /**
  * checkAddCredit is called to validate inputs for AddCredit. The parameter
@@ -162,23 +162,23 @@ void checkAddCredit(int amount){};
 
 /**
  * checkCreateNewUser is called to validate inputs for CreateNewUser. The parameter
- * for checkCreateNewUser are string userName, string userType, and int credit
+ * for checkCreateNewUser are string username, string userType, and int credit
  * First isValidUserName and isValidInt is called to validate the parameters
  * Next, it checks if the username already exists, and if userType fits the
  * four possibilities.
  * If any test fails, it will output a message to the corresponding failure.
  * Otherwise, createNewUser is called.
  *
- * @param userName    name of the new user
+ * @param username    name of the new user
  * @param userType    type of the new user
  * @param credit      starting credit on the user
  * @return void
  */
-void checkCreateNewUser(string userName, string userType, int credit){};
+void checkCreateNewUser(string username, string userType, int credit){};
 
 /**
  * checkBid is called to validate inputs for Bid. The parameter
- * for checkBid is string itemName, string userName, and int amount
+ * for checkBid is string itemName, string username, and int amount
  * First isValidItemName, isValidUserName and isValidInt is called to validate
  * the parameters
  * Next, it checks if the item exists, if the user exists, and if the item and
@@ -187,11 +187,11 @@ void checkCreateNewUser(string userName, string userType, int credit){};
  * Otherwise, bid is called.
  *
  * @param itemName  name of the item to place the bid on
- * @param userName  name of the user that placed the item
+ * @param username  name of the user that placed the item
  * @param amount    amount of the new bid
  * @return void
  */
-void checkBid(string itemName, string userName, int amount){};
+void checkBid(string itemName, string username, int amount){};
 
 /**
  * Logins and creates a new user object
@@ -354,26 +354,56 @@ int main(int argc, char const *argv[])
 
     case STATE_CREATE:
     {
-      cin >> input;
-      cin >> input;
-      cin >> input;
+      string username;
+      string userType;
+      int credit;
+
+      cout << "Please Enter User Name:" << endl;
+      cin >> username;
+      cout << "Type of user?(Admin(AA)/BuyAndSell(FS)/Buy(BS)/Sell(SS))" << endl;
+      cin >> userType;
+      cout << "Starting Balance?" << endl;
+      cin >> credit;
+      currentUser->createNewUser(username,userType,credit);
+      
+      cout << "Created User \"" <<  username <<  "\" as " << userType << " with $" << credit << endl;
+
       break;
     }
     case STATE_DELETE:
     {
-      string userName;
-      string userType;
-      int credit;
+      string username;
+      
+      cout << "Please enter a user name to be deleted" << endl;
+      cin >> username;
+      
+      currentUser->deleteUser(username);
+
+      cout << "User is deleted!" << endl;
       break;
     }
     case STATE_LOGOUT:
     {
+      currentUser->logout();
+      cout << "Logout successful!" << endl;
       break;
     }
     case STATE_ADD_CREDIT:
     {
       string username;
       int amount;
+
+      
+      cout << "Please enter a username:" << endl;
+      cin >> username;
+      //get user
+      cout << "Current Balance $" << 100 /*place holder*/ << endl;
+      cout << "How much would you like to add?" << endl;
+      cin >> amount;
+      currentUser->addCredit(username, amount);
+      
+      cout << "Created added, Balance is $" <</*placeHolder*/ currentUser->getBalance() << endl;
+
       break;
     }
     case STATE_REFUND:
@@ -393,7 +423,7 @@ int main(int argc, char const *argv[])
     case STATE_BID:
     {
       string itemName;
-      string userName;
+      string username;
       int amount;
       break;
     }

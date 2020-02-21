@@ -12,7 +12,7 @@ class TransactionCodeMaker
 private:
 
     //the number of characters allocaded in each field
-    static const int userNameLength = 15;
+    static const int usernameLength = 15;
     static const int creditLength = 9;
     static const int bidLength = 6;
     static const int itemLength = 25;
@@ -75,13 +75,13 @@ private:
     /**
      * takes in a username and pads it
      * 
-     * uses userNameLength to determine final string length
+     * uses usernameLength to determine final string length
      * 
      * @param username a username to be buffered
-     * @return a string that is userNameLength long padded with trailing '_'
+     * @return a string that is usernameLength long padded with trailing '_'
      */
     static string makeBufferedUserName(string username){
-        return makeBufferedString(username, userNameLength);
+        return makeBufferedString(username, usernameLength);
     } 
     
     /**

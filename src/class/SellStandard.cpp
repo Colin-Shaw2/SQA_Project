@@ -52,9 +52,9 @@ public:
      */
     void advertise(string itemName, int minimumBid, int daysToBid){};
 
-    void bid(string itemName, string userName, int amount){};//user is not allowed to bid
+    void bid(string itemName, string username, int amount){};//user is not allowed to bid
     
-    void createNewUser(string userName, string userType, int credit){};//user is not allowed to create new users
-    void deleteUser(string userName){};//user is not allowed to delete users
+    void createNewUser(string username, string userType, int credit){};//user is not allowed to create new users
+    void deleteUser(string username){};//user is not allowed to delete users
     void refund(string buyerUsername, string sellerUsername, int amount){};//user is not allowed to refund
 };

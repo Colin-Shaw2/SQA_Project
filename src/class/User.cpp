@@ -18,7 +18,7 @@ using namespace std;
 class User
 {
 protected:
-    string userName;
+    string username;
     int balance;
     vector<Item> items;// list of items the user has changed
     vector<string> transactions;
@@ -37,19 +37,19 @@ protected:
         string code = "";
         switch(type)
         {
-            case CREATE : code = TransactionCodeMaker::makeCreate(userName, userType, balance);
+            case CREATE : code = TransactionCodeMaker::makeCreate(username, userType, balance);
                 break;
-            case DELETE : code = TransactionCodeMaker::makeDelete(userName, userType, balance);
+            case DELETE : code = TransactionCodeMaker::makeDelete(username, userType, balance);
                 break;
-            case LOGOUT : code = TransactionCodeMaker::makeLogout(userName, userType, balance);
+            case LOGOUT : code = TransactionCodeMaker::makeLogout(username, userType, balance);
                 break;
-            case ADD_CREDIT : code = TransactionCodeMaker::makeAddCredit(userName, userType, balance);
+            case ADD_CREDIT : code = TransactionCodeMaker::makeAddCredit(username, userType, balance);
                 break;
-            case REFUND : code = TransactionCodeMaker::makeRefund(userName,"refunder", 0 /*refundamount*/);
+            case REFUND : code = TransactionCodeMaker::makeRefund(username,"refunder", 0 /*refundamount*/);
                 break;
-            case ADVERTISE : code = TransactionCodeMaker::makeAdvertise(userName, 0/*daysToAuction*/ , "Itemname", balance);
+            case ADVERTISE : code = TransactionCodeMaker::makeAdvertise(username, 0/*daysToAuction*/ , "Itemname", balance);
                 break;
-            case BID : code = TransactionCodeMaker::makeBid(userName, "sellerName", "ItemName", /*Bid*/ 0);
+            case BID : code = TransactionCodeMaker::makeBid(username, "sellerName", "ItemName", /*Bid*/ 0);
                 break;
         }
         transactions.push_back(code);
@@ -64,17 +64,19 @@ public:
      * @param type
      */
     User(string name, int accountBalance, string type){
-        this->userName = name;
+        this->username = name;
         this->balance = accountBalance;
         this->userType = type;
     }
     ~User();
 
+    int getBalance(){return balance;}
+
     virtual void addCredit(string username, int amount) = 0;
     virtual void advertise(string itemName, int minimumBid, int daysToBid) = 0;
-    virtual void bid(string itemName, string userName, int amount) = 0;
-    virtual void createNewUser(string userName, string userType, int credit) = 0;
-    virtual void deleteUser(string userName) = 0;
+    virtual void bid(string itemName, string username, int amount) = 0;
+    virtual void createNewUser(string username, string userType, int credit) = 0;
+    virtual void deleteUser(string username) = 0;
     virtual void refund(string buyerUsername, string sellerUsername, int amount) = 0;
 
     /**

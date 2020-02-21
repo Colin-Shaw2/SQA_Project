@@ -65,23 +65,23 @@ public:
      * Writes to the items file
      * 
      * @param itemName the name of the item
-     * @param userName the user selling the item
+     * @param username the user selling the item
      * @param amount the amount to bid
      * @return void
      */
-    void bid(string itemName, string userName, int amount){};
+    void bid(string itemName, string username, int amount){};
 
     /**
      * createNewUser is called to create a new User.
      * Writes to the users file
      * 
-     * @param userName name of new user
+     * @param username name of new user
      * @param userType the privledge level of the new user
      * @param credit the starting credit of the user
      *
      * @return void
      */
-    void createNewUser(string userName, string userType, int credit){};
+    void createNewUser(string username, string userType, int credit){};
 
     /**
      * deleteUser is called to delete an existing User. 
@@ -91,10 +91,10 @@ public:
      * Writes to the items file
      * Writes to the users file
      * 
-     * @param userName the username of the user to be deleted 
+     * @param username the username of the user to be deleted 
      * @return void
      */
-    void deleteUser(string userName){};
+    void deleteUser(string username){};
 
     /**
      * refund is called to refund an amount from one user to another.
