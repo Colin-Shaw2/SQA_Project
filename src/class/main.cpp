@@ -22,7 +22,7 @@ const int usernameLength = 15;
 
 enum inputState
 {
-  LOGGED_OUT
+  LOGGED_OUT, LOGGED_IN
   //CREATE, DELETE, LOGOUT, ADD_CREDIT, REFUND, ADVERTISE, BID
 };
 
@@ -258,6 +258,7 @@ int main(int argc, char const *argv[])
   inputState currentState = LOGGED_OUT;
   bool quit = false;
   string input = "";
+  User* currentUser;
 
   while (!quit)
   {
@@ -284,12 +285,14 @@ int main(int argc, char const *argv[])
     {
     case LOGGED_OUT:
       if(isValidUserName(input)){
-        login(input, userFile);
-
+        currentUser = login(input, userFile);
+        if(currentUser != NULL){
+          currentState = LOGGED_IN;
+        }
       }
       break;
     default:
-      cout << "Please Enter an input (default)" << endl;
+      cout << "DO stuff switch is (default)" << endl;
       break;
     }
 
