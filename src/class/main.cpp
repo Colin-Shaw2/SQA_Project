@@ -19,12 +19,18 @@ using namespace std;
 //global variables
 const int usernameLength = 15;
 
-
 enum inputState
 {
-  LOGGED_OUT, WAITING, CREATE, DELETE, LOGOUT, ADD_CREDIT, REFUND, ADVERTISE, BID
+  STATE_LOGGED_OUT,
+  STATE_WAITING,
+  STATE_CREATE,
+  STATE_DELETE,
+  STATE_LOGOUT,
+  STATE_ADD_CREDIT,
+  STATE_REFUND,
+  STATE_ADVERTISE,
+  STATE_BID
 };
-
 
 /**
  * isValidUserName is called to validate string userName inputs. isValidUserName
@@ -194,44 +200,52 @@ void checkBid(string itemName, string userName, int amount){};
  * @param userFile the filename where the users are stored
  * @return a pointer to a user object if the login is successful or NULL if no user is found
  */
-User* login(string username, string userFile){
+User *login(string username, string userFile)
+{
   //buffer username
   for (int i = username.length(); i < usernameLength; i++)
   {
-      username += "_";
+    username += "_";
   }
-    
+
   string inString;
   ifstream inFile;
-  
+
   inFile.open(userFile);
-  if (!inFile) {
-      cout << "Unable to open file";
-      exit(1); // terminate with error
+  if (!inFile)
+  {
+    cout << "Unable to open file";
+    exit(1); // terminate with error
   }
-  
+
   // read file line by line
-  while (getline(inFile, inString)) {
-    if (inString.substr(0, usernameLength) == username){
+  while (getline(inFile, inString))
+  {
+    if (inString.substr(0, usernameLength) == username)
+    {
       cout << "Login successful!" << endl;
       inFile.close();
-      string userType = inString.substr(16,2);
+      string userType = inString.substr(16, 2);
       cout << stoi(inString.substr(19, 9)) << endl;
-      if(userType == "AA"){
+      if (userType == "AA")
+      {
         return new Admin(username, stoi(inString.substr(19, 9)));
       }
-      if(userType == "FS"){
+      if (userType == "FS")
+      {
         return new FullStandard(username, stoi(inString.substr(19, 9)));
       }
-      if(userType == "BS"){
+      if (userType == "BS")
+      {
         return new BuyStandard(username, stoi(inString.substr(19, 9)));
       }
-      if(userType == "SS"){
+      if (userType == "SS")
+      {
         return new SellStandard(username, stoi(inString.substr(19, 9)));
       }
     }
   }
-  
+
   inFile.close();
   cout << "We could not find that username" << endl;
   return NULL;
@@ -245,29 +259,30 @@ User* login(string username, string userFile){
 int main(int argc, char const *argv[])
 {
   //get the input and putput file names from command line
-  if(argc<4){
+  if (argc < 4)
+  {
     cout << "not enough command line arguments" << endl;
     exit(-1);
   }
-  
+
   string itemFile = argv[1];
   string userFile = argv[2];
   string transactionFile = argv[3];
 
-  inputState currentState = LOGGED_OUT;
+  inputState currentState = STATE_LOGGED_OUT;
   bool quit = false;
   string input = "";
-  User* currentUser;
+  User *currentUser;
 
   while (!quit)
   {
     input = "";
     switch (currentState)
     {
-    case LOGGED_OUT:
+    case STATE_LOGGED_OUT:
       cout << "Please enter your username:" << endl;
       break;
-    case WAITING:
+    case STATE_WAITING:
       cout << "Enter a command:" << endl;
       break;
     default:
@@ -275,7 +290,7 @@ int main(int argc, char const *argv[])
       break;
     }
     cin >> input;
-    
+
     //commented code below is for debugging
     if (input == "q")
     {
@@ -284,46 +299,110 @@ int main(int argc, char const *argv[])
     }
 
     //If waiting get next command
-    if(currentState == WAITING){
-      if(input == "logout"){
-        currentState = LOGOUT;
+    if (currentState == STATE_WAITING)
+    {
+      if (input == "logout")
+      {
+        currentState = STATE_LOGOUT;
       }
-      else if(input == "addcredit"){
-        currentState = ADD_CREDIT;
+      else if (input == "addcredit")
+      {
+        currentState = STATE_ADD_CREDIT;
       }
-      else if(input == "advertise"){
-        currentState = ADVERTISE;
+      else if (input == "advertise")
+      {
+        currentState = STATE_ADVERTISE;
       }
-      else if(input == "bid"){
-        currentState = BID;
+      else if (input == "bid")
+      {
+        currentState = STATE_BID;
       }
-      else if(input == "create"){
-        currentState = CREATE;
+      else if (input == "create")
+      {
+        currentState = STATE_CREATE;
       }
-      else if(input == "delete"){
-        currentState = DELETE;
+      else if (input == "delete")
+      {
+        currentState = STATE_DELETE;
       }
-      else if(input == "refund"){
-        currentState = REFUND;
+      else if (input == "refund")
+      {
+        currentState = STATE_REFUND;
       }
     }
-    
+
     switch (currentState)
     {
-    case LOGGED_OUT:
-      if(isValidUserName(input)){
+    //Not yet logged in
+    case STATE_LOGGED_OUT:
+    {
+      if (isValidUserName(input))
+      {
         currentUser = login(input, userFile);
-        if(currentUser != NULL){
-          currentState = WAITING;
+        if (currentUser != NULL)
+        {
+          currentState = STATE_WAITING;
         }
       }
       break;
-    default:
-      currentState = WAITING;
-      cout << "DO stuff switch is (default)" << endl;
+    }
+    //No valid command was given
+    case STATE_WAITING:
+    {
       break;
     }
 
+    case STATE_CREATE:
+    {
+      cin >> input;
+      cin >> input;
+      cin >> input;
+      break;
+    }
+    case STATE_DELETE:
+    {
+      string userName;
+      string userType;
+      int credit;
+      break;
+    }
+    case STATE_LOGOUT:
+    {
+      break;
+    }
+    case STATE_ADD_CREDIT:
+    {
+      string username;
+      int amount;
+      break;
+    }
+    case STATE_REFUND:
+    {
+      string buyerUsername;
+      string sellerUsername;
+      int amount;
+      break;
+    }
+    case STATE_ADVERTISE:
+    {
+      string itemName;
+      int minimumBid;
+      int daysToBid;
+      break;
+    }
+    case STATE_BID:
+    {
+      string itemName;
+      string userName;
+      int amount;
+      break;
+    }
+    default:
+    {
+      cout << "ERROR Do stuff switch is (default)" << endl;
+      break;
+    }
+    }
   }
 
   return 0;
