@@ -10,7 +10,7 @@ compile:
 	g++ *.o -o main.exe
 
 run:
-	./main.exe
+	./main.exe src/storage/items.txt src/storage/users.txt src/storage/transactions.txt
 
 user:
 	g++ src/class/User.cpp 

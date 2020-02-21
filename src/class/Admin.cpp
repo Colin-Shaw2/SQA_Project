@@ -9,6 +9,7 @@
 * delete user
 * refund a user
 *********************************/
+#pragma once
 #include "User.cpp"
 
 using namespace std;

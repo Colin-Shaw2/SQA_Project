@@ -34,7 +34,7 @@ public:
         topBidder = topBidder;
         seller = seller;
     }
-    ~Item();
+    
     /**
      * Changes the items currentBid and topBidder
      * 

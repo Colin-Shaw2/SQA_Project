@@ -5,6 +5,7 @@
 * advertise
 * add credit to self
 *********************************/
+#pragma once
 
 #include "User.cpp"
 
@@ -19,6 +20,12 @@ public:
 
     ~SellStandard();
 
+
+    //overrides the abstract function in user
+    //username does nothing simply calls addCredit(int)
+    void addCredit(string username, int amount){
+        addCredit(amount);
+    };
 
     /**
      * addCredit is used to raise this user's accountBalance. Before raising this user's balance,
@@ -45,8 +52,9 @@ public:
      */
     void advertise(string itemName, int minimumBid, int daysToBid){};
 
-    void bid(){};//user is not allowed to bid
-    void createNewUser(){};//user is not allowed to create new users
-    void deleteUser(){};//user is not allowed to delete users
-    void refund(){};//user is not allowed to refund
+    void bid(string itemName, string userName, int amount){};//user is not allowed to bid
+    
+    void createNewUser(string userName, string userType, int credit){};//user is not allowed to create new users
+    void deleteUser(string userName){};//user is not allowed to delete users
+    void refund(string buyerUsername, string sellerUsername, int amount){};//user is not allowed to refund
 };

@@ -3,7 +3,7 @@ This is an abstract class with all non privileged methods implemented
 
 User class writes all transactions to items.txt, users.txt and/or transactions.txt
 */
-
+#pragma once
 #include "TransactionEnums.h"
 #include "TransactionCodeMaker.cpp"
 #include "Item.cpp"
@@ -70,12 +70,12 @@ public:
     }
     ~User();
 
-    virtual void addCredit() = 0;
-    virtual void advertise() = 0;
-    virtual void bid() = 0;
-    virtual void createNewUser() = 0;
-    virtual void deleteUser() = 0;
-    virtual void refund() = 0;
+    virtual void addCredit(string username, int amount) = 0;
+    virtual void advertise(string itemName, int minimumBid, int daysToBid) = 0;
+    virtual void bid(string itemName, string userName, int amount) = 0;
+    virtual void createNewUser(string userName, string userType, int credit) = 0;
+    virtual void deleteUser(string userName) = 0;
+    virtual void refund(string buyerUsername, string sellerUsername, int amount) = 0;
 
     /**
      * logouts the current user

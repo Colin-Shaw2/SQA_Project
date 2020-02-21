@@ -4,18 +4,21 @@
   * and passed into proper classes     *
   *************************************/
 
-#include "User.cpp"
+#include "Admin.cpp"
+#include "FullStandard.cpp"
+#include "BuyStandard.cpp"
+#include "SellStandard.cpp"
 #include "Item.cpp"
 #include "TransactionCodeMaker.cpp"
 #include <string>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
-/**
- * main uses a loop on cin to take in the inputs
- *
- */
+//global variables
+const int usernameLength = 15;
+
 
 enum inputState
 {
@@ -23,44 +26,6 @@ enum inputState
   //CREATE, DELETE, LOGOUT, ADD_CREDIT, REFUND, ADVERTISE, BID
 };
 
-int main(int argc, char const *argv[])
-{
-  inputState currentState = LOGGED_OUT;
-  bool quit = false;
-  string input = "";
-
-  while (!quit)
-  {
-    input = "";
-    switch (currentState)
-    {
-    case LOGGED_OUT:
-      cout << "Please enter your username:" << endl;
-      break;
-    default:
-      cout << "Please Enter an input (default)" << endl;
-      break;
-    }
-    cin >> input;
-    
-    switch (currentState)
-    {
-    case LOGGED_OUT:
-      break;
-    default:
-      cout << "Please Enter an input (default)" << endl;
-      break;
-    }
-
-    //commented code below is for debugging
-    if (input == "q")
-    {
-      quit = true;
-    }
-  }
-
-  return 0;
-}
 
 /**
  * isValidUserName is called to validate string userName inputs. isValidUserName
@@ -75,7 +40,7 @@ bool isValidUserName(string variable)
 {
   if (!variable.empty())
   {
-    if (variable.length() < 15)
+    if (variable.length() < usernameLength)
     {
       return true;
     }
@@ -222,3 +187,113 @@ void checkCreateNewUser(string userName, string userType, int credit){};
  * @return void
  */
 void checkBid(string itemName, string userName, int amount){};
+
+/**
+ * Logins and creates a new user object
+ *
+ * @param username the user trying to loging
+ * @param userFile the filename where the users are stored
+ * @return a pointer to a user object if the login is successful or NULL if no user is found
+ */
+User* login(string username, string userFile){
+  //buffer username
+  for (int i = username.length(); i < usernameLength; i++)
+  {
+      username += "_";
+  }
+    
+  string inString;
+  ifstream inFile;
+  
+  inFile.open(userFile);
+  if (!inFile) {
+      cout << "Unable to open file";
+      exit(1); // terminate with error
+  }
+  
+  // read file line by line
+  while (getline(inFile, inString)) {
+    if (inString.substr(0, usernameLength) == username){
+      cout << "Login successful!" << endl;
+      inFile.close();
+      string userType = inString.substr(16,2);
+      cout << stoi(inString.substr(19, 9)) << endl;
+      if(userType == "AA"){
+        return new Admin(username, stoi(inString.substr(19, 9)));
+      }
+      if(userType == "FS"){
+        return new FullStandard(username, stoi(inString.substr(19, 9)));
+      }
+      if(userType == "BS"){
+        return new BuyStandard(username, stoi(inString.substr(19, 9)));
+      }
+      if(userType == "SS"){
+        return new SellStandard(username, stoi(inString.substr(19, 9)));
+      }
+    }
+  }
+  
+  inFile.close();
+  cout << "We could not find that username" << endl;
+  return NULL;
+};
+
+/**
+ * main uses a loop on cin to take in the inputs
+ *
+ */
+
+int main(int argc, char const *argv[])
+{
+  //get the input and putput file names from command line
+  if(argc<4){
+    cout << "not enough command line arguments" << endl;
+    exit(-1);
+  }
+  
+  string itemFile = argv[1];
+  string userFile = argv[2];
+  string transactionFile = argv[3];
+
+  inputState currentState = LOGGED_OUT;
+  bool quit = false;
+  string input = "";
+
+  while (!quit)
+  {
+    input = "";
+    switch (currentState)
+    {
+    case LOGGED_OUT:
+      cout << "Please enter your username:" << endl;
+      break;
+    default:
+      cout << "Please Enter an input (default)" << endl;
+      break;
+    }
+    cin >> input;
+    
+    //commented code below is for debugging
+    if (input == "q")
+    {
+      quit = true;
+      break;
+    }
+    
+    switch (currentState)
+    {
+    case LOGGED_OUT:
+      if(isValidUserName(input)){
+        login(input, userFile);
+
+      }
+      break;
+    default:
+      cout << "Please Enter an input (default)" << endl;
+      break;
+    }
+
+  }
+
+  return 0;
+}
