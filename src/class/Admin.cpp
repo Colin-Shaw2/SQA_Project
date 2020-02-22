@@ -11,6 +11,7 @@
 *********************************/
 #pragma once
 #include "User.cpp"
+#include "TransactionCodeMaker.cpp"
 
 using namespace std;
 
@@ -38,10 +39,12 @@ public:
      * @param amount    the amount of credit to be added
      * @return void
      */
-    void addCredit(string username, int amount){
-      if (accountBalance + amount < 1000000){
-        accountBalance += amount;
-        cout << "Credit added, Balance is $" << accountBalance << endl;
+    void addCredit(string userName, int amount){
+      int balance = getBalance();
+      if (balance + amount < 1000000){
+        balance+= amount;
+        setBalance(balance);
+        cout << "Credit added, Balance is $" << balance << endl;
       }
       else{
         cout << "Error Balance would be too high max value($999999.99)"<<endl;
@@ -89,7 +92,22 @@ public:
      *
      * @return void
      */
-    void createNewUser(string username, string userType, int credit){};
+    void createNewUser(string userName, string userType, int credit){
+      string code = "";
+      string endLine = "END_________________________";
+      //TODO:create new user
+
+      code += userName;
+      while(code.length() < 16){
+        code += "_";
+      }
+      code += userType;
+      code += "_";
+      
+
+      cout << "Created User "<< userName <<" as " << getType(userType);
+      cout <<" with $"<< credit << endl;
+    };
 
     /**
      * deleteUser is called to delete an existing User.

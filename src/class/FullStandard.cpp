@@ -42,9 +42,11 @@ public:
      * @return void
      */
     void addCredit(int amount){
-      if (accountBalance + amount < 1000000){
-        accountBalance += amount;
-        cout << "Credit added, Balance is $" << accountBalance << endl;
+      int balance = getBalance();
+      if (balance + amount < 1000000){
+        balance+= amount;
+        setBalance(balance);
+        cout << "Credit added, Balance is $" << balance << endl;
       }
       else{
         cout << "Error Balance would be too high max value($999999.99)"<<endl;

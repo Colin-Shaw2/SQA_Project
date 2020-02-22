@@ -71,6 +71,21 @@ public:
     ~User();
 
     int getBalance(){return balance;}
+    void setBalance(int balance){this->balance = balance;}
+    string getType(string userType){
+      if(userType == "AA"){
+        return "Admin";
+      }
+      if(userType == "FS"){
+        return "Full Standard";
+      }
+      if(userType == "BS"){
+        return "Buy Standard";
+      }
+      if(userType == "SS"){
+        return "SellStandard";
+      }
+    }
 
     virtual void addCredit(string username, int amount) = 0;
     virtual void advertise(string itemName, int minimumBid, int daysToBid) = 0;

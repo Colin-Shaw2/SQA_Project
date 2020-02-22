@@ -312,7 +312,7 @@ int main(int argc, char const *argv[])
       cout << "Starting Balance?" << endl;
       cin >> credit;
       currentUser->createNewUser(username,userType,credit);
-      
+
       cout << "Created User \"" <<  username <<  "\" as " << userType << " with $" << credit << endl;
       currentState = STATE_WAITING;
       break;
@@ -320,10 +320,10 @@ int main(int argc, char const *argv[])
     case STATE_DELETE:
     {
       string username;
-      
+
       cout << "Please enter a user name to be deleted" << endl;
       cin >> username;
-      
+
       currentUser->deleteUser(username);
 
       cout << "User is deleted!" << endl;
@@ -342,7 +342,7 @@ int main(int argc, char const *argv[])
       string username;
       int amount;
 
-      
+
       cout << "Please enter a username:" << endl;
       cin >> username;
       //get user
@@ -350,7 +350,7 @@ int main(int argc, char const *argv[])
       cout << "How much would you like to add?" << endl;
       cin >> amount;
       currentUser->addCredit(username, amount);
-      
+
       cout << "Created added, Balance is $" <</*placeHolder*/ currentUser->getBalance() << endl;
 
       currentState = STATE_WAITING;
@@ -361,7 +361,7 @@ int main(int argc, char const *argv[])
       string buyerUsername;
       string sellerUsername;
       int amount;
-      
+
 
       cout << "Please enter the buyer's username:" << endl;
       cin >> buyerUsername;
@@ -370,7 +370,7 @@ int main(int argc, char const *argv[])
       cout << "Please enter the refund amount:" << endl;
       cin >> amount;
       currentUser->refund(buyerUsername, sellerUsername, amount);
-      
+
       cout << "Refund successsful!" << endl;
 
       currentState = STATE_WAITING;
@@ -381,7 +381,7 @@ int main(int argc, char const *argv[])
       string itemName;
       int minimumBid;
       int daysToBid;
-      
+
 
       cout << "Name of product:" << endl;
       cin >> itemName;
@@ -390,7 +390,7 @@ int main(int argc, char const *argv[])
       cout << "Number of days:" << endl;
       cin >> daysToBid;
       currentUser->advertise(itemName, minimumBid, daysToBid);
-      
+
       cout << "Item added successfully!" << endl;
 
       currentState = STATE_WAITING;
@@ -401,7 +401,7 @@ int main(int argc, char const *argv[])
       string itemName;
       string username;
       int amount;
-      
+
 
       cout << "Enter Product Name:" << endl;
       cin >> itemName;
@@ -410,7 +410,7 @@ int main(int argc, char const *argv[])
       cout << "Current Bid $" << 50 << endl;
       cin >> amount;
       currentUser->bid(itemName, username, amount);
-      
+
       cout << "Bid Successful!" << endl;
 
       currentState = STATE_WAITING;
