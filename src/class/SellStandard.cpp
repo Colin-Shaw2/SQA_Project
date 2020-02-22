@@ -33,18 +33,26 @@ public:
      * If it's over 1,000,000, the attempt is rejected and a message is printed
      * If it's under 1,000,000, the amount is added to accountBalance
      * Writes to the users file
-     * 
-     * @param amount    the amount of credit to be added 
+     *
+     * @param amount    the amount of credit to be added
      * @return void
      */
-    void addCredit(int amount){};
+    void addCredit(int amount){
+      if (accountBalance + amount < 1000000){
+        accountBalance += amount;
+        cout << "Credit added, Balance is $" << accountBalance << endl;
+      }
+      else{
+        cout << "Error Balance would be too high max value($999999.99)"<<endl;
+      }
+    };
 
     /**
      * advertise is called to put up a new item.
-     * 
+     *
      * advertise will create a new Item output a successful message
      * Writes to the items file
-     * 
+     *
      * @param itemName      name of item to be sold
      * @param minimumBid    minimum bid on item
      * @param daysToBid     days to bid
@@ -53,7 +61,7 @@ public:
     void advertise(string itemName, int minimumBid, int daysToBid){};
 
     void bid(string itemName, string username, int amount){};//user is not allowed to bid
-    
+
     void createNewUser(string username, string userType, int credit){};//user is not allowed to create new users
     void deleteUser(string username){};//user is not allowed to delete users
     void refund(string buyerUsername, string sellerUsername, int amount){};//user is not allowed to refund
