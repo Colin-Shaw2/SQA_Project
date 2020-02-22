@@ -12,6 +12,7 @@
 #pragma once
 #include "User.cpp"
 #include "TransactionCodeMaker.cpp"
+#include <fstream>
 
 using namespace std;
 
@@ -95,6 +96,7 @@ public:
     void createNewUser(string userName, string userType, int credit){
       string code = "";
       string endLine = "END_________________________";
+      string line;
       //TODO:create new user
 
       code += userName;
@@ -103,7 +105,25 @@ public:
       }
       code += userType;
       code += "_";
-      
+
+      for (int i = to_string(credit).length(); i <= 9; i++)
+      {
+          code += "0";
+      }
+      code += to_string(credit);
+      code += "\n";
+      code += endLine;
+
+      ifstream codeFile;
+      codeFile.open ("../storage/transactions.txt");
+      while(getline(codeFile, line)){
+        line.replace(line.find(endLine),endLine.length(),code);
+      }
+      for(string code : transactions){
+
+      }
+      codeFile.close();
+
 
       cout << "Created User "<< userName <<" as " << getType(userType);
       cout <<" with $"<< credit << endl;
