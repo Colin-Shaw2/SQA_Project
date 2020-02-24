@@ -124,6 +124,16 @@ bool isValidInt(int variable)
   return true;
 }
 
+
+
+
+
+bool isValidUserType(string variable){
+  if(variable == "AA" || "FS" || "BS" || "SS"){
+    return true;
+  }
+  return false;
+}
 /**
  * checkAdvertise is called to validate inputs for advertise. The parameters
  * for checkAdvertise are string itemName, int minimumBid, and int daysToBid.
@@ -329,10 +339,28 @@ int main(int argc, char const *argv[])
 
       cout << "Please Enter User Name:" << endl;
       cin >> username;
+
+      if(isValidUsername(username)){
+        cout << "User already exists" << endl;
+        break;
+      }
+      if((username.length() > usernameLength) || (username.empty())){
+        cout << "Invalid User Name" << endl;
+        break;
+      }
+
       cout << "Type of user?(Admin(AA)/BuyAndSell(FS)/Buy(BS)/Sell(SS))" << endl;
       cin >> userType;
+      if(!isValidUserType(userType)){
+        cout << "Invalid type of user" << endl;
+        break;
+      }
       cout << "Starting Balance?" << endl;
       cin >> credit;
+      if(!isValidInt(credit)){
+        cout << "Invalid amount" << endl;
+      }
+
       currentUser->createNewUser(username,userType,credit);
 
       cout << "Created User \"" <<  username <<  "\" as " << userType << " with $" << credit << endl;
@@ -345,6 +373,10 @@ int main(int argc, char const *argv[])
 
       cout << "Please enter a user name to be deleted" << endl;
       cin >> username;
+      if(!isValidUsername){
+        cout << "User does not exist." << endl;
+        
+      }
 
       currentUser->deleteUser(username);
 

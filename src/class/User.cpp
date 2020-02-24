@@ -87,6 +87,9 @@ public:
       if(userType == "SS"){
         return "SellStandard";
       }
+      else{
+        return "NULL";
+      }
     }
 
     virtual void addCredit(string username, int amount) = 0;
@@ -106,14 +109,14 @@ public:
     //TODO reaxamine this method once min is done
     void logout()
     {
-        addTransaction(LOGOUT);
-        ofstream transactionFile;
-        transactionFile.open ("../storage/transactions.txt");
-        for(string code : transactions){
-            transactionFile << code;
-        }
-        transactionFile.close();
-        cout << "Logout successful!" << endl;
-        //TODO write to items.txt
+      addTransaction(LOGOUT);
+      ofstream transactionFile;
+      transactionFile.open ("../storage/transactions.txt");
+      for(string code : transactions){
+          transactionFile << code;
+      }
+      transactionFile.close();
+      cout << "Logout successful!" << endl;
+      //TODO write to items.txt
     }
 };
