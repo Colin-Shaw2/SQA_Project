@@ -1,6 +1,8 @@
 #!/bin/bash
 # My first script
 
+make compile
+
 defaultUserFile="TestDefaults/users.txt"
 echo $defaultUserFile
 defaultItemFile="TestDefaults/item.txt"
@@ -14,7 +16,8 @@ echo "Running Tests..."
 # echo "Current Directory is"
 # echo "$directory"
 
-for directory in Tests/*/*/ ; do #in Tests/*/*/ ; do
+for directory in Tests/*/*/ ; do
+    >"${directory}testTransactions.txt"
     echo ""
     echo "Current Directory is"
     echo "$directory"
@@ -22,7 +25,11 @@ for directory in Tests/*/*/ ; do #in Tests/*/*/ ; do
     # main.exe user item transaction
     ./main.exe $defaultUserFile $defaultItemFile "${directory}testTransactions.txt" < "${directory}input.txt" > "${directory}testOutput.txt"
     
-    echo "TEST NAME, SUCCESS?" >> testTable
+done
+echo "Checking..."
+echo "TEST NAME, SUCCESS?" >> testTable
+    
+for directory in Tests/*/*/ ; do
     # compare to output files
     if diff -q "${directory}testTransactions.txt" "${directory}transactionoutputs.txt"; then
         #if true check other file
@@ -36,16 +43,3 @@ for directory in Tests/*/*/ ; do #in Tests/*/*/ ; do
     fi
 
 done
-
-
-# if diff -q "test.txt" "test.txt"; then
-#     #if true check other file
-#     if diff -q "test.txt" "testout.txt"; then
-#         echo "test1, true" >> testTable.csv
-#     else
-#     echo "test1, false on second check" >> testTable.csv
-#     fi
-# else
-# echo "test1, false" >> testTable.csv
-# fi
-
