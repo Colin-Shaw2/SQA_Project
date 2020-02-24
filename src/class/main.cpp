@@ -17,6 +17,11 @@
 
 using namespace std;
 
+string line;
+ifstream itemFile;
+ifstream userFile;
+
+
 //global variables
 const int usernameLength = 15;
 
@@ -46,10 +51,6 @@ enum inputState
  */
 bool isValidUsername(string variable)
 {
-  string line;
-  ifstream userFile;
-  userFile.open ("../storage/users.txt");
-
   if (!variable.empty())
   {
     if (variable.length() < usernameLength)
@@ -84,10 +85,6 @@ bool isValidUsername(string variable)
  */
 bool isValidItemName(string variable)
 {
-  string line;
-  ifstream itemFile;
-  itemFile.open ("../storage/items.txt");
-
   if (!variable.empty())
   {
     if (variable.length() < 25)
@@ -124,6 +121,7 @@ bool isValidInt(int variable)
   {
     return false;
   }
+  return true;
 }
 
 /**
@@ -236,8 +234,8 @@ int main(int argc, char const *argv[])
   }
 
   FileIOHandler ioHandler = FileIOHandler(argv[1], argv[2], argv[3]);
-  // string itemFile = argv[1];
-  // string userFile = argv[2];
+  itemFile.open(argv[1]);
+  userFile.open(argv[2]);
   // string transactionFile = argv[3];
 
   inputState currentState = STATE_LOGGED_OUT;
