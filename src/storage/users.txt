@@ -1,5 +1,5 @@
-admin___________AA_000500000
-buySell_________FS_000001000
-buyOnly_________BS_000000100
-sellOnly________SS_000000050
-END_________________________
+admin           AA 000500000
+buySell         FS 000001000
+buyOnly         BS 000000100
+sellOnly        SS 000000050
+END                         

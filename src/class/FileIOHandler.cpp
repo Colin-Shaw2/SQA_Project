@@ -31,7 +31,7 @@ User *getUser(string username)
   //buffer username
   for (int i = username.length(); i < usernameLength; i++)
   {
-    username += "_";
+    username += " ";
   }
 
   string inString;

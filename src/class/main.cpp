@@ -17,6 +17,11 @@
 
 using namespace std;
 
+string line;
+ifstream itemFile;
+ifstream userFile;
+
+
 //global variables
 const int usernameLength = 15;
 
@@ -50,12 +55,21 @@ bool isValidUsername(string variable)
   {
     if (variable.length() < usernameLength)
     {
-      return true;
+      while(getline(userFile, line)){
+        if(line.find(variable)){
+          return true;
+        }
+      }
+      userFile.close();
+      cout << "We could not find that username" << endl;
+      return false;
     }
+    cout << "That is an invalid username" << endl;
     return false;
   }
   else
   {
+    cout << "That is an invalid username" << endl;
     return false;
   }
 }
@@ -75,7 +89,14 @@ bool isValidItemName(string variable)
   {
     if (variable.length() < 25)
     {
-      return true;
+      while(getline(itemFile, line)){
+        if(line.find(variable)){
+          return true;
+        }
+      }
+      itemFile.close();
+      cout << "We could not find that username" << endl;
+      return false;
     }
     return false;
   }
@@ -100,8 +121,19 @@ bool isValidInt(int variable)
   {
     return false;
   }
+  return true;
 }
 
+
+
+
+
+bool isValidUserType(string variable){
+  if(variable == "AA" || "FS" || "BS" || "SS"){
+    return true;
+  }
+  return false;
+}
 /**
  * checkAdvertise is called to validate inputs for advertise. The parameters
  * for checkAdvertise are string itemName, int minimumBid, and int daysToBid.
@@ -212,8 +244,8 @@ int main(int argc, char const *argv[])
   }
 
   FileIOHandler ioHandler = FileIOHandler(argv[1], argv[2], argv[3]);
-  // string itemFile = argv[1];
-  // string userFile = argv[2];
+  itemFile.open(argv[1]);
+  userFile.open(argv[2]);
   // string transactionFile = argv[3];
 
   inputState currentState = STATE_LOGGED_OUT;
@@ -307,10 +339,28 @@ int main(int argc, char const *argv[])
 
       cout << "Please Enter User Name:" << endl;
       cin >> username;
+
+      if(isValidUsername(username)){
+        cout << "User already exists" << endl;
+        break;
+      }
+      if((username.length() > usernameLength) || (username.empty())){
+        cout << "Invalid User Name" << endl;
+        break;
+      }
+
       cout << "Type of user?(Admin(AA)/BuyAndSell(FS)/Buy(BS)/Sell(SS))" << endl;
       cin >> userType;
+      if(!isValidUserType(userType)){
+        cout << "Invalid type of user" << endl;
+        break;
+      }
       cout << "Starting Balance?" << endl;
       cin >> credit;
+      if(!isValidInt(credit)){
+        cout << "Invalid amount" << endl;
+      }
+
       currentUser->createNewUser(username,userType,credit);
 
       cout << "Created User \"" <<  username <<  "\" as " << userType << " with $" << credit << endl;
@@ -323,6 +373,10 @@ int main(int argc, char const *argv[])
 
       cout << "Please enter a user name to be deleted" << endl;
       cin >> username;
+      if(!isValidUsername){
+        cout << "User does not exist." << endl;
+        
+      }
 
       currentUser->deleteUser(username);
 
