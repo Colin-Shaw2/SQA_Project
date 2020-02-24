@@ -20,7 +20,7 @@ class User
 protected:
     string username;
     int balance;
-    vector<Item> items;// list of items the user has changed
+//    vector<Item> items;// list of items the user has changed
 //    vector<User> user;
     vector<string> transactions;
     string userType;
@@ -102,21 +102,19 @@ public:
     /**
      * logouts the current user
      * writes all transactions in the transactions array to transactions.txt
-     * writes and overites all items in the items array to items.txt
      *
      * @return void
      */
     //TODO reaxamine this method once min is done
-    void logout()
+    void logout(string outputFileName)
     {
       addTransaction(LOGOUT);
       ofstream transactionFile;
-      transactionFile.open ("../storage/transactions.txt");
+      transactionFile.open (outputFileName);
       for(string code : transactions){
           transactionFile << code;
       }
       transactionFile.close();
       cout << "Logout successful!" << endl;
-      //TODO write to items.txt
     }
 };

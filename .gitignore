@@ -33,3 +33,4 @@
 .vscode/settings.json
 test.txt
 testout.txt
+src/storage/transactions.txt

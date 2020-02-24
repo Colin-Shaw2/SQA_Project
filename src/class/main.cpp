@@ -436,9 +436,9 @@ int main(int argc, char const *argv[])
     }
     case STATE_LOGOUT:
     {
-      currentUser->logout();
-      cout << "Logout successful!" << endl;
-      currentState = STATE_WAITING;
+      currentUser->logout(transactionFileName);
+      //cout << "Logout successful!" << endl;
+      currentState = STATE_LOGGED_OUT;
       break;
     }
     case STATE_ADD_CREDIT:
