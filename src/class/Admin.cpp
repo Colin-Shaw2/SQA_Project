@@ -104,10 +104,10 @@ public:
 
       code += userName;
       while(code.length() < 16){
-        code += "_";
+        code += " ";
       }
       code += userType;
-      code += "_";
+      code += " ";
 
       for (int i = to_string(credit).length(); i <= 9; i++)
       {
