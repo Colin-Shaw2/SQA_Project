@@ -70,6 +70,7 @@ public:
     }
     ~User();
 
+    string getName(){return username;}
     int getBalance(){return balance;}
     void setBalance(int balance){this->balance = balance;}
     string getType(string userType){

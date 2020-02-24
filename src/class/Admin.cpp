@@ -64,7 +64,10 @@ public:
      * @param daysToBid     days to bid
      * @return void
      */
-    void advertise(string itemName, int minimumBid, int daysToBid){};
+    void advertise(string itemName, int minimumBid, int daysToBid){
+
+
+    };
 
     /**
      * bid is called to raise the current bid on an item.
