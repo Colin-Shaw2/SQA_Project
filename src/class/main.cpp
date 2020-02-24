@@ -460,6 +460,7 @@ int main(int argc, char const *argv[])
       string username;
       int amount;
 
+      //TODO: Checks if admin, gives option for username if so
 
       cout << "Please enter a username:" << endl;
       cin >> username;
@@ -475,6 +476,11 @@ int main(int argc, char const *argv[])
         currentState = STATE_WAITING;
         break;
       }
+      /*if(amount > 1000){
+        cout << "Cannot add more than $1000 in one session" << endl;
+        currentState = STATE_WAITING;
+        break;
+      }*/
       currentUser->addCredit(username, amount);
 
       cout << "Created added, Balance is $" <</*placeHolder*/ currentUser->getBalance() << endl;
@@ -487,7 +493,7 @@ int main(int argc, char const *argv[])
       string buyerUsername;
       string sellerUsername;
       int amount;
-
+      //TODO: Check if current user is admin
 
       cout << "Please enter the buyer's username:" << endl;
       cin >> buyerUsername;
@@ -520,6 +526,11 @@ int main(int argc, char const *argv[])
       int minimumBid;
       int daysToBid;
 
+      if(currentUser->getUserType() == "BS"){
+        cout << "You do not have permission to advertise" << endl;
+        currentState = STATE_WAITING;
+        break;
+      }
 
       cout << "Name of product:" << endl;
       cin >> itemName;
@@ -527,9 +538,10 @@ int main(int argc, char const *argv[])
         currentState = STATE_WAITING;
         break;
       }
+      //TODO: Check for usertype BS
       cout << "Minimum Bid(CAD$ 00.01-999.99):" << endl;
       cin >> minimumBid;
-      if(!isValidAmount(minimumBid)){
+      if((!isValidAmount(minimumBid)) && (minimumBid < 1000)){
         currentState = STATE_WAITING;
         break;
       }
@@ -553,6 +565,11 @@ int main(int argc, char const *argv[])
       string username;
       int amount;
 
+      if(currentUser->getUserType() == "SS"){
+        cout << "You do not have permission to bid" << endl;
+        currentState = STATE_WAITING;
+        break;
+      }
 
       cout << "Enter Product Name:" << endl;
       cin >> itemName;
@@ -566,6 +583,8 @@ int main(int argc, char const *argv[])
         currentState = STATE_WAITING;
         break;
       }
+
+      //TODO: check if item belongs to user
       cout << "Current Bid $" << 50 << endl;
       cin >> amount;
       if(!isValidAmount(amount)){

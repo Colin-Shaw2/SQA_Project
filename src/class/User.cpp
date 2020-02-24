@@ -74,6 +74,7 @@ public:
     string getName(){return username;}
     int getBalance(){return balance;}
     void setBalance(int balance){this->balance = balance;}
+    string getUserType(){return this->userType;}
     string getType(string userType){
       if(userType == "AA"){
         return "Admin";
