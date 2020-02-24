@@ -146,13 +146,15 @@ bool isValidItemName(string variable)
         }
       }
       itemFile.close();
-      cout << "We could not find that username" << endl;
+      cout << "We could not find that Item" << endl;
       return false;
     }
+    cout << "That is an invalid item name" << endl;
     return false;
   }
   else
   {
+    cout << "That is an invalid item name" << endl;
     return false;
   }
 }
@@ -177,9 +179,14 @@ bool isValidAmount(int variable)
 }
 
 
-
-
-
+/**
+ * isValidUserType is called to validate the user types inputted by checking
+ * if it's one of the four possible choices. If it's one of the four, returns
+ * true. Otherwise returns false
+ *
+ * @param variable     String to be checked if it's one of AA FS BS SS
+ * @return boolean
+ */
 bool isValidUserType(string variable){
   if(variable == "AA" || "FS" || "BS" || "SS"){
     return true;
@@ -187,6 +194,8 @@ bool isValidUserType(string variable){
   cout << "Invalid type of user" << endl;
   return false;
 }
+
+
 /**
  * checkAdvertise is called to validate inputs for advertise. The parameters
  * for checkAdvertise are string itemName, int minimumBid, and int daysToBid.
