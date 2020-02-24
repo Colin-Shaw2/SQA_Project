@@ -99,7 +99,7 @@ User *getUser(string username)
  * @param variable   user name to be checked
  * @return boolean
  */
-bool isValidUsername(string variable)
+bool isValidUserName(string variable)
 {
   if (!variable.empty())
   {
@@ -158,7 +158,7 @@ bool isValidItemName(string variable)
 }
 
 /**
- * isValidInt is called to validate integer inputs. isValidInt takes in
+ * isValidAmount is called to validate integer inputs. isValidAmount takes in
  * an int parameter, checks if it's between bigger than 0 and smaller than
  * 1000000. If the input satisfies the range, it returns true. Otherwise,
  * it returns false
@@ -166,10 +166,11 @@ bool isValidItemName(string variable)
  * @param variable     amount input to be checked if it's between 0 and 1000000
  * @return boolean
  */
-bool isValidInt(int variable)
+bool isValidAmount(int variable)
 {
   if (variable < 1 || variable > 1000000)
   {
+    cout << "Invalid amount!" << endl;
     return false;
   }
   return true;
@@ -183,12 +184,13 @@ bool isValidUserType(string variable){
   if(variable == "AA" || "FS" || "BS" || "SS"){
     return true;
   }
+  cout << "Invalid type of user" << endl;
   return false;
 }
 /**
  * checkAdvertise is called to validate inputs for advertise. The parameters
  * for checkAdvertise are string itemName, int minimumBid, and int daysToBid.
- * First, checkAdvertise calls isValidItemName, isValidUsername and isValidInt
+ * First, checkAdvertise calls isValidItemName, isValidUsername and isValidAmount
  * for the parameters.
  * Next it checks if userType is not BS as BuyStandard cannot advertise
  * itemName is the test on if it contains any special characters.
@@ -209,7 +211,7 @@ void checkAdvertise(string itemName, int minimumBid, int daysToBid){};
  * checkRefund is called to validate inputs for Refund. The parameters
  * for checkRefund are string buyerUsername, string sellerUsername, and
  * int amount
- * First checkRefund calls isValidUsername and isValidInt for the parameters.
+ * First checkRefund calls isValidUsername and isValidAmount for the parameters.
  * Next, it checks if the user has permission to apply a refund and if
  * the seller and buyer users exist.
  * If any test fails, it will output a message to the corresponding failure.
@@ -237,8 +239,8 @@ void checkDeleteUser(string username){};
 /**
  * checkAddCredit is called to validate inputs for AddCredit. The parameter
  * for checkAddCredit is int amount.
- * isValidInt is called to validate amount inputted.
- * If isValidInt fails, it will output a message in regards to the input.
+ * isValidAmount is called to validate amount inputted.
+ * If isValidAmount fails, it will output a message in regards to the input.
  * Otherwise, addCredit is called.
  *
  * @param amount  amount to be added to current user
@@ -249,7 +251,7 @@ void checkAddCredit(int amount){};
 /**
  * checkCreateNewUser is called to validate inputs for CreateNewUser. The parameter
  * for checkCreateNewUser are string username, string userType, and int credit
- * First isValidUsername and isValidInt is called to validate the parameters
+ * First isValidUsername and isValidAmount is called to validate the parameters
  * Next, it checks if the username already exists, and if userType fits the
  * four possibilities.
  * If any test fails, it will output a message to the corresponding failure.
@@ -265,7 +267,7 @@ void checkCreateNewUser(string username, string userType, int credit){};
 /**
  * checkBid is called to validate inputs for Bid. The parameter
  * for checkBid is string itemName, string username, and int amount
- * First isValidItemName, isValidUsername and isValidInt is called to validate
+ * First isValidItemName, isValidUsername and isValidAmount is called to validate
  * the parameters
  * Next, it checks if the item exists, if the user exists, and if the item and
  * user match
@@ -365,7 +367,7 @@ int main(int argc, char const *argv[])
     //Not yet logged in
     case STATE_LOGGED_OUT:
     {
-      if (isValidUsername(input))
+      if (isValidUserName(input))
       {
         currentUser = getUser(input);
         if (currentUser != NULL)
@@ -390,7 +392,7 @@ int main(int argc, char const *argv[])
       cout << "Please Enter User Name:" << endl;
       cin >> username;
 
-      if(isValidUsername(username)){
+      if(isValidUserName(username)){
         cout << "User already exists" << endl;
         break;
       }
@@ -402,13 +404,12 @@ int main(int argc, char const *argv[])
       cout << "Type of user?(Admin(AA)/BuyAndSell(FS)/Buy(BS)/Sell(SS))" << endl;
       cin >> userType;
       if(!isValidUserType(userType)){
-        cout << "Invalid type of user" << endl;
         break;
       }
       cout << "Starting Balance?" << endl;
       cin >> credit;
-      if(!isValidInt(credit)){
-        cout << "Invalid amount" << endl;
+      if(!isValidAmount(credit)){
+        break;
       }
 
       currentUser->createNewUser(username,userType,credit);
@@ -423,9 +424,8 @@ int main(int argc, char const *argv[])
 
       cout << "Please enter a user name to be deleted" << endl;
       cin >> username;
-      if(!isValidUsername){
-        cout << "User does not exist." << endl;
-        
+      if(!isValidUserName(username)){
+        break;
       }
 
       currentUser->deleteUser(username);
@@ -449,10 +449,16 @@ int main(int argc, char const *argv[])
 
       cout << "Please enter a username:" << endl;
       cin >> username;
-      //get user
+      if(!isValidUserName(username)){
+        break;
+      }
+
       cout << "Current Balance $" << 100 /*place holder*/ << endl;
       cout << "How much would you like to add?" << endl;
       cin >> amount;
+      if(!isValidAmount(amount)){
+        break;
+      }
       currentUser->addCredit(username, amount);
 
       cout << "Created added, Balance is $" <</*placeHolder*/ currentUser->getBalance() << endl;
@@ -469,10 +475,19 @@ int main(int argc, char const *argv[])
 
       cout << "Please enter the buyer's username:" << endl;
       cin >> buyerUsername;
+      if(!isValidUserName(buyerUsername)){
+        break;
+      }
       cout << "Please enter the seller's username:" << endl;
       cin >> sellerUsername;
+      if(!isValidUserName(sellerUsername)){
+        break;
+      }
       cout << "Please enter the refund amount:" << endl;
       cin >> amount;
+      if(!isValidAmount(amount)){
+        break;
+      }
       currentUser->refund(buyerUsername, sellerUsername, amount);
 
       cout << "Refund successsful!" << endl;
@@ -489,8 +504,14 @@ int main(int argc, char const *argv[])
 
       cout << "Name of product:" << endl;
       cin >> itemName;
+      if(!isValidItemName(itemName)){
+        break;
+      }
       cout << "Minimum Bid(CAD$ 00.01-999.99):" << endl;
       cin >> minimumBid;
+      if(!isValidAmount(minimumBid)){
+        break;
+      }
       cout << "Number of days:" << endl;
       cin >> daysToBid;
       currentUser->advertise(itemName, minimumBid, daysToBid);
