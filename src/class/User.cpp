@@ -21,6 +21,7 @@ protected:
     string username;
     int balance;
     vector<Item> items;// list of items the user has changed
+//    vector<User> user;
     vector<string> transactions;
     string userType;
 

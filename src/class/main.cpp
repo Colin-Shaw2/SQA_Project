@@ -46,16 +46,29 @@ enum inputState
  */
 bool isValidUsername(string variable)
 {
+  string line;
+  ifstream userFile;
+  userFile.open ("../storage/users.txt");
+
   if (!variable.empty())
   {
     if (variable.length() < usernameLength)
     {
-      return true;
+      while(getline(userFile, line)){
+        if(line.find(variable)){
+          return true;
+        }
+      }
+      userFile.close();
+      cout << "We could not find that username" << endl;
+      return false;
     }
+    cout << "That is an invalid username" << endl;
     return false;
   }
   else
   {
+    cout << "That is an invalid username" << endl;
     return false;
   }
 }
@@ -71,11 +84,22 @@ bool isValidUsername(string variable)
  */
 bool isValidItemName(string variable)
 {
+  string line;
+  ifstream itemFile;
+  itemFile.open ("../storage/items.txt");
+
   if (!variable.empty())
   {
     if (variable.length() < 25)
     {
-      return true;
+      while(getline(itemFile, line)){
+        if(line.find(variable)){
+          return true;
+        }
+      }
+      itemFile.close();
+      cout << "We could not find that username" << endl;
+      return false;
     }
     return false;
   }
