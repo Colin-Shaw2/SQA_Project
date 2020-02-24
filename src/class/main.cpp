@@ -10,7 +10,6 @@
 #include "SellStandard.cpp"
 #include "Item.cpp"
 #include "TransactionCodeMaker.cpp"
-#include "FileIOHandler.cpp"
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -18,8 +17,9 @@
 using namespace std;
 
 string line;
-ifstream itemFile;
-ifstream userFile;
+string itemFileName;
+string userFileName;
+string transactionFileName;
 
 
 //global variables
@@ -39,6 +39,56 @@ enum inputState
 };
 
 
+/**
+ * getUser searches file for a user and returns a new user object
+ *
+ * @param username the user trying to be found
+ * @param userFile the filename where the users are stored
+ * @return a pointer to a user object if the user is found or NULL if no user is found
+ */
+User *getUser(string username)
+{
+  //buffer username
+  for (int i = username.length(); i < usernameLength; i++)
+  {
+    username += " ";
+  }
+
+  string inString;
+  fstream userFile;
+
+  userFile.open(userFileName);
+
+  // read file line by line
+  while (getline(userFile, inString))
+  {
+    if (inString.substr(0, usernameLength) == username)
+    {
+      userFile.close();
+      string userType = inString.substr(16, 2);
+      if (userType == "AA")
+      {
+        return new Admin(username, stoi(inString.substr(19, 9)));
+      }
+      if (userType == "FS")
+      {
+        return new FullStandard(username, stoi(inString.substr(19, 9)));
+      }
+      if (userType == "BS")
+      {
+        return new BuyStandard(username, stoi(inString.substr(19, 9)));
+      }
+      if (userType == "SS")
+      {
+        return new SellStandard(username, stoi(inString.substr(19, 9)));
+      }
+    }
+  }
+
+  userFile.close();
+  return NULL;
+};
+
 
 /**
  * isValidUsername is called to validate string username inputs. isValidUsername
@@ -53,19 +103,18 @@ bool isValidUsername(string variable)
 {
   if (!variable.empty())
   {
-    if (variable.length() < usernameLength)
-    {
-      while(getline(userFile, line)){
-        if(line.find(variable)){
-          return true;
-        }
+    if (variable.length() <= usernameLength){
+      if(NULL == getUser(variable)){
+        cout << "We could not find that username" << endl;
+        return false;
+      }else{
+        return true;
       }
-      userFile.close();
-      cout << "We could not find that username" << endl;
+    }
+    else{
+      cout << "That is an invalid username" << endl;
       return false;
     }
-    cout << "That is an invalid username" << endl;
-    return false;
   }
   else
   {
@@ -89,6 +138,8 @@ bool isValidItemName(string variable)
   {
     if (variable.length() < 25)
     {
+      fstream itemFile;
+      itemFile.open(itemFileName);
       while(getline(itemFile, line)){
         if(line.find(variable)){
           return true;
@@ -243,10 +294,9 @@ int main(int argc, char const *argv[])
     exit(-1);
   }
 
-  FileIOHandler ioHandler = FileIOHandler(argv[1], argv[2], argv[3]);
-  itemFile.open(argv[1]);
-  userFile.open(argv[2]);
-  // string transactionFile = argv[3];
+  userFileName = argv[1];
+  itemFileName = argv[2];
+  transactionFileName = argv[3];
 
   inputState currentState = STATE_LOGGED_OUT;
   bool quit = false;
@@ -317,7 +367,7 @@ int main(int argc, char const *argv[])
     {
       if (isValidUsername(input))
       {
-        currentUser = ioHandler.getUser(input);
+        currentUser = getUser(input);
         if (currentUser != NULL)
         {
           currentState = STATE_WAITING;
