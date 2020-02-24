@@ -9,6 +9,9 @@ compile:
 	g++ -c src/class/*.cpp
 	g++ *.o -o main.exe
 
+test:
+	./testRunner.sh
+
 run:
 	./main.exe src/storage/items.txt src/storage/users.txt src/storage/transactions.txt
 
