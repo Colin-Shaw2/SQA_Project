@@ -394,21 +394,25 @@ int main(int argc, char const *argv[])
 
       if(isValidUserName(username)){
         cout << "User already exists" << endl;
+        currentState = STATE_WAITING;
         break;
       }
       if((username.length() > usernameLength) || (username.empty())){
         cout << "Invalid User Name" << endl;
+        currentState = STATE_WAITING;
         break;
       }
 
       cout << "Type of user?(Admin(AA)/BuyAndSell(FS)/Buy(BS)/Sell(SS))" << endl;
       cin >> userType;
       if(!isValidUserType(userType)){
+        currentState = STATE_WAITING;
         break;
       }
       cout << "Starting Balance?" << endl;
       cin >> credit;
       if(!isValidAmount(credit)){
+        currentState = STATE_WAITING;
         break;
       }
 
@@ -425,6 +429,7 @@ int main(int argc, char const *argv[])
       cout << "Please enter a user name to be deleted" << endl;
       cin >> username;
       if(!isValidUserName(username)){
+        currentState = STATE_WAITING;
         break;
       }
 
@@ -450,6 +455,7 @@ int main(int argc, char const *argv[])
       cout << "Please enter a username:" << endl;
       cin >> username;
       if(!isValidUserName(username)){
+        currentState = STATE_WAITING;
         break;
       }
 
@@ -457,6 +463,7 @@ int main(int argc, char const *argv[])
       cout << "How much would you like to add?" << endl;
       cin >> amount;
       if(!isValidAmount(amount)){
+        currentState = STATE_WAITING;
         break;
       }
       currentUser->addCredit(username, amount);
@@ -476,16 +483,19 @@ int main(int argc, char const *argv[])
       cout << "Please enter the buyer's username:" << endl;
       cin >> buyerUsername;
       if(!isValidUserName(buyerUsername)){
+        currentState = STATE_WAITING;
         break;
       }
       cout << "Please enter the seller's username:" << endl;
       cin >> sellerUsername;
       if(!isValidUserName(sellerUsername)){
+        currentState = STATE_WAITING;
         break;
       }
       cout << "Please enter the refund amount:" << endl;
       cin >> amount;
       if(!isValidAmount(amount)){
+        currentState = STATE_WAITING;
         break;
       }
       currentUser->refund(buyerUsername, sellerUsername, amount);
@@ -505,15 +515,22 @@ int main(int argc, char const *argv[])
       cout << "Name of product:" << endl;
       cin >> itemName;
       if(!isValidItemName(itemName)){
+        currentState = STATE_WAITING;
         break;
       }
       cout << "Minimum Bid(CAD$ 00.01-999.99):" << endl;
       cin >> minimumBid;
       if(!isValidAmount(minimumBid)){
+        currentState = STATE_WAITING;
         break;
       }
       cout << "Number of days:" << endl;
       cin >> daysToBid;
+      if((0 < daysToBid) || (daysToBid< 100)){
+        cout << "Invalid number of days" << endl;
+        currentState = STATE_WAITING;
+        break;
+      }
       currentUser->advertise(itemName, minimumBid, daysToBid);
 
       cout << "Item added successfully!" << endl;
@@ -530,10 +547,22 @@ int main(int argc, char const *argv[])
 
       cout << "Enter Product Name:" << endl;
       cin >> itemName;
+      if(!isValidItemName(itemName)){
+        currentState = STATE_WAITING;
+        break;
+      }
       cout << "Enter Username:" << endl;
       cin >> username;
+      if(!isValidUserName(username)){
+        currentState = STATE_WAITING;
+        break;
+      }
       cout << "Current Bid $" << 50 << endl;
       cin >> amount;
+      if(!isValidAmount(amount)){
+        currentState = STATE_WAITING;
+        break;
+      }
       currentUser->bid(itemName, username, amount);
 
       cout << "Bid Successful!" << endl;
