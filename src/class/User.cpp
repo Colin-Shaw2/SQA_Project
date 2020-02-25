@@ -127,7 +127,7 @@ public:
      */
     void logout(string outputFileName)
     {
-      transactions.push_back(TransactionCodeMaker::makeLogout("","",0));
+      transactions.push_back(TransactionCodeMaker::makeLogout(username, userType, balance));
       ofstream transactionFile;
       transactionFile.open (outputFileName);
       for(string code : transactions){
