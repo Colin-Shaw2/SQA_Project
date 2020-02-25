@@ -117,7 +117,7 @@ public:
       int delbalance;
 
       //buffer username
-      for (int i = delusername.length(); i < usernameLength; i++)
+      for (int i = delusername.length(); i < 15; i++)
       {
         delusername += " ";
       }
@@ -130,7 +130,7 @@ public:
       // read file line by line
       while (getline(userFile, inString))
       {
-        if (inString.substr(0, usernameLength) == delusername)
+        if (inString.substr(0, 15) == delusername)
         {
           deluserType = inString.substr(16, 2);
           delbalance = stoi(inString.substr(19, 9));
@@ -157,7 +157,7 @@ public:
      */
     void refund(string buyerUsername, string sellerUsername, int amount, string userFileName){
       //buffer username
-      for (int i = sellerUsername.length(); i < usernameLength; i++)
+      for (int i = sellerUsername.length(); i < 15; i++)
       {
         sellerUsername += " ";
       }
@@ -171,7 +171,7 @@ public:
       // read file line by line
       while (getline(userFile, inString))
       {
-        if (inString.substr(0, usernameLength) == sellerUsername)
+        if (inString.substr(0, 15) == sellerUsername)
         {
           sellerBalance = stoi(inString.substr(19, 9));
           break;

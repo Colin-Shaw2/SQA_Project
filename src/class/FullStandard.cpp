@@ -81,6 +81,6 @@ public:
      };
 
     void createNewUser(string username, string userType, int credit){};//user is not allowed to create new users
-    void deleteUser(string username){};//user is not allowed to delete users
-    void refund(string buyerUsername, string sellerUsername, int amount){};//user is not allowed to refund
+    void deleteUser(string username, string UserFileName){};//user is not allowed to delete users
+    void refund(string buyerUsername, string sellerUsername, int amount, string UserFileName){};//user is not allowed to refund
 };

@@ -348,7 +348,7 @@ int main(int argc, char const *argv[])
         break;
       }
 
-      currentUser->deleteUser(username);
+      currentUser->deleteUser(username, userFileName);
 
       cout << "User is deleted!" << endl;
       currentState = STATE_WAITING;
@@ -440,7 +440,7 @@ int main(int argc, char const *argv[])
         currentState = STATE_WAITING;
         break;
       }
-      currentUser->refund(buyerUsername, sellerUsername, amount);
+      currentUser->refund(buyerUsername, sellerUsername, amount, userFileName);
 
       cout << "Refund successsful!" << endl;
 
