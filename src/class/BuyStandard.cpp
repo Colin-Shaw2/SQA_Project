@@ -32,17 +32,17 @@ public:
      * @param amount    the amount of credit to be added
      * @return void
      */
-    void addCredit(int amount){
-      int balance = getBalance();
-      if (balance + amount < 1000000){
-        balance+= amount;
-        setBalance(balance);
-        cout << "Credit added, Balance is $" << balance << endl;
-      }
-      else{
-        cout << "Error Balance would be too high max value($999999.99)"<<endl;
-      }
-    };
+     void addCredit(int amount){
+       int balance = getBalance();
+       if (balance + amount < 1000000){
+         balance+= amount;
+         setBalance(balance);
+         addTransaction(ADD_CREDIT);
+       }
+       else{
+         cout << "Error Balance would be too high max value($999999.99)"<<endl;
+       }
+     };
 
     void advertise(string itemName, int minimumBid, int daysToBid){};//user is not allowed to advertise
 
@@ -61,7 +61,9 @@ public:
      * @param amount the amount to bid
      * @return void
      */
-    void bid(string itemName, string username, int amount){};
+     void bid(string itemName, string username, int amount){
+       addTransaction(BID);
+     };
 
     void createNewUser(string username, string userType, int credit){};//user is not allowed to create new users
     void deleteUser(string username){};//user is not allowed to delete users

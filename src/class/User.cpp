@@ -98,6 +98,7 @@ public:
       this->refundAmount = refund;
     }
 
+
     virtual void addCredit(int amount) = 0;
     virtual void advertise(string itemName, int minimumBid, int daysToBid) = 0;
     virtual void bid(string itemName, string username, int amount) = 0;

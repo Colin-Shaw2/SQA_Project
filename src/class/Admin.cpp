@@ -50,8 +50,6 @@ public:
       else{
         cout << "Error Balance would be too high max value($999999.99)"<<endl;
       }
-
-
     };
 
 
@@ -67,8 +65,6 @@ public:
      * @return void
      */
     void advertise(string itemName, int minimumBid, int daysToBid){
-
-
       addTransaction(ADVERTISE);
     };
 
@@ -88,8 +84,6 @@ public:
      * @return void
      */
     void bid(string itemName, string username, int amount){
-
-
       addTransaction(BID);
     };
 

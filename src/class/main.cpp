@@ -374,7 +374,6 @@ int main(int argc, char const *argv[])
           break;
         }
         User *user = getUser(username);
-        //unfinished
 
         cout << "Current Balance $" << 100 /*place holder*/ << endl;
         cout << "How much would you like to add?" << endl;
@@ -384,7 +383,7 @@ int main(int argc, char const *argv[])
           break;
         }
 
-        getUser(username)->addCredit(amount);
+        user->addCredit(amount);
 
         cout << "Created added, Balance is $" <</*placeHolder*/ user->getBalance() << endl;
 
