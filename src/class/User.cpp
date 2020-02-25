@@ -4,7 +4,6 @@ This is an abstract class with all non privileged methods implemented
 User class writes all transactions to items.txt, users.txt and/or transactions.txt
 */
 #pragma once
-#include "TransactionEnums.h"
 #include "TransactionCodeMaker.cpp"
 #include "Item.cpp"
 
@@ -55,6 +54,12 @@ protected:
 
 public:
     int refundAmount;
+    string sellerUserName;
+    string buyerUserName;
+    string itemName;
+    int daysToAuction;
+    int minimumBid;
+    int newBid;
     /**
      * Creates a user with a name, type and initial account balance
      *
@@ -90,8 +95,20 @@ public:
         return "NULL";
       }
     }
-    void setRefund(int refund){
+    void setRefund(string sellerUserName,string buyerUsername,int refund){
+      this->sellerUserName = sellerUserName;
+      this->buyerUserName = buyerUsername;
       this->refundAmount = refund;
+    }
+    void setAdvertise(string itemName, int daysToAuction, int minimumBid){
+      this->itemName = itemName;
+      this->daysToAuction = daysToAuction;
+      this->minimumBid = minimumBid;
+    }
+    void setBid(string itemName, string selleUserName, int newBid){
+      this->itemName = itemName;
+      this->sellerUserName = sellerUserName;
+      this->newBid = newBid;
     }
 
 
@@ -100,7 +117,7 @@ public:
     virtual void bid(string itemName, string username, int amount) = 0;
     virtual void createNewUser(string username, string userType, int credit) = 0;
     virtual void deleteUser(string username) = 0;
-    virtual void refund(string buyerUsername, string sellerUsername, int amount) = 0;
+    virtual void refund(string buyerUsername, string sellerUserName, int amount) = 0;
 
     /**
      * logouts the current user
