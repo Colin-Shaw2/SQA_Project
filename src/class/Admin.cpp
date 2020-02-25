@@ -41,7 +41,7 @@ public:
      * @return void
      */
     //TODO fix this
-    void addCredit(int amount, string username){
+    void addCredit(int amount){
       int balance = getBalance();
       if (balance + amount < 1000000){
         balance+= amount;
