@@ -56,7 +56,7 @@ public:
      * @return void
      */
      void advertise(string itemName, int minimumBid, int daysToBid){
-         transactions.push_back(TransactionCodeMaker::makeAdvertise("",0,"",0));
+      transactions.push_back(TransactionCodeMaker::makeAdvertise(username, daysToBid, itemName, minimumBid));
      };
 
     void bid(string itemName, string username, int amount){};//user is not allowed to bid
