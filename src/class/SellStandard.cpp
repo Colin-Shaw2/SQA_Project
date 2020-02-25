@@ -37,7 +37,7 @@ public:
        if (balance + amount < 1000000){
          balance+= amount;
          setBalance(balance);
-         addTransaction(ADD_CREDIT);
+         transactions.push_back(TransactionCodeMaker::makeAddCredit("","",0));
        }
        else{
          cout << "Error Balance would be too high max value($999999.99)"<<endl;
@@ -56,7 +56,7 @@ public:
      * @return void
      */
      void advertise(string itemName, int minimumBid, int daysToBid){
-       addTransaction(ADVERTISE);
+         transactions.push_back(TransactionCodeMaker::makeAdvertise("",0,"",0));
      };
 
     void bid(string itemName, string username, int amount){};//user is not allowed to bid

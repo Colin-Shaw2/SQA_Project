@@ -40,8 +40,8 @@ public:
      * @param amount    the amount of credit to be added
      * @return void
      */
-    //TODD fix this
-    void addCredit(int amount){
+    //TODO fix this
+    void addCredit(int amount, string username){
       int balance = getBalance();
       if (balance + amount < 1000000){
         balance+= amount;
