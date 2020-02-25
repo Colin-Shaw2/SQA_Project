@@ -20,11 +20,8 @@ class User
 protected:
     string username;
     int balance;
-//    vector<Item> items;// list of items the user has changed
-//    vector<User> user;
     vector<string> transactions;
     string userType;
-
 
 
     /**
@@ -34,28 +31,27 @@ protected:
      * @param   type an enum representing the type of stransaction that just happened
      * @return  void
      */
-    //TODO Method needs review
-    void addTransaction(transactionType type){
-        string code = "";
-        switch(type)
-        {
-            case CREATE : code = TransactionCodeMaker::makeCreate(username, userType, balance);
-                break;
-            case DELETE : code = TransactionCodeMaker::makeDelete(username, userType, balance);
-                break;
-            case LOGOUT : code = TransactionCodeMaker::makeLogout(username, userType, balance);
-                break;
-            case ADD_CREDIT : code = TransactionCodeMaker::makeAddCredit(username, userType, balance);
-                break;
-            case REFUND : code = TransactionCodeMaker::makeRefund(username,"refunder", refundAmount);
-                break;
-            case ADVERTISE : code = TransactionCodeMaker::makeAdvertise(username, 0/*daysToAuction*/ , "Itemname", balance);
-                break;
-            case BID : code = TransactionCodeMaker::makeBid(username, "sellerName", "ItemName", /*Bid*/ 0);
-                break;
-        }
-        transactions.push_back(code);
-    }
+    // void addTransaction(transactionType type){
+    //     string code = "";
+    //     switch(type)
+    //     {
+    //         case CREATE : code = TransactionCodeMaker::makeCreate(username, userType, balance);
+    //             break;
+    //         case DELETE : code = TransactionCodeMaker::makeDelete(username, userType, balance);
+    //             break;
+    //         case LOGOUT : code = TransactionCodeMaker::makeLogout(username, userType, balance);
+    //             break;
+    //         case ADD_CREDIT : code = TransactionCodeMaker::makeAddCredit(username, userType, balance);
+    //             break;
+    //         case REFUND : code = TransactionCodeMaker::makeRefund(username,"refunder", refundAmount);
+    //             break;
+    //         case ADVERTISE : code = TransactionCodeMaker::makeAdvertise(username, 0/*daysToAuction*/ , "Itemname", balance);
+    //             break;
+    //         case BID : code = TransactionCodeMaker::makeBid(username, "sellerName", "ItemName", /*Bid*/ 0);
+    //             break;
+    //     }
+    //     transactions.push_back(code);
+    // }
 
 public:
     int refundAmount;
@@ -112,10 +108,9 @@ public:
      *
      * @return void
      */
-    //TODO reaxamine this method once min is done
     void logout(string outputFileName)
     {
-      addTransaction(LOGOUT);
+      transactions.push_back(TransactionCodeMaker::makeLogout("","",0));
       ofstream transactionFile;
       transactionFile.open (outputFileName);
       for(string code : transactions){

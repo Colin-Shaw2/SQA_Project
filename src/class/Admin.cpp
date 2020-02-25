@@ -40,12 +40,13 @@ public:
      * @param amount    the amount of credit to be added
      * @return void
      */
+    //TODD fix this
     void addCredit(int amount){
       int balance = getBalance();
       if (balance + amount < 1000000){
         balance+= amount;
         setBalance(balance);
-        addTransaction(ADD_CREDIT);
+        transactions.push_back(TransactionCodeMaker::makeAddCredit(username, userType, amount));
       }
       else{
         cout << "Error Balance would be too high max value($999999.99)"<<endl;
@@ -65,7 +66,7 @@ public:
      * @return void
      */
     void advertise(string itemName, int minimumBid, int daysToBid){
-      addTransaction(ADVERTISE);
+      transactions.push_back(TransactionCodeMaker::makeAdvertise("",0,"",0));
     };
 
     /**
@@ -84,7 +85,7 @@ public:
      * @return void
      */
     void bid(string itemName, string username, int amount){
-      addTransaction(BID);
+      transactions.push_back(TransactionCodeMaker::makeBid("","","",0));
     };
 
     /**
@@ -97,8 +98,8 @@ public:
      *
      * @return void
      */
-    void createNewUser(string userName, string userType, int credit){
-      addTransaction(CREATE);
+    void createNewUser(string username, string userType, int credit){
+      transactions.push_back(TransactionCodeMaker::makeCreate(username, userType, credit));
     };
 
     /**
@@ -106,14 +107,14 @@ public:
      *
      * Once the user has been deleted, there will
      * be a successful message
-     * Writes to the items file
-     * Writes to the users file
+     * Reads the users file
      *
      * @param username the username of the user to be deleted
      * @return void
      */
     void deleteUser(string username){
-      addTransaction(DELETE);
+      //getUser
+      transactions.push_back(TransactionCodeMaker::makeDelete(username, "asdf", 0));
     };
 
     /**
@@ -131,6 +132,6 @@ public:
      * @return void
      */
     void refund(string buyerUsername, string sellerUsername, int amount){
-      addTransaction(REFUND);
+      transactions.push_back(TransactionCodeMaker::makeRefund("","",0));
     };
 };

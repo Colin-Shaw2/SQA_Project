@@ -99,7 +99,7 @@ User *getUser(string username)
  * @param variable   user name to be checked
  * @return boolean
  */
-bool isValidUserName(string variable)
+bool isValidUsername(string variable)
 {
   if (!variable.empty())
   {
@@ -278,13 +278,15 @@ int main(int argc, char const *argv[])
     switch (currentState)
     {
     //Not yet logged in
+    //login
     case STATE_LOGGED_OUT:
     {
-      if (isValidUserName(input))
+      if (isValidUsername(input))
       {
         currentUser = getUser(input);
         if (currentUser != NULL)
         {
+          cout << "Login successful!" << endl;
           currentState = STATE_WAITING;
         }
       }
@@ -305,7 +307,7 @@ int main(int argc, char const *argv[])
       cout << "Please Enter User Name:" << endl;
       cin >> username;
 
-      if(isValidUserName(username)){
+      if(isValidUsername(username)){
         cout << "User already exists" << endl;
         currentState = STATE_WAITING;
         break;
@@ -341,7 +343,7 @@ int main(int argc, char const *argv[])
 
       cout << "Please enter a user name to be deleted" << endl;
       cin >> username;
-      if(!isValidUserName(username)){
+      if(!isValidUsername(username)){
         currentState = STATE_WAITING;
         break;
       }
@@ -369,7 +371,7 @@ int main(int argc, char const *argv[])
       if(currentUser->getUserType() == "AA"){
         cout << "Please enter a username:" << endl;
         cin >> username;
-        if(!isValidUserName(username)){
+        if(!isValidUsername(username)){
           currentState = STATE_WAITING;
           break;
         }
@@ -422,13 +424,13 @@ int main(int argc, char const *argv[])
 
       cout << "Please enter the buyer's username:" << endl;
       cin >> buyerUsername;
-      if(!isValidUserName(buyerUsername)){
+      if(!isValidUsername(buyerUsername)){
         currentState = STATE_WAITING;
         break;
       }
       cout << "Please enter the seller's username:" << endl;
       cin >> sellerUsername;
-      if(!isValidUserName(sellerUsername)){
+      if(!isValidUsername(sellerUsername)){
         currentState = STATE_WAITING;
         break;
       }
@@ -505,7 +507,7 @@ int main(int argc, char const *argv[])
       }
       cout << "Enter Username:" << endl;
       cin >> username;
-      if(!isValidUserName(username)){
+      if(!isValidUsername(username)){
         currentState = STATE_WAITING;
         break;
       }
