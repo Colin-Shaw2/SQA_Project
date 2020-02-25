@@ -47,9 +47,9 @@ protected:
                 break;
             case ADD_CREDIT : code = TransactionCodeMaker::makeAddCredit(username, userType, balance);
                 break;
-            case REFUND : code = TransactionCodeMaker::makeRefund(username,"refunder", refundAmount);
+            case REFUND : code = TransactionCodeMaker::makeRefund(sellerUsername,buyerUsername, refundAmount);
                 break;
-            case ADVERTISE : code = TransactionCodeMaker::makeAdvertise(username, 0/*daysToAuction*/ , "Itemname", balance);
+            case ADVERTISE : code = TransactionCodeMaker::makeAdvertise(username, 0/*daysToAuction*/ , itemName, minimumBid);
                 break;
             case BID : code = TransactionCodeMaker::makeBid(username, "sellerName", "ItemName", /*Bid*/ 0);
                 break;
@@ -59,6 +59,11 @@ protected:
 
 public:
     int refundAmount;
+    string sellerUsername;
+    string buyerUsername;
+    string itemName;
+    int daysToAuction;
+    int minimumBid;
     /**
      * Creates a user with a name, type and initial account balance
      *
@@ -94,8 +99,15 @@ public:
         return "NULL";
       }
     }
-    void setRefund(int refund){
+    void setRefund(string sellerUsername,string buyerUsername,int refund){
+      this->sellerUsername = sellerUsername;
+      this->buyerUsername = buyerUsername;
       this->refundAmount = refund;
+    }
+    void setAdvertise(string itemName, int daysToAuction, int minimumBid){
+      this->itemName = itemName;
+      this->daysToAuction = daysToAuction;
+      this->minimumBid = minimumBid;
     }
 
 
