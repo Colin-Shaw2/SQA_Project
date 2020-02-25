@@ -36,3 +36,4 @@ testout.txt
 src/storage/transactions.txt
 testRunnerLogout.sh
 testTable
+append.sh

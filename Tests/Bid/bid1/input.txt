@@ -5,3 +5,5 @@ product
 admin
 100
 logout
+
+thisLongStringExitsTheProgram

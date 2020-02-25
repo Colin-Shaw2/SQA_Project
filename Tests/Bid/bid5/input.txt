@@ -9,3 +9,4 @@ root
 bid
 product
 \0
+thisLongStringExitsTheProgram

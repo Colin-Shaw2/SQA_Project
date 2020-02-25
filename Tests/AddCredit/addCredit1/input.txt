@@ -7,3 +7,5 @@ addcredit
 admin
 100
 logout
+
+thisLongStringExitsTheProgram

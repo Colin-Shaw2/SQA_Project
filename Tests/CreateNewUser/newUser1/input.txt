@@ -17,3 +17,5 @@ siyavash3
 SS
 400
 logout
+
+thisLongStringExitsTheProgram

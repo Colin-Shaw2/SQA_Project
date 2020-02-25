@@ -4,3 +4,5 @@ delete
 \0
 delete
 root
+
+thisLongStringExitsTheProgram
