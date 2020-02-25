@@ -47,11 +47,11 @@ protected:
                 break;
             case ADD_CREDIT : code = TransactionCodeMaker::makeAddCredit(username, userType, balance);
                 break;
-            case REFUND : code = TransactionCodeMaker::makeRefund(sellerUsername,buyerUsername, refundAmount);
+            case REFUND : code = TransactionCodeMaker::makeRefund(sellerUserName,buyerUserName, refundAmount);
                 break;
             case ADVERTISE : code = TransactionCodeMaker::makeAdvertise(username, 0/*daysToAuction*/ , itemName, minimumBid);
                 break;
-            case BID : code = TransactionCodeMaker::makeBid(username, "sellerName", "ItemName", /*Bid*/ 0);
+            case BID : code = TransactionCodeMaker::makeBid(username, sellerUserName, itemName, newBid);
                 break;
         }
         transactions.push_back(code);
@@ -59,11 +59,12 @@ protected:
 
 public:
     int refundAmount;
-    string sellerUsername;
-    string buyerUsername;
+    string sellerUserName;
+    string buyerUserName;
     string itemName;
     int daysToAuction;
     int minimumBid;
+    int newBid;
     /**
      * Creates a user with a name, type and initial account balance
      *
@@ -99,15 +100,20 @@ public:
         return "NULL";
       }
     }
-    void setRefund(string sellerUsername,string buyerUsername,int refund){
-      this->sellerUsername = sellerUsername;
-      this->buyerUsername = buyerUsername;
+    void setRefund(string sellerUserName,string buyerUsername,int refund){
+      this->sellerUserName = sellerUserName;
+      this->buyerUserName = buyerUsername;
       this->refundAmount = refund;
     }
     void setAdvertise(string itemName, int daysToAuction, int minimumBid){
       this->itemName = itemName;
       this->daysToAuction = daysToAuction;
       this->minimumBid = minimumBid;
+    }
+    void setBid(string itemName, string selleUserName, int newBid){
+      this->itemName = itemName;
+      this->sellerUserName = sellerUserName;
+      this->newBid = newBid;
     }
 
 
@@ -116,7 +122,7 @@ public:
     virtual void bid(string itemName, string username, int amount) = 0;
     virtual void createNewUser(string username, string userType, int credit) = 0;
     virtual void deleteUser(string username) = 0;
-    virtual void refund(string buyerUsername, string sellerUsername, int amount) = 0;
+    virtual void refund(string buyerUsername, string sellerUserName, int amount) = 0;
 
     /**
      * logouts the current user
