@@ -315,7 +315,7 @@ public:
      * P is the minimum starting bid
      *
      * @param username          user selling item
-     * @param daysToAustion     number of days to auction the item for
+     * @param daysToAuction     number of days to auction the item for
      * @param itemName          name of item being bid on
      * @param bid               minimum bid on the item
      * @return the transaction code
