@@ -21,11 +21,6 @@ public:
     ~SellStandard();
 
 
-    //overrides the abstract function in user
-    //username does nothing simply calls addCredit(int)
-    void addCredit(string username, int amount){
-        addCredit(amount);
-    };
 
     /**
      * addCredit is used to raise this user's accountBalance. Before raising this user's balance,

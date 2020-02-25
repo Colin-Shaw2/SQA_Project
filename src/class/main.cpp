@@ -373,6 +373,8 @@ int main(int argc, char const *argv[])
           currentState = STATE_WAITING;
           break;
         }
+        User *user = getUser(username);
+        //unfinished
 
         cout << "Current Balance $" << 100 /*place holder*/ << endl;
         cout << "How much would you like to add?" << endl;
@@ -382,9 +384,9 @@ int main(int argc, char const *argv[])
           break;
         }
 
-        currentUser->addCredit(username, amount);
+        getUser(username)->addCredit(amount);
 
-        cout << "Created added, Balance is $" <</*placeHolder*/ currentUser->getBalance() << endl;
+        cout << "Created added, Balance is $" <</*placeHolder*/ user->getBalance() << endl;
 
         currentState = STATE_WAITING;
         break;
@@ -399,7 +401,7 @@ int main(int argc, char const *argv[])
           break;
         }
 
-        currentUser->addCredit(username, amount);
+        currentUser->addCredit(amount);
 
         cout << "Created added, Balance is $" <</*placeHolder*/ currentUser->getBalance() << endl;
 

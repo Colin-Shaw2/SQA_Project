@@ -40,7 +40,7 @@ public:
      * @param amount    the amount of credit to be added
      * @return void
      */
-    void addCredit(string userName, int amount){
+    void addCredit(int amount){
       int balance = getBalance();
       if (balance + amount < 1000000){
         balance+= amount;
@@ -50,6 +50,7 @@ public:
       else{
         cout << "Error Balance would be too high max value($999999.99)"<<endl;
       }
+
 
     };
 
