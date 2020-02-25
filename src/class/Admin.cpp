@@ -40,16 +40,18 @@ public:
      * @param amount    the amount of credit to be added
      * @return void
      */
-    void addCredit(string userName, int amount){
+    void addCredit(int amount){
       int balance = getBalance();
       if (balance + amount < 1000000){
         balance+= amount;
         setBalance(balance);
-        cout << "Credit added, Balance is $" << balance << endl;
+        addTransaction(ADD_CREDIT);
       }
       else{
         cout << "Error Balance would be too high max value($999999.99)"<<endl;
       }
+
+
     };
 
 
@@ -67,6 +69,7 @@ public:
     void advertise(string itemName, int minimumBid, int daysToBid){
 
 
+      addTransaction(ADVERTISE);
     };
 
     /**
@@ -84,7 +87,11 @@ public:
      * @param amount the amount to bid
      * @return void
      */
-    void bid(string itemName, string username, int amount){};
+    void bid(string itemName, string username, int amount){
+
+
+      addTransaction(BID);
+    };
 
     /**
      * createNewUser is called to create a new User.
@@ -97,39 +104,7 @@ public:
      * @return void
      */
     void createNewUser(string userName, string userType, int credit){
-      string code = "";
-      string endLine = "END_________________________";
-      string line;
-      //TODO:create new user
-
-      code += userName;
-      while(code.length() < 16){
-        code += " ";
-      }
-      code += userType;
-      code += " ";
-
-      for (int i = to_string(credit).length(); i <= 9; i++)
-      {
-          code += "0";
-      }
-      code += to_string(credit);
-      code += "\n";
-      code += endLine;
-
-      ifstream codeFile;
-      codeFile.open ("../storage/transactions.txt");
-      while(getline(codeFile, line)){
-        line.replace(line.find(endLine),endLine.length(),code);
-      }
-      for(string code : transactions){
-
-      }
-      codeFile.close();
-
-
-      cout << "Created User "<< userName <<" as " << getType(userType);
-      cout <<" with $"<< credit << endl;
+      addTransaction(CREATE);
     };
 
     /**
@@ -143,7 +118,9 @@ public:
      * @param username the username of the user to be deleted
      * @return void
      */
-    void deleteUser(string username){};
+    void deleteUser(string username){
+      addTransaction(DELETE);
+    };
 
     /**
      * refund is called to refund an amount from one user to another.
@@ -159,5 +136,7 @@ public:
      * @param amount            the amount to transfer from seller to buyer
      * @return void
      */
-    void refund(string buyerUsername, string sellerUsername, int amount){};
+    void refund(string buyerUsername, string sellerUsername, int amount){
+      addTransaction(REFUND);
+    };
 };

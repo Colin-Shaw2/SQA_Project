@@ -146,13 +146,15 @@ bool isValidItemName(string variable)
         }
       }
       itemFile.close();
-      cout << "We could not find that username" << endl;
+      cout << "We could not find that Item" << endl;
       return false;
     }
+    cout << "That is an invalid item name" << endl;
     return false;
   }
   else
   {
+    cout << "That is an invalid item name" << endl;
     return false;
   }
 }
@@ -177,9 +179,14 @@ bool isValidAmount(int variable)
 }
 
 
-
-
-
+/**
+ * isValidUserType is called to validate the user types inputted by checking
+ * if it's one of the four possible choices. If it's one of the four, returns
+ * true. Otherwise returns false
+ *
+ * @param variable     String to be checked if it's one of AA FS BS SS
+ * @return boolean
+ */
 bool isValidUserType(string variable){
   if(variable == "AA" || "FS" || "BS" || "SS"){
     return true;
@@ -187,100 +194,6 @@ bool isValidUserType(string variable){
   cout << "Invalid type of user" << endl;
   return false;
 }
-/**
- * checkAdvertise is called to validate inputs for advertise. The parameters
- * for checkAdvertise are string itemName, int minimumBid, and int daysToBid.
- * First, checkAdvertise calls isValidItemName, isValidUsername and isValidAmount
- * for the parameters.
- * Next it checks if userType is not BS as BuyStandard cannot advertise
- * itemName is the test on if it contains any special characters.
- * Next, it checks if daysToBid is less than 100 and minimumBid is
- * less than 1000.
- * If any test fails, it will output a message to the corresponding failure.
- * If all these tests pass, advertise is called.
- *
- *
- * @param itemName    name for the item to be posted
- * @param minimumBid  starting bid for the items
- * @param daysToBid   days left on the auction of the item
- * @return void
- */
-void checkAdvertise(string itemName, int minimumBid, int daysToBid){};
-
-/**
- * checkRefund is called to validate inputs for Refund. The parameters
- * for checkRefund are string buyerUsername, string sellerUsername, and
- * int amount
- * First checkRefund calls isValidUsername and isValidAmount for the parameters.
- * Next, it checks if the user has permission to apply a refund and if
- * the seller and buyer users exist.
- * If any test fails, it will output a message to the corresponding failure.
- * If all these tests pass, refund is called.
- *
- * @param buyerUsername   user refund is going to
- * @param sellerUsername  user refund is coming from
- * @param amount          amount of refund
- * @return void
- */
-void checkRefund(string buyerUsername, string sellerUsername, int amount){};
-
-/**
- * checkDeleteUser is called to validate inputs for DeleteUser. The parameter
- * for checkDeleteUser is string username.
- * isValidUsername is called to validate username.
- * If isValidUsername fails, it will output a message in regards to the input.
- * Otherwise, deleteUser is called.
- *
- * @param username  user to be deleted
- * @return void
- */
-void checkDeleteUser(string username){};
-
-/**
- * checkAddCredit is called to validate inputs for AddCredit. The parameter
- * for checkAddCredit is int amount.
- * isValidAmount is called to validate amount inputted.
- * If isValidAmount fails, it will output a message in regards to the input.
- * Otherwise, addCredit is called.
- *
- * @param amount  amount to be added to current user
- * @return void
- */
-void checkAddCredit(int amount){};
-
-/**
- * checkCreateNewUser is called to validate inputs for CreateNewUser. The parameter
- * for checkCreateNewUser are string username, string userType, and int credit
- * First isValidUsername and isValidAmount is called to validate the parameters
- * Next, it checks if the username already exists, and if userType fits the
- * four possibilities.
- * If any test fails, it will output a message to the corresponding failure.
- * Otherwise, createNewUser is called.
- *
- * @param username    name of the new user
- * @param userType    type of the new user
- * @param credit      starting credit on the user
- * @return void
- */
-void checkCreateNewUser(string username, string userType, int credit){};
-
-/**
- * checkBid is called to validate inputs for Bid. The parameter
- * for checkBid is string itemName, string username, and int amount
- * First isValidItemName, isValidUsername and isValidAmount is called to validate
- * the parameters
- * Next, it checks if the item exists, if the user exists, and if the item and
- * user match
- * If any test fails, it will output a message to the corresponding failure.
- * Otherwise, bid is called.
- *
- * @param itemName  name of the item to place the bid on
- * @param username  name of the user that placed the item
- * @param amount    amount of the new bid
- * @return void
- */
-void checkBid(string itemName, string username, int amount){};
-
 
 /**
  * main uses a loop on cin to take in the inputs
@@ -451,27 +364,50 @@ int main(int argc, char const *argv[])
       string username;
       int amount;
 
+      //Checks if admin, gives option for username if so
 
-      cout << "Please enter a username:" << endl;
-      cin >> username;
-      if(!isValidUserName(username)){
+      if(currentUser->getUserType() == "AA"){
+        cout << "Please enter a username:" << endl;
+        cin >> username;
+        if(!isValidUserName(username)){
+          currentState = STATE_WAITING;
+          break;
+        }
+        User *user = getUser(username);
+        //unfinished
+
+        cout << "Current Balance $" << 100 /*place holder*/ << endl;
+        cout << "How much would you like to add?" << endl;
+        cin >> amount;
+        if(!isValidAmount(amount)){
+          currentState = STATE_WAITING;
+          break;
+        }
+
+        getUser(username)->addCredit(amount);
+
+        cout << "Created added, Balance is $" <</*placeHolder*/ user->getBalance() << endl;
+
         currentState = STATE_WAITING;
         break;
       }
 
-      cout << "Current Balance $" << 100 /*place holder*/ << endl;
-      cout << "How much would you like to add?" << endl;
-      cin >> amount;
-      if(!isValidAmount(amount)){
+      else{//Non admins
+        cout << "Current Balance $" << 100 /*place holder*/ << endl;
+        cout << "How much would you like to add?" << endl;
+        cin >> amount;
+        if(!isValidAmount(amount)){
+          currentState = STATE_WAITING;
+          break;
+        }
+
+        currentUser->addCredit(amount);
+
+        cout << "Created added, Balance is $" <</*placeHolder*/ currentUser->getBalance() << endl;
+
         currentState = STATE_WAITING;
         break;
       }
-      currentUser->addCredit(username, amount);
-
-      cout << "Created added, Balance is $" <</*placeHolder*/ currentUser->getBalance() << endl;
-
-      currentState = STATE_WAITING;
-      break;
     }
     case STATE_REFUND:
     {
@@ -479,6 +415,11 @@ int main(int argc, char const *argv[])
       string sellerUsername;
       int amount;
 
+      if(!(currentUser->getUserType() == "AA")){
+        cout << "Refund cannot be completed from a non admin account!" << endl;
+        currentState = STATE_WAITING;
+        break;
+      }
 
       cout << "Please enter the buyer's username:" << endl;
       cin >> buyerUsername;
@@ -511,6 +452,12 @@ int main(int argc, char const *argv[])
       int minimumBid;
       int daysToBid;
 
+      //Check for usertype BS
+      if(currentUser->getUserType() == "BS"){
+        cout << "You do not have permission to advertise" << endl;
+        currentState = STATE_WAITING;
+        break;
+      }
 
       cout << "Name of product:" << endl;
       cin >> itemName;
@@ -518,9 +465,10 @@ int main(int argc, char const *argv[])
         currentState = STATE_WAITING;
         break;
       }
+
       cout << "Minimum Bid(CAD$ 00.01-999.99):" << endl;
       cin >> minimumBid;
-      if(!isValidAmount(minimumBid)){
+      if((!isValidAmount(minimumBid)) && (minimumBid < 1000)){
         currentState = STATE_WAITING;
         break;
       }
@@ -544,6 +492,11 @@ int main(int argc, char const *argv[])
       string username;
       int amount;
 
+      if(currentUser->getUserType() == "SS"){
+        cout << "You do not have permission to bid" << endl;
+        currentState = STATE_WAITING;
+        break;
+      }
 
       cout << "Enter Product Name:" << endl;
       cin >> itemName;
@@ -557,6 +510,8 @@ int main(int argc, char const *argv[])
         currentState = STATE_WAITING;
         break;
       }
+
+      //TODO: check if item belongs to user
       cout << "Current Bid $" << 50 << endl;
       cin >> amount;
       if(!isValidAmount(amount)){

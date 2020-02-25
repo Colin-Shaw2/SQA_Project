@@ -26,6 +26,7 @@ protected:
     string userType;
 
 
+
     /**
      * Calls the transactionCodeMaker to create a transaction code and adds
      * it to the transactions array
@@ -46,7 +47,7 @@ protected:
                 break;
             case ADD_CREDIT : code = TransactionCodeMaker::makeAddCredit(username, userType, balance);
                 break;
-            case REFUND : code = TransactionCodeMaker::makeRefund(username,"refunder", 0 /*refundamount*/);
+            case REFUND : code = TransactionCodeMaker::makeRefund(username,"refunder", refundAmount);
                 break;
             case ADVERTISE : code = TransactionCodeMaker::makeAdvertise(username, 0/*daysToAuction*/ , "Itemname", balance);
                 break;
@@ -57,6 +58,7 @@ protected:
     }
 
 public:
+    int refundAmount;
     /**
      * Creates a user with a name, type and initial account balance
      *
@@ -74,6 +76,7 @@ public:
     string getName(){return username;}
     int getBalance(){return balance;}
     void setBalance(int balance){this->balance = balance;}
+    string getUserType(){return userType;}
     string getType(string userType){
       if(userType == "AA"){
         return "Admin";
@@ -91,8 +94,11 @@ public:
         return "NULL";
       }
     }
+    void setRefund(int refund){
+      this->refundAmount = refund;
+    }
 
-    virtual void addCredit(string username, int amount) = 0;
+    virtual void addCredit(int amount) = 0;
     virtual void advertise(string itemName, int minimumBid, int daysToBid) = 0;
     virtual void bid(string itemName, string username, int amount) = 0;
     virtual void createNewUser(string username, string userType, int credit) = 0;
