@@ -84,8 +84,8 @@ public:
      * @param amount the amount to bid
      * @return void
      */
-    void bid(string itemName, string username, int amount){
-      transactions.push_back(TransactionCodeMaker::makeBid("","","",0));
+    void bid(string itemName, string sellername, int bid){
+      transactions.push_back(TransactionCodeMaker::makeBid(username, sellername, itemName, bid));
     };
 
     /**
@@ -112,9 +112,33 @@ public:
      * @param username the username of the user to be deleted
      * @return void
      */
-    void deleteUser(string username){
-      //getUser
-      transactions.push_back(TransactionCodeMaker::makeDelete(username, "asdf", 0));
+    void deleteUser(string delusername, string userFileName){
+      string deluserType;
+      int delbalance;
+
+      //buffer username
+      for (int i = delusername.length(); i < usernameLength; i++)
+      {
+        delusername += " ";
+      }
+
+      string inString;
+      fstream userFile;
+
+      userFile.open(userFileName);
+
+      // read file line by line
+      while (getline(userFile, inString))
+      {
+        if (inString.substr(0, usernameLength) == delusername)
+        {
+          deluserType = inString.substr(16, 2);
+          delbalance = stoi(inString.substr(19, 9));
+          break;
+        }
+      }
+      userFile.close();
+      transactions.push_back(TransactionCodeMaker::makeDelete(delusername, deluserType, delbalance));
     };
 
     /**
@@ -131,7 +155,29 @@ public:
      * @param amount            the amount to transfer from seller to buyer
      * @return void
      */
-    void refund(string buyerUsername, string sellerUsername, int amount){
-      transactions.push_back(TransactionCodeMaker::makeRefund("","",0));
+    void refund(string buyerUsername, string sellerUsername, int amount, string userFileName){
+      //buffer username
+      for (int i = sellerUsername.length(); i < usernameLength; i++)
+      {
+        sellerUsername += " ";
+      }
+
+      string inString;
+      fstream userFile;
+      int sellerBalance;
+
+      userFile.open(userFileName);
+
+      // read file line by line
+      while (getline(userFile, inString))
+      {
+        if (inString.substr(0, usernameLength) == sellerUsername)
+        {
+          sellerBalance = stoi(inString.substr(19, 9));
+          break;
+        }
+      }
+      userFile.close();
+      transactions.push_back(TransactionCodeMaker::makeRefund( buyerUserName, sellerUserName, amount+sellerBalance));
     };
 };
