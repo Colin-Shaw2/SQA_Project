@@ -76,8 +76,8 @@ public:
      * @param amount the amount to bid
      * @return void
      */
-     void bid(string itemName, string username, int amount){
-         transactions.push_back(TransactionCodeMaker::makeBid("","","",0));
+     void bid(string itemName, string sellername, int bid){
+      transactions.push_back(TransactionCodeMaker::makeBid(username, sellername, itemName, bid));
      };
 
     void createNewUser(string username, string userType, int credit){};//user is not allowed to create new users
