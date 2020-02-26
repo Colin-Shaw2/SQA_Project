@@ -234,13 +234,20 @@ int main(int argc, char const *argv[])
       //cout << "Please enter your username:" << endl;
       break;
     case STATE_WAITING:
-      cout << "Enter a command:" << endl;
+      //cout << "Enter a command:" << endl;
       break;
     default:
       cout << "Please Enter an input (default)" << endl;
       break;
     }
     cin >> input;
+
+    //commented code below is for debugging
+    if (input == "q" || input == "thisLongStringExitsTheProgram")
+    {
+      quit = true;
+      break;
+    }
 
     if(!loggedIn){
       if (input == "login")
@@ -250,12 +257,6 @@ int main(int argc, char const *argv[])
         cout << "No user currently logged in: please login to complete the operation" << endl;
         currentState = STATE_LOGGED_OUT;
       }
-    }
-    //commented code below is for debugging
-    if (input == "q" || input == "thisLongStringExitsTheProgram")
-    {
-      quit = true;
-      break;
     }
 
     //If waiting get next command
