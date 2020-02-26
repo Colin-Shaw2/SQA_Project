@@ -96,6 +96,11 @@ public:
         cout << "Invalid Bid" << endl;
         return;
       }
+      if(getBalance() < itemBid){
+        cout << "Insufficient funds" << endl;
+        return;
+      }
+      setBalance(getBalance() - itemBid);
       transactions.push_back(TransactionCodeMaker::makeBid(username, sellerName, itemName, bid));
     };
 
