@@ -164,6 +164,7 @@ public:
       for(string code : transactions){
           transactionFile << code;
       }
+      transactionFile << "\n";
       transactionFile.close();
       cout << "Logout successful!" << endl;
     }
