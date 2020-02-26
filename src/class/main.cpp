@@ -28,6 +28,7 @@ const int usernameLength = 15;
 enum inputState
 {
   STATE_LOGGED_OUT,
+  STATE_LOGGING_IN,
   STATE_WAITING,
   STATE_CREATE,
   STATE_DELETE,
@@ -215,20 +216,22 @@ int main(int argc, char const *argv[])
 
   inputState currentState = STATE_LOGGED_OUT;
   bool quit = false;
+  bool loggedIn = false;
   string input = "";
   User *currentUser;
   //prevent infinite loops
   int maxTimesToLoop = 100;
   int timesLooped = 0;
 
-  while (!quit || timesLooped <= maxTimesToLoop)
+  while (!quit)
   {
     timesLooped++;
+    if(timesLooped >= maxTimesToLoop){exit(0);}
     input = "";
     switch (currentState)
     {
     case STATE_LOGGED_OUT:
-      cout << "Please enter your username:" << endl;
+      //cout << "Please enter your username:" << endl;
       break;
     case STATE_WAITING:
       cout << "Enter a command:" << endl;
@@ -239,6 +242,15 @@ int main(int argc, char const *argv[])
     }
     cin >> input;
 
+    if(!loggedIn){
+      if (input == "login")
+      {
+        currentState =STATE_LOGGING_IN;
+      }else{
+        cout << "No user currently logged in: please login to complete the operation" << endl;
+        currentState = STATE_LOGGED_OUT;
+      }
+    }
     //commented code below is for debugging
     if (input == "q" || input == "thisLongStringExitsTheProgram")
     {
@@ -256,6 +268,10 @@ int main(int argc, char const *argv[])
       else if (input == "addcredit")
       {
         currentState = STATE_ADD_CREDIT;
+      }
+      else if (input == "login")
+      {
+        cout << "Already logged in." << endl;
       }
       else if (input == "advertise")
       {
@@ -285,14 +301,24 @@ int main(int argc, char const *argv[])
     //login
     case STATE_LOGGED_OUT:
     {
+      break;
+    }
+    case STATE_LOGGING_IN:
+    {
+      cout << "Please enter your username:" << endl;
+      cin >> input;
       if (isValidUsername(input))
       {
         currentUser = getUser(input);
         if (currentUser != NULL)
         {
           cout << "Login successful!" << endl;
+          loggedIn = true;
           currentState = STATE_WAITING;
         }
+      }
+      else{
+        currentState = STATE_LOGGED_OUT;
       }
       break;
     }
@@ -301,6 +327,12 @@ int main(int argc, char const *argv[])
     {
       break;
     }
+
+    // case STATE_LOGGING_IN:
+    // {
+    //   currentState = STATE_LOGGED_OUT;
+    //   break;
+    // }
 
     case STATE_CREATE:
     {
@@ -363,6 +395,7 @@ int main(int argc, char const *argv[])
       currentUser->logout(transactionFileName);
       //cout << "Logout successful!" << endl;
       currentState = STATE_LOGGED_OUT;
+      loggedIn = false;
       break;
     }
     case STATE_ADD_CREDIT:
