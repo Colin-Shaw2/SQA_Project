@@ -2,3 +2,5 @@ login
 admin
 delete
 admin
+
+thisLongStringExitsTheProgram

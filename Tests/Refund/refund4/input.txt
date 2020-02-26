@@ -11,3 +11,5 @@ refund
 admin
 sellOnly
 6000000
+
+thisLongStringExitsTheProgram

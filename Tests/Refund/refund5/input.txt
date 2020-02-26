@@ -12,3 +12,5 @@ refund
 buySell
 buyOnly
 root
+
+thisLongStringExitsTheProgram

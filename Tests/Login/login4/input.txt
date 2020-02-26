@@ -2,3 +2,4 @@ login
 \0
 login
 root
+thisLongStringExitsTheProgram

@@ -2,3 +2,4 @@ login
 buySell
 addcredit
 100
+thisLongStringExitsTheProgram

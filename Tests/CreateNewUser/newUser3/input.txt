@@ -4,3 +4,4 @@ create
 \0
 create
 root
+thisLongStringExitsTheProgram

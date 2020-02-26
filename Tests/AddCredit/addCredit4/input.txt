@@ -6,3 +6,5 @@ admin
 addcredit
 buySell
 999000
+
+thisLongStringExitsTheProgram

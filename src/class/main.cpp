@@ -236,7 +236,7 @@ int main(int argc, char const *argv[])
     cin >> input;
 
     //commented code below is for debugging
-    if (input == "q")
+    if (input == "q" || input == "thisLongStringExitsTheProgram")
     {
       quit = true;
       break;
