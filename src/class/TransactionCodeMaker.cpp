@@ -31,7 +31,7 @@ private:
     static string makeBufferedString(string input, int length){
         string outStr = "";
         outStr += input;
-        for (int i = input.length(); i <= length; i++)
+        for (int i = input.length(); i < length; i++)
         {
             outStr += " ";
         }
