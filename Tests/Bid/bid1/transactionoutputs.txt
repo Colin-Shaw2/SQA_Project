@@ -1,2 +1,2 @@
-04_product_____________admin___________buySell________000100
-00_buySell_________BS_000000100
+04 product             admin           buySell        000100
+00 buySell         BS 000000100
