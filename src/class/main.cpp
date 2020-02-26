@@ -217,9 +217,13 @@ int main(int argc, char const *argv[])
   bool quit = false;
   string input = "";
   User *currentUser;
+  //prevent infinite loops
+  int maxTimesToLoop = 100;
+  int timesLooped = 0;
 
-  while (!quit)
+  while (!quit || timesLooped <= maxTimesToLoop)
   {
+    timesLooped++;
     input = "";
     switch (currentState)
     {
