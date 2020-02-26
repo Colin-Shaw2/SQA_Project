@@ -52,7 +52,7 @@ private:
      */
     static string makeBufferedString(int input, int length){
         string outStr = "";
-        for (int i = to_string(input).length(); i <= length; i++)
+        for (int i = to_string(input).length(); i < length; i++)
         {
             outStr += "0";
         }
