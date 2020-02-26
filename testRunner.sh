@@ -16,7 +16,8 @@ for directory in Tests/*/*/ ; do
     # runs main using input.txt and and outputs it to testOutputs.txt
     # main.exe user item transaction
     ./main.exe $defaultUserFile $defaultItemFile "${directory}testTransactions.txt" < "${directory}input.txt" > "${directory}testOutput.txt"
-    
+    dos2unix "${directory}testOutput.txt"
+    dos2unix "${directory}output.txt"
 done
 echo "Checking..."
 echo "TEST NAME, SUCCESS?" >> $testTable
