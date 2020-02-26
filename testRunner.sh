@@ -18,6 +18,8 @@ for directory in Tests/*/*/ ; do
     ./main.exe $defaultUserFile $defaultItemFile "${directory}testTransactions.txt" < "${directory}input.txt" > "${directory}testOutput.txt"
     dos2unix "${directory}testOutput.txt"
     dos2unix "${directory}output.txt"
+    dos2unix "${directory}testTransactions.txt"
+    dos2unix "${directory}transactionoutputs.txt"
 done
 echo "Checking..."
 echo "TEST NAME, SUCCESS?" >> $testTable
