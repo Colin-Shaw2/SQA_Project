@@ -16,11 +16,11 @@ Tests/Bid/bid4/, false
 Tests/Bid/bid5/, false
 Tests/Bid/bid6/, false
 Tests/Bid/bid7/, false
-Tests/CreateNewUser/NewUser5/, false
 Tests/CreateNewUser/newUser1/, false
 Tests/CreateNewUser/newUser2/, false
 Tests/CreateNewUser/newUser3/, false
 Tests/CreateNewUser/newUser4/, false
+Tests/CreateNewUser/newUser5/, false
 Tests/DeleteUser/delete1/, false
 Tests/DeleteUser/delete2/, false
 Tests/DeleteUser/delete3/, false

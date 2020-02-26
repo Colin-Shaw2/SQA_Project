@@ -13,9 +13,6 @@ echo "Running Tests..."
 
 for directory in Tests/*/*/ ; do
     >"${directory}testTransactions.txt"
-    echo ""
-    echo "Current Directory is"
-    echo "$directory"
     # runs main using input.txt and and outputs it to testOutputs.txt
     # main.exe user item transaction
     ./main.exe $defaultUserFile $defaultItemFile "${directory}testTransactions.txt" < "${directory}input.txt" > "${directory}testOutput.txt"
