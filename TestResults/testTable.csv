@@ -182,11 +182,11 @@ Tests/DeleteUser/delete2/, false
 Tests/DeleteUser/delete3/, false
 Tests/DeleteUser/delete4/, false
 Tests/DeleteUser/delete5/, false
-Tests/Login/login1/, false
+Tests/Login/login1/, true
 Tests/Login/login2/, false
 Tests/Login/login3/, false
 Tests/Login/login4/, false
-Tests/Logout/logout1/, false
+Tests/Logout/logout1/, true
 Tests/Logout/logout2/, false
 Tests/Refund/refund1/, false
 Tests/Refund/refund2/, true
