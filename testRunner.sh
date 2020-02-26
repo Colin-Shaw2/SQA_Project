@@ -5,7 +5,7 @@ make compile
 
 defaultUserFile="TestDefaults/users.txt"
 echo $defaultUserFile
-defaultItemFile="TestDefaults/item.txt"
+defaultItemFile="TestDefaults/items.txt"
 echo $defaultItemFile
 testTable="TestResults/testTable.csv"
 echo "Running Tests..."

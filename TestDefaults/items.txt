@@ -1,2 +1,2 @@
-chair_______________admin____________admin____________010_000020
-product_____________admin____________buySell__________005_000100
+chair                     admin           admin           010 000020
+product                   admin           buySell         005 000100

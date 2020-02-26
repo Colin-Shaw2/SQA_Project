@@ -1,6 +1,5 @@
-User      Type  Balance
-
-admin     AA    500000
-buySell   FS    1000
-buyOnly   BS    100
-sellOnly  SS    50
+admin           AA 000500000
+buySell         FS 000001000
+buyOnly         BS 000000100
+sellOnly        SS 000000050
+END                         
