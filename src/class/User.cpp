@@ -60,6 +60,8 @@ public:
     int daysToAuction;
     int minimumBid;
     int newBid;
+    string ownerItem;
+    int bidItem, daysItem;
     /**
      * Creates a user with a name, type and initial account balance
      *
@@ -111,6 +113,35 @@ public:
       this->newBid = newBid;
     }
 
+    Item *getItem(string itemName){
+      //buffer username
+      for (int i = itemName.length(); i < 25; i++)
+      {
+        itemName += " ";
+      }
+
+      string inString;
+      fstream itemFile;
+
+      itemFile.open("items.txt");
+
+      // read file line by line
+      while (getline(itemFile, inString))
+      {
+        if (inString.substr(0, 25) == itemName)
+        {
+          itemFile.close();
+          ownerItem = inString.substr(26, 15);
+          daysItem = stoi(inString.substr(55, 3));
+          bidItem = stoi(inString.substr(59, 6));
+
+        }
+      }
+      itemFile.close();
+
+      return new Item(itemName, daysItem, bidItem, ownerItem);
+
+    }
 
     virtual void addCredit(int amount) = 0;
     virtual void advertise(string itemName, int minimumBid, int daysToBid) = 0;
