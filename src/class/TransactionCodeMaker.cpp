@@ -334,12 +334,12 @@ public:
 
 
 
-        code += makeBufferedAuction(auctionLength);
-        code += to_string(daysToAuction);
+        code += makeBufferedAuction(daysToAuction);
+        //code += to_string(daysToAuction);
         code += " ";
 
 
-        code += makeBufferedCredit(minimumBid);
+        code += makeBufferedBid(minimumBid);
 
         return code;
     }

@@ -163,8 +163,9 @@ public:
       transactionFile.open (outputFileName);
       for(string code : transactions){
           transactionFile << code;
+          transactionFile << "\n";
       }
-      transactionFile << "\n";
+
       transactionFile.close();
       cout << "Logout successful!" << endl;
     }

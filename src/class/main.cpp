@@ -511,13 +511,13 @@ int main(int argc, char const *argv[])
 
       cout << "Minimum Bid(CAD$ 00.01-999.99):" << endl;
       cin >> minimumBid;
-      if((!isValidAmount(minimumBid)) && (minimumBid < 1000)){
+      if((!isValidAmount(minimumBid)) && (minimumBid > 1000)){
         currentState = STATE_WAITING;
         break;
       }
       cout << "Number of days:" << endl;
       cin >> daysToBid;
-      if((0 < daysToBid) || (daysToBid< 100)){
+      if((0 > daysToBid) || (daysToBid > 100)){
         cout << "Invalid number of days" << endl;
         currentState = STATE_WAITING;
         break;

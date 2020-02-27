@@ -1,1 +1,2 @@
-03 chair               admin           010 000020
+03 chair                     admin           010 000020
+00 admin           AA 000500000
