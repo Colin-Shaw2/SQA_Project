@@ -5,6 +5,4 @@ Invalid Name
 Name of product:
 Invalid Name
 Name of product:
-Invalid Name
-Name of product:
 Name too long

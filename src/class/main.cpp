@@ -143,6 +143,10 @@ bool isValidItemName(string variable)
   {
     if (variable.length() < 25)
     {
+      if((variable == "\0") || (variable == "\\0") || (variable == "root")){
+        cout << "Invalid Name" << endl;
+        return false;
+      }
       fstream itemFile;
       itemFile.open(itemFileName);
       while(getline(itemFile, line)){
@@ -154,7 +158,7 @@ bool isValidItemName(string variable)
       cout << "We could not find that Item" << endl;
       return false;
     }
-    cout << "That is an invalid item name" << endl;
+    cout << "Name too long" << endl;
     return false;
   }
   else
