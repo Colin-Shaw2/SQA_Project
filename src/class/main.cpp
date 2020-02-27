@@ -13,6 +13,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <cmath>
 
 using namespace std;
 
@@ -498,6 +499,7 @@ int main(int argc, char const *argv[])
       string itemName;
       int minimumBid;
       int daysToBid;
+      float days;
 
       //Check for usertype BS
       if(currentUser->getUserType() == "BS"){
@@ -529,8 +531,19 @@ int main(int argc, char const *argv[])
         break;
       }
       cout << "Number of days:" << endl;
-      cin >> daysToBid;
-      if((0 > daysToBid) || (daysToBid > 100)){
+      cin >> days;
+      if(cin.fail()){
+        cin.clear();
+        daysToBid = -1;
+        days = 0.5;
+      }
+      if(days ==ceilf(days)){
+        daysToBid = days; 
+      }else{
+        daysToBid = -1;
+      }
+      
+      if((0 >= daysToBid) || (daysToBid > 100)){
         cout << "Invalid number of days" << endl;
         currentState = STATE_WAITING;
         break;
