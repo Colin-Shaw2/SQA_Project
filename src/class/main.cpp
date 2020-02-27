@@ -419,7 +419,7 @@ int main(int argc, char const *argv[])
         }
         User *user = getUser(username);
 
-        cout << "Current Balance $" << 100 /*place holder*/ << endl;
+        cout << "Current Balance $" << user->getBalance() << endl;
         cout << "How much would you like to add?" << endl;
         cin >> amount;
         if(!isValidAmount(amount)){
