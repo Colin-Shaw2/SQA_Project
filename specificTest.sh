@@ -11,7 +11,7 @@ testTable="TestResults/testTable.csv"
 echo "Running Tests..."
 
 
-for directory in Tests/*/*/ ; do
+for directory in Tests/*/login4/ ; do
     >"${directory}testTransactions.txt"
     # runs main using input.txt and and outputs it to testOutputs.txt
     # main.exe user item transaction
@@ -24,17 +24,17 @@ done
 echo "Checking..."
 echo "TEST NAME, SUCCESS?" >> $testTable
     
-for directory in Tests/*/*/ ; do
+for directory in Tests/*/login4/ ; do
     # compare to output files
     if diff -q "${directory}testTransactions.txt" "${directory}transactionoutputs.txt"; then
         #if true check other file
         if diff -q "${directory}output.txt" "${directory}testOutput.txt"; then
-            echo "${directory}, true" > $testTable
+            echo "${directory}, true" >> $testTable
         else
-        echo "${directory}, false" > $testTable
+        echo "${directory}, false" >> $testTable
         fi
     else
-    echo "${directory}, false" > $testTable
+    echo "${directory}, false" >> $testTable
     fi
 
 done

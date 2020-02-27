@@ -105,6 +105,10 @@ bool isValidUsername(string variable)
   if (!variable.empty())
   {
     if (variable.length() <= usernameLength){
+      if((variable == "\0") || (variable == "\\0") || (variable == "root")){
+        cout << "That is an invalid username" << endl;
+        return false;
+      }
       if(NULL == getUser(variable)){
         cout << "We could not find that username" << endl;
         return false;
