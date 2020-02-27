@@ -29,12 +29,12 @@ for directory in Tests/*/*/ ; do
     if diff -q "${directory}testTransactions.txt" "${directory}transactionoutputs.txt"; then
         #if true check other file
         if diff -q "${directory}output.txt" "${directory}testOutput.txt"; then
-            echo "${directory}, true" > $testTable
+            echo "${directory}, true" >> $testTable
         else
-        echo "${directory}, false" > $testTable
+        echo "${directory}, false" >> $testTable
         fi
     else
-    echo "${directory}, false" > $testTable
+    echo "${directory}, false" >> $testTable
     fi
 
 done
