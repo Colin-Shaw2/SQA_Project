@@ -181,7 +181,7 @@ bool isValidAmount(int variable)
 {
   if (variable < 1 || variable > 1000000)
   {
-    cout << "Invalid amount!" << endl;
+    cout << "Invalid amount" << endl;
     return false;
   }
   return true;
@@ -228,7 +228,7 @@ int main(int argc, char const *argv[])
   string input = "";
   User *currentUser;
   //prevent infinite loops
-  int maxTimesToLoop = 100;
+  int maxTimesToLoop = 1000;
   int timesLooped = 0;
 
   while (!quit)
@@ -515,7 +515,16 @@ int main(int argc, char const *argv[])
 
       cout << "Minimum Bid(CAD$ 00.01-999.99):" << endl;
       cin >> minimumBid;
-      if((!isValidAmount(minimumBid)) && (minimumBid > 1000)){
+      if(cin.fail()){
+        cin.clear();
+        minimumBid = -1;
+      }
+      if((!isValidAmount(minimumBid))){
+        currentState = STATE_WAITING;
+        break;
+      }
+      if(minimumBid >= 1000){
+        cout << "Invalid amount" << endl;
         currentState = STATE_WAITING;
         break;
       }
