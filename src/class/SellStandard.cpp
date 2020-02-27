@@ -32,17 +32,17 @@ public:
      * @param amount    the amount of credit to be added
      * @return void
      */
-     void addCredit(int amount){
-       int balance = getBalance();
-       if (balance + amount < 1000000){
-         balance+= amount;
-         setBalance(balance);
-         transactions.push_back(TransactionCodeMaker::makeAddCredit("","",0));
-       }
-       else{
-         cout << "Error Balance would be too high max value($999999.99)"<<endl;
-       }
-     };
+    void addCredit(int amount){
+      int balance = getBalance();
+      if (balance + amount < 1000000){
+        balance+= amount;
+        setBalance(balance);
+        transactions.push_back(TransactionCodeMaker::makeAddCredit(username, userType, amount));
+      }
+      else{
+        cout << "Error Balance would be too high max value($999999.99)"<<endl;
+      }
+    };
 
     /**
      * advertise is called to put up a new item.
