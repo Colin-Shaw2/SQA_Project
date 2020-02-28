@@ -1,4 +1,4 @@
 Please enter your username:
 Login successful!
 Please enter a user name to be deleted
-User does not exist.
+We could not find that username
