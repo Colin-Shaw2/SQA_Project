@@ -1,7 +1,7 @@
 Please enter your username:
 Login successful!
 Please enter the buyer's username:
-User name does not exist!
+We could not find that username
 Please enter the buyer's username:
 Please enter the seller's username:
-User name does not exist!
+We could not find that username

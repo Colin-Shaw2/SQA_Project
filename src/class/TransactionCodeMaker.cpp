@@ -252,7 +252,7 @@ public:
      * @param availableCredit   credit available on buyer the account after refund
      * @return the transaction code
      */
-    static string makeRefund(string buyerUsername, string sellerUsername, int availableCredit)
+    static string makeRefund(string buyerUsername, string sellerUsername, int refundAmount)
     {
         string code = "";
         code += "05 ";
@@ -266,7 +266,7 @@ public:
         code += " ";
 
 
-        code += makeBufferedCredit(availableCredit);
+        code += makeBufferedCredit(refundAmount);
         return code;
     }
 

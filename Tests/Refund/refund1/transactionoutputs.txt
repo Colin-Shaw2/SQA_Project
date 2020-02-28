@@ -1,2 +1,2 @@
 05 buyOnly         sellOnly        000000050
-00 admin           AA 000500100
+00 admin           AA 000500000
