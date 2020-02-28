@@ -7,13 +7,13 @@ Created User "siyavash" as Admin with $0
 Please Enter User Name:
 Type of user?(Admin(AA)/BuyAndSell(FS)/Buy(BS)/Sell(SS))
 Starting Balance?
-Created User "siyavash1" as BuyAndSell with $200
+Created User "siyavash1" as Full Standard with $200
 Please Enter User Name:
 Type of user?(Admin(AA)/BuyAndSell(FS)/Buy(BS)/Sell(SS))
 Starting Balance?
-Created User "siyavash2" as Buyer with $300
+Created User "siyavash2" as Buy Standard with $300
 Please Enter User Name:
 Type of user?(Admin(AA)/BuyAndSell(FS)/Buy(BS)/Sell(SS))
 Starting Balance?
-Created User "siyavash3" as Seller with $400
+Created User "siyavash3" as Sell Standard with $400
 Logout successful!

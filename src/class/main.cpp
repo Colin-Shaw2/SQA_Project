@@ -353,11 +353,6 @@ int main(int argc, char const *argv[])
       cout << "Please Enter User Name:" << endl;
       cin >> username;
 
-      if(isValidUsername(username)){
-        cout << "User already exists" << endl;
-        currentState = STATE_WAITING;
-        break;
-      }
       if((username.length() > usernameLength) || (username.empty())){
         cout << "Invalid User Name" << endl;
         currentState = STATE_WAITING;
@@ -380,7 +375,7 @@ int main(int argc, char const *argv[])
 
       currentUser->createNewUser(username,userType,credit);
 
-      cout << "Created User \"" <<  username <<  "\" as " << currentUser->getType(username) << " with $" << credit << endl;
+      cout << "Created User \"" <<  username <<  "\" as " << currentUser->getType(userType) << " with $" << credit << endl;
       currentState = STATE_WAITING;
       break;
     }

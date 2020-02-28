@@ -95,7 +95,7 @@ public:
         return "Buy Standard";
       }
       if(userType == "SS"){
-        return "SellStandard";
+        return "Sell Standard";
       }
       else{
         return "NULL";
