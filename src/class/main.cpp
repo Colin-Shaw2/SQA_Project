@@ -129,6 +129,46 @@ bool isValidUsername(string variable)
   }
 }
 
+
+
+/**
+ * isValidNewUser is called to validate string username inputs for new users 
+ * It takes in a string parameter, checks if it's not empty and it's less than 15
+ * characters. Next, it checks if the user already exists.
+ * If all tests pass, it returns true, and if they fail
+ * it returns false with an explanation 
+ *
+ * @param variable   user name to be checked
+ * @return boolean
+ */
+bool isValidNewUser(string variable)
+{
+  if (!variable.empty())
+  {
+    if (variable.length() <= usernameLength){
+      if((variable == "\0") || (variable == "\\0") || (variable == "root")){
+        cout << "That is an invalid username" << endl;
+        return false;
+      }
+      if(NULL == getUser(variable)){
+            return true;
+      }else{
+            cout << "User already exists" << endl;
+            return false;
+          }
+        }
+    else{
+      cout << "That is an invalid username" << endl;
+      return false;
+    }
+  }
+  else
+  {
+    cout << "That is an invalid username" << endl;
+    return false;
+  }
+}
+
 /**
  * isValidItemName is called to validate string itemName inputs. isValidItemName
  * takes in a string parameter, checks if it's not empty and it's less than 25
@@ -353,8 +393,7 @@ int main(int argc, char const *argv[])
       cout << "Please Enter User Name:" << endl;
       cin >> username;
 
-      if((username.length() > usernameLength) || (username.empty())){
-        cout << "Invalid User Name" << endl;
+      if(!isValidNewUser(username)){
         currentState = STATE_WAITING;
         break;
       }

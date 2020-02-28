@@ -1,6 +1,6 @@
 Please enter your username:
 Login successful!
 Please Enter User Name:
-Invalid User Name
+That is an invalid username
 Please Enter User Name:
-Invalid User Name
+That is an invalid username
