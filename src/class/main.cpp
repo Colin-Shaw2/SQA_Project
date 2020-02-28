@@ -445,14 +445,14 @@ int main(int argc, char const *argv[])
 
         user->addCredit(amount);
 
-        cout << "Credit added, Balance is $" <</*placeHolder*/ user->getBalance() << endl;
+        cout << "Credit added, Balance is $" <<user->getBalance() << endl;
 
         currentState = STATE_WAITING;
         break;
       }
 
       else{//Non admins
-        cout << "Current Balance $" << 100 /*place holder*/ << endl;
+        cout << "Current Balance $" << currentUser->getBalance() << endl;
         cout << "How much would you like to add?" << endl;
         cin >> amount;
         if(!isValidAmount(amount)){
@@ -462,7 +462,7 @@ int main(int argc, char const *argv[])
 
         currentUser->addCredit(amount);
 
-        cout << "Created added, Balance is $" <</*placeHolder*/ currentUser->getBalance() << endl;
+        cout << "Credit added, Balance is $" <<currentUser->getBalance() << endl;
 
         currentState = STATE_WAITING;
         break;
