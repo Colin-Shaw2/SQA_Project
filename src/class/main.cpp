@@ -399,6 +399,11 @@ int main(int argc, char const *argv[])
         currentState = STATE_WAITING;
         break;
       }
+      if(currentUser->getName() == username){
+        cout << "User cannot be deleted" << endl;
+        currentState = STATE_WAITING;
+        break;
+      }
 
       currentUser->deleteUser(username, userFileName);
 
