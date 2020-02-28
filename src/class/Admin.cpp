@@ -190,6 +190,6 @@ public:
         }
       }
       userFile.close();
-      transactions.push_back(TransactionCodeMaker::makeRefund( buyerUserName, sellerUserName, amount+sellerBalance));
+      transactions.push_back(TransactionCodeMaker::makeRefund(buyerUsername, sellerUsername, amount));
     };
 };

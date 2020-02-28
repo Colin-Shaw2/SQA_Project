@@ -564,7 +564,7 @@ int main(int argc, char const *argv[])
       }
       currentUser->refund(buyerUsername, sellerUsername, amount, userFileName);
 
-      cout << "Refund successsful!" << endl;
+      cout << "Refund successful!" << endl;
 
       currentState = STATE_WAITING;
       break;

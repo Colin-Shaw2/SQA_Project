@@ -10,8 +10,9 @@ echo $defaultItemFile
 testTable="TestResults/testTable.csv"
 echo "Running Tests..."
 
+testsToRun="Tests/Refund/*/"
 
-for directory in Tests/CreateNewUser/*/ ; do
+for directory in $testsToRun ; do
     >"${directory}testTransactions.txt"
     # runs main using input.txt and and outputs it to testOutputs.txt
     # main.exe user item transaction
@@ -24,7 +25,7 @@ done
 echo "Checking..."
 echo "TEST NAME, SUCCESS?" >> $testTable
     
-for directory in Tests/CreateNewUser/*/ ; do
+for directory in $testsToRun ; do
     # compare to output files
     if diff -q "${directory}testTransactions.txt" "${directory}transactionoutputs.txt"; then
         #if true check other file
