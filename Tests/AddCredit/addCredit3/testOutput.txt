@@ -1,17 +1,8 @@
 Please enter your username:
+Login successful!
+Please enter a username:
+That is an invalid username
+Please enter a username:
+That is an invalid username
+Please enter a username:
 We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:

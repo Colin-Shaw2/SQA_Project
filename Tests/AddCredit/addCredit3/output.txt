@@ -1,8 +1,8 @@
 Please enter your username:
 Login successful!
 Please enter a username:
-Invalid Username
+That is an invalid username
 Please enter a username:
-Invalid Username
+That is an invalid username
 Please enter a username:
-That user does not exist
+We could not find that username
