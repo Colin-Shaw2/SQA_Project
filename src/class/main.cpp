@@ -220,7 +220,7 @@ bool isValidItemName(string variable)
  */
 bool isValidAmount(int variable)
 {
-  if (variable < 1 || variable > 1000000)
+  if (variable < 1 || variable > 100000000)
   {
     cout << "Invalid amount" << endl;
     return false;
@@ -406,7 +406,7 @@ int main(int argc, char const *argv[])
       }
       cout << "Starting Balance?" << endl;
       cin >> credit;
-      if((credit < 0) || (credit > 1000000)){
+      if((credit < 0) || (credit > 100000000)){
         cout << "Invalid amount" << endl;
         currentState = STATE_WAITING;
         break;
@@ -562,6 +562,18 @@ int main(int argc, char const *argv[])
         currentState = STATE_WAITING;
         break;
       }
+      //Buyer has too many funds
+      if(100000000 <= amount + getUser(buyerUsername)->getBalance()){
+        cout << "Transaction reject buyer has too many funds" << endl;
+        currentState = STATE_WAITING;
+        break;
+        }
+      //check for sufficient funds
+      if(amount > getUser(sellerUsername)->getBalance()){
+        cout << "Seller does not have sufficient funds for a refund." << endl;
+        currentState = STATE_WAITING;
+        break;
+        }
       currentUser->refund(buyerUsername, sellerUsername, amount, userFileName);
 
       cout << "Refund successful!" << endl;

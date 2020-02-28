@@ -4,12 +4,9 @@ refund
 admin
 sellOnly
 5000
-addcredit
-sellOnly
-900000
 refund
 admin
 sellOnly
-6000000
+99999990
 
 thisLongStringExitsTheProgram

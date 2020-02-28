@@ -4,10 +4,6 @@ Please enter the buyer's username:
 Please enter the seller's username:
 Please enter the refund amount:
 Seller does not have sufficient funds for a refund.
-Please enter a username:
-Current Balance $50
-How much would you like to add?
-Credit added, Balance is $900050
 Please enter the buyer's username:
 Please enter the seller's username:
 Please enter the refund amount:
