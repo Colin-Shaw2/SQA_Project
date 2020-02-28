@@ -4,6 +4,7 @@ Please enter a username:
 Current Balance $100
 How much would you like to add?
 Cannot add more than $1000 in one session
+Please enter a username:
 Current Balance $100
 How much would you like to add?
 Credit added, Balance is $1100

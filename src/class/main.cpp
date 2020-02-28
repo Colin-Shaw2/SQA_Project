@@ -435,6 +435,7 @@ int main(int argc, char const *argv[])
         }
         User *user = getUser(username);
 
+
         cout << "Current Balance $" << user->getBalance() << endl;
         cout << "How much would you like to add?" << endl;
         cin >> amount;
@@ -447,14 +448,16 @@ int main(int argc, char const *argv[])
           currentState = STATE_WAITING;
           break;
         }
-        else if(user->getMaxCredit() >= 1000){
+        else if((user->getMaxCredit() > 1000) || (amount >1000)){
           cout << "Cannot add more than $1000 in one session" << endl;
           currentState = STATE_WAITING;
           break;
-
         }else{
           user->addCredit(amount);
-
+          currentUser->setTransactions(user->getTransactions());
+        if (user->getName() == currentUser->getName()){
+          currentUser->setBalance(currentUser->getBalance() + amount);
+        }
           cout << "Credit added, Balance is $" <<user->getBalance() << endl;
           
           currentState = STATE_WAITING;
@@ -476,14 +479,14 @@ int main(int argc, char const *argv[])
           currentState = STATE_WAITING;
           break;
         }
-        else if(currentUser->getMaxCredit() >= 1000){
+        else if((currentUser->getMaxCredit() > 1000) || (amount >1000)){
           cout << "Cannot add more than $1000 in one session" << endl;
           currentState = STATE_WAITING;
           break;
         }else{
           currentUser->addCredit(amount);
 
-          cout << "Credit added, Balance is $" <<currentUser->getBalance() << endl;
+          cout << "Credit added, Balance is $" <<currentUser->getBalance() + amount << endl;
           
           currentState = STATE_WAITING;
           break;

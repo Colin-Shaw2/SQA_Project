@@ -62,7 +62,7 @@ public:
     int newBid;
     string ownerItem;
     int bidItem, daysItem;
-    int maxCredit = 0;
+    int maxCredit;
     /**
      * Creates a user with a name, type and initial account balance
      *
@@ -74,6 +74,7 @@ public:
         this->username = name;
         this->balance = accountBalance;
         this->userType = type;
+        this->maxCredit = 0;
     }
     ~User();
 
@@ -146,6 +147,10 @@ public:
 
     }
 
+    string getTransactions(){return this->transactions.back();}
+    void setTransactions(string otherTransactions){
+      this->transactions.push_back(otherTransactions);
+    }
     virtual void addCredit(int amount) = 0;
     virtual void advertise(string itemName, int minimumBid, int daysToBid) = 0;
     virtual void bid(string itemName, string username, int amount) = 0;
