@@ -294,14 +294,14 @@ public:
         code += " ";
 
 
-        code += makeBufferedUsername(buyerUsername);
-        code += " ";
-
-
         code += makeBufferedUsername(sellerUsername);
         code += " ";
 
-        code += makeBufferedCredit(bid);
+
+        code += makeBufferedUsername(buyerUsername);
+        code += " ";
+
+        code += makeBufferedBid(bid);
 
         return code;
     }

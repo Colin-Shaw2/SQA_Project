@@ -54,29 +54,20 @@ public:
      *
      * @param itemName the name of the item
      * @param username the user selling the item
-     * @param amount the amount to bid
+     * @param amount   the amount to bid
+     * @param item      
      * @return void
      */
-     void bid(string itemName, string sellerName, int bid){
-       Item *item = getItem(itemName);
-       if(sellerName != item->getSeller()){
-         cout << "Item and Seller do not match" << endl;
-         return;
-       }
-       int itemBid = item->getCurrentBid();
-       itemBid += itemBid * 0.05;
-       if(bid >= itemBid){
-         cout << "Invalid Bid" << endl;
-         return;
-       }
-       if(getBalance() < itemBid){
-         cout << "Insufficient funds" << endl;
-         return;
-       }
-       setBalance(getBalance() - itemBid);
-       transactions.push_back(TransactionCodeMaker::makeBid(username, sellerName, itemName, bid));
-     };
-
+    void bid(string itemName, string sellerName, int bid, Item *item){
+      int itemBid = item->getCurrentBid();
+      itemBid += itemBid * 0.05;
+      if(getBalance() < itemBid){
+        cout << "Insufficient funds" << endl;
+        return;
+      }
+      setBalance(getBalance() - bid);
+      transactions.push_back(TransactionCodeMaker::makeBid(username, sellerName, itemName, bid));
+    };
     void createNewUser(string username, string userType, int credit){};//user is not allowed to create new users
     void deleteUser(string username, string UserFileName){};//user is not allowed to delete users
     void refund(string buyerUsername, string sellerUsername, int amount, string UserFileName){};//user is not allowed to refund

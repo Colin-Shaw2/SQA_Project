@@ -63,6 +63,7 @@ public:
     string ownerItem;
     int bidItem, daysItem;
     int maxCredit;
+    string test1, test2;
     /**
      * Creates a user with a name, type and initial account balance
      *
@@ -117,7 +118,7 @@ public:
       this->newBid = newBid;
     }
 
-    Item *getItem(string itemName){
+    Item *getItem(string itemName, string itemFileName){
       //buffer username
       for (int i = itemName.length(); i < 25; i++)
       {
@@ -127,24 +128,20 @@ public:
       string inString;
       fstream itemFile;
 
-      itemFile.open("items.txt");
+      itemFile.open(itemFileName);
 
       // read file line by line
       while (getline(itemFile, inString))
       {
         if (inString.substr(0, 25) == itemName)
         {
-          itemFile.close();
           ownerItem = inString.substr(26, 15);
-          daysItem = stoi(inString.substr(55, 3));
-          bidItem = stoi(inString.substr(59, 6));
-
+          daysItem = stoi(inString.substr(58, 3));
+          bidItem = stoi(inString.substr(62, 6));
         }
       }
       itemFile.close();
-
       return new Item(itemName, daysItem, bidItem, ownerItem);
-
     }
 
     string getTransactions(){return this->transactions.back();}
@@ -153,7 +150,7 @@ public:
     }
     virtual void addCredit(int amount) = 0;
     virtual void advertise(string itemName, int minimumBid, int daysToBid) = 0;
-    virtual void bid(string itemName, string username, int amount) = 0;
+    virtual void bid(string itemName, string username, int amount, Item *item) = 0;
     virtual void createNewUser(string username, string userType, int credit) = 0;
     virtual void deleteUser(string username, string UserFileName) = 0;
     virtual void refund(string buyerUsername, string sellerUserName, int amount, string UserFileName) = 0;

@@ -644,6 +644,8 @@ int main(int argc, char const *argv[])
         currentState = STATE_WAITING;
         break;
       }
+      Item *item = currentUser->getItem(itemName, itemFileName);
+      
       cout << "Enter Username:" << endl;
       cin >> username;
       if(!isValidUsername(username)){
@@ -651,14 +653,13 @@ int main(int argc, char const *argv[])
         break;
       }
 
-      //TODO: check if item belongs to user
-      cout << "Current Bid $" << 50 << endl;
+      cout << "Current Bid $" << item->getCurrentBid() << endl;
       cin >> amount;
       if(!isValidAmount(amount)){
         currentState = STATE_WAITING;
         break;
       }
-      currentUser->bid(itemName, username, amount);
+      currentUser->bid(itemName, username, amount, item);
 
       cout << "Bid Successful!" << endl;
 
