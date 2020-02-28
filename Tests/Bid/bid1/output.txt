@@ -2,6 +2,6 @@ Please enter your username:
 Login successful!
 Enter Product Name:
 Enter Username:
-Current Bid $50
+Current Bid $100
 Bid Successful!
 Logout successful!

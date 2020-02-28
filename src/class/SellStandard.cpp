@@ -55,7 +55,7 @@ public:
       transactions.push_back(TransactionCodeMaker::makeAdvertise(username, daysToBid, itemName, minimumBid));
      };
 
-    void bid(string itemName, string username, int amount){};//user is not allowed to bid
+    void bid(string itemName, string username, int amount, Item *item){};//user is not allowed to bid
 
     void createNewUser(string username, string userType, int credit){};//user is not allowed to create new users
     void deleteUser(string username, string UserFileName){};//user is not allowed to delete users

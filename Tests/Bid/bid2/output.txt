@@ -2,10 +2,10 @@ Please enter your username:
 Login successful!
 Enter Product Name:
 Enter Username:
-Username not found
+We could not find that username
 Enter Product Name:
 Enter Username:
-Invalid Username
+That is an invalid username
 Enter Product Name:
 Enter Username:
-Invalid Username
+That is an invalid username
