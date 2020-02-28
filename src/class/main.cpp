@@ -557,7 +557,15 @@ int main(int argc, char const *argv[])
         break;
       }
       cout << "Please enter the refund amount:" << endl;
-      cin >> amount;
+      int amountInt;
+      cin >> amountInt;
+      
+      if(cin.fail()){
+        cin.clear();
+        amount = -1;
+      }else{
+        amount = amountInt;
+      }
       if(!isValidAmount(amount)){
         currentState = STATE_WAITING;
         break;
