@@ -386,8 +386,13 @@ int main(int argc, char const *argv[])
     }
     case STATE_DELETE:
     {
+      if(currentUser->getUserType() != "AA"){
+        cout << "Only admins can use that command" << endl;
+        currentState = STATE_WAITING;
+        break;
+      }
       string username;
-
+      
       cout << "Please enter a user name to be deleted" << endl;
       cin >> username;
       if(!isValidUsername(username)){
