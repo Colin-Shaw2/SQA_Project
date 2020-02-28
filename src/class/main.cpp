@@ -457,6 +457,7 @@ int main(int argc, char const *argv[])
           currentUser->setTransactions(user->getTransactions());
         if (user->getName() == currentUser->getName()){
           currentUser->setBalance(currentUser->getBalance() + amount);
+          currentUser->setMaxCredit(currentUser->getMaxCredit() + amount);
         }
           cout << "Credit added, Balance is $" <<user->getBalance() << endl;
           
@@ -486,7 +487,7 @@ int main(int argc, char const *argv[])
         }else{
           currentUser->addCredit(amount);
 
-          cout << "Credit added, Balance is $" <<currentUser->getBalance() + amount << endl;
+          cout << "Credit added, Balance is $" <<currentUser->getBalance() << endl;
           
           currentState = STATE_WAITING;
           break;
