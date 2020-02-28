@@ -111,12 +111,12 @@ bool isValidUsername(string variable)
         return false;
       }
       if(NULL == getUser(variable)){
-        cout << "We could not find that username" << endl;
-        return false;
+            cout << "We could not find that username" << endl;
+            return false;
       }else{
-        return true;
-      }
-    }
+            return true;
+          }
+        }
     else{
       cout << "That is an invalid username" << endl;
       return false;
@@ -372,14 +372,15 @@ int main(int argc, char const *argv[])
       }
       cout << "Starting Balance?" << endl;
       cin >> credit;
-      if(!isValidAmount(credit)){
+      if((credit < 0) || (credit > 1000000)){
+        cout << "Invalid amount" << endl;
         currentState = STATE_WAITING;
         break;
       }
 
       currentUser->createNewUser(username,userType,credit);
 
-      cout << "Created User \"" <<  username <<  "\" as " << userType << " with $" << credit << endl;
+      cout << "Created User \"" <<  username <<  "\" as " << currentUser->getType(username) << " with $" << credit << endl;
       currentState = STATE_WAITING;
       break;
     }
