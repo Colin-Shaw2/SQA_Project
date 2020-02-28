@@ -46,7 +46,7 @@ public:
       if (balance + amount < 1000000){
         balance+= amount;
         setBalance(balance);
-        transactions.push_back(TransactionCodeMaker::makeAddCredit(username, userType, amount));
+       transactions.push_back(TransactionCodeMaker::makeAddCredit(username, userType, balance));
       }
       else{
         cout << "Error Balance would be too high max value($999999.99)"<<endl;
