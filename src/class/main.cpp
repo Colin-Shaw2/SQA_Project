@@ -445,7 +445,7 @@ int main(int argc, char const *argv[])
 
         user->addCredit(amount);
 
-        cout << "Created added, Balance is $" <</*placeHolder*/ user->getBalance() << endl;
+        cout << "Credit added, Balance is $" <</*placeHolder*/ user->getBalance() << endl;
 
         currentState = STATE_WAITING;
         break;
