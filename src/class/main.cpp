@@ -433,6 +433,10 @@ int main(int argc, char const *argv[])
         currentState = STATE_WAITING;
         break;
       }
+      for (int i = username.length(); i < usernameLength; i++)
+      {
+        username += " ";
+      }
       if(currentUser->getName() == username){
         cout << "User cannot be deleted" << endl;
         currentState = STATE_WAITING;
