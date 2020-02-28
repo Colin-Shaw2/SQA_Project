@@ -33,17 +33,10 @@ public:
      * @return void
      */
     void addCredit(int amount){
-      string username = getName();
-      string userType = getUserType();
       int balance = getBalance();
-      if (balance + amount < 1000000){
-        balance+= amount;
-        setBalance(balance);
-        transactions.push_back(TransactionCodeMaker::makeAddCredit(username, userType, balance));
-      }
-      else{
-        cout << "Error Balance would be too high max value($999999.99)"<<endl;
-      }
+      setBalance(balance);
+      setMaxCredit(amount);
+      transactions.push_back(TransactionCodeMaker::makeAddCredit(username, userType, balance));
     };
 
     /**

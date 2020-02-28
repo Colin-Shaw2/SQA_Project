@@ -62,6 +62,7 @@ public:
     int newBid;
     string ownerItem;
     int bidItem, daysItem;
+    int maxCredit = 0;
     /**
      * Creates a user with a name, type and initial account balance
      *
@@ -79,6 +80,8 @@ public:
     string getName(){return this->username;}
     int getBalance(){return this->balance;}
     void setBalance(int balance){this->balance = balance;}
+    int getMaxCredit(){return this->maxCredit;}
+    void setMaxCredit(int credit){this->maxCredit += credit;}
     string getUserType(){return this->userType;}
     string getType(string userType){
       if(userType == "AA"){

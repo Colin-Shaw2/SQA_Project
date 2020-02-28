@@ -442,13 +442,24 @@ int main(int argc, char const *argv[])
           currentState = STATE_WAITING;
           break;
         }
+        if(!(user->getBalance() + amount < 1000000)){
+          cout << "Error Balance would be too high max value($999999.99)" << endl;
+          currentState = STATE_WAITING;
+          break;
+        }
+        else if(user->getMaxCredit() >= 1000){
+          cout << "Cannot add more than $1000 in one session" << endl;
+          currentState = STATE_WAITING;
+          break;
 
-        user->addCredit(amount);
+        }else{
+          user->addCredit(amount);
 
-        cout << "Credit added, Balance is $" <<user->getBalance() << endl;
-
-        currentState = STATE_WAITING;
-        break;
+          cout << "Credit added, Balance is $" <<user->getBalance() << endl;
+          
+          currentState = STATE_WAITING;
+          break;
+        }
       }
 
       else{//Non admins
@@ -460,12 +471,23 @@ int main(int argc, char const *argv[])
           break;
         }
 
-        currentUser->addCredit(amount);
+        if(!(currentUser->getBalance() + amount < 1000000)){
+          cout << "Error Balance would be too high max value($999999.99)" << endl;
+          currentState = STATE_WAITING;
+          break;
+        }
+        else if(currentUser->getMaxCredit() >= 1000){
+          cout << "Cannot add more than $1000 in one session" << endl;
+          currentState = STATE_WAITING;
+          break;
+        }else{
+          currentUser->addCredit(amount);
 
-        cout << "Credit added, Balance is $" <<currentUser->getBalance() << endl;
-
-        currentState = STATE_WAITING;
-        break;
+          cout << "Credit added, Balance is $" <<currentUser->getBalance() << endl;
+          
+          currentState = STATE_WAITING;
+          break;
+        }
       }
     }
     case STATE_REFUND:
