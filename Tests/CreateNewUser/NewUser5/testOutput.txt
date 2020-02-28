@@ -1,23 +1,11 @@
 Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
+Login successful!
+Please Enter User Name:
+Type of user?(Admin(AA)/BuyAndSell(FS)/Buy(BS)/Sell(SS))
+Invalid type of user
+Please Enter User Name:
+Type of user?(Admin(AA)/BuyAndSell(FS)/Buy(BS)/Sell(SS))
+Invalid type of user
+Please Enter User Name:
+Type of user?(Admin(AA)/BuyAndSell(FS)/Buy(BS)/Sell(SS))
+Invalid type of user

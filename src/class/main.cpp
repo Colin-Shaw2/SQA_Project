@@ -238,7 +238,7 @@ bool isValidAmount(int variable)
  * @return boolean
  */
 bool isValidUserType(string variable){
-  if(variable == "AA" || "FS" || "BS" || "SS"){
+  if((variable == "AA") || (variable == "FS") || (variable == "BS") || ( variable == "SS")){
     return true;
   }
   cout << "Invalid type of user" << endl;

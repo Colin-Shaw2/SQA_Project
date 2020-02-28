@@ -193,3 +193,9 @@ Tests/Refund/refund2/, true
 Tests/Refund/refund3/, false
 Tests/Refund/refund4/, false
 Tests/Refund/refund5/, false
+TEST NAME, SUCCESS?
+Tests/CreateNewUser/newUser1/, true
+Tests/CreateNewUser/newUser2/, true
+Tests/CreateNewUser/newUser3/, true
+Tests/CreateNewUser/newUser4/, true
+Tests/CreateNewUser/NewUser5/, true

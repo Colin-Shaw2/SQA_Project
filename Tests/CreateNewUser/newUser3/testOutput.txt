@@ -1,13 +1,6 @@
 Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
+Login successful!
+Please Enter User Name:
+That is an invalid username
+Please Enter User Name:
+That is an invalid username
