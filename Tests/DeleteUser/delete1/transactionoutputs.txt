@@ -1,2 +1,2 @@
-02 buySell         FS 000000100
+02 buySell         FS 000001000
 00 admin           AA 000500000
