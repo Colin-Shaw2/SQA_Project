@@ -676,9 +676,13 @@ int main(int argc, char const *argv[])
         currentState = STATE_WAITING;
         break;
       }
-
+      
       cout << "Current Bid $" << item->getCurrentBid() << endl;
       cin >> amount;
+      if(cin.fail()){
+        cin.clear();
+        amount = -1;
+      }
       if(!isValidAmount(amount)){
         currentState = STATE_WAITING;
         break;

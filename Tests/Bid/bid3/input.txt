@@ -11,10 +11,6 @@ admin
 bid
 product
 admin
-1000
-bid
-product
-admin
 root
 bid
 product

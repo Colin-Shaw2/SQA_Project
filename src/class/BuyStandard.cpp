@@ -61,6 +61,9 @@ public:
     void bid(string itemName, string sellerName, int bid, Item *item){
       int itemBid = item->getCurrentBid();
       itemBid += itemBid * 0.05;
+      if(bid < itemBid){
+        cout << "Bid too small" << endl;
+      }
       if(getBalance() < itemBid){
         cout << "Insufficient funds" << endl;
         return;
