@@ -1,6 +1,6 @@
 Please enter your username:
 Login successful!
 Please enter a user name to be deleted
-User name invalid
+That is an invalid username
 Please enter a user name to be deleted
-User name invalid
+That is an invalid username
