@@ -58,8 +58,8 @@ public:
      * @param item      
      * @return void
      */
-    void bid(string itemName, string sellerName, int bid, Item *item){
-      int itemBid = item->getCurrentBid();
+    void bid(string itemName, string sellerName, int currentBid, int bid){
+      int itemBid = currentBid;
       itemBid += itemBid * 0.05;
       if(bid < itemBid){
         cout << "Bid too small" << endl;
@@ -71,6 +71,8 @@ public:
       setBalance(getBalance() - bid);
       transactions.push_back(TransactionCodeMaker::makeBid(username, sellerName, itemName, bid));
     };
+
+    
     void createNewUser(string username, string userType, int credit){};//user is not allowed to create new users
     void deleteUser(string username, string UserFileName){};//user is not allowed to delete users
     void refund(string buyerUsername, string sellerUsername, int amount, string UserFileName){};//user is not allowed to refund

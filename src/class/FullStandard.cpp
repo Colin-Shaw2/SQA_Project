@@ -72,19 +72,19 @@ public:
      * @param amount the amount to bid
      * @return void
      */
-     void bid(string itemName, string sellerName, int bid, Item *item){
-       int itemBid = item->getCurrentBid();
-       itemBid += itemBid * 0.05;
+    void bid(string itemName, string sellerName, int currentBid, int bid){
+      int itemBid = currentBid;
+      itemBid += itemBid * 0.05;
       if(bid < itemBid){
         cout << "Bid too small" << endl;
       }
-       if(getBalance() < itemBid){
-         cout << "Insufficient funds" << endl;
-         return;
-       }
-       setBalance(getBalance() - bid);
-       transactions.push_back(TransactionCodeMaker::makeBid(username, sellerName, itemName, bid));
-     };
+      if(getBalance() < itemBid){
+        cout << "Insufficient funds" << endl;
+        return;
+      }
+      setBalance(getBalance() - bid);
+      transactions.push_back(TransactionCodeMaker::makeBid(username, sellerName, itemName, bid));
+    };
 
     void createNewUser(string username, string userType, int credit){};//user is not allowed to create new users
     void deleteUser(string username, string UserFileName){};//user is not allowed to delete users
