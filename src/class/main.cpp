@@ -689,8 +689,6 @@ int main(int argc, char const *argv[])
       }
       currentUser->bid(itemName, username, item->getCurrentBid(), amount);
 
-      cout << "Bid Successful!" << endl;
-
       currentState = STATE_WAITING;
       break;
     }
