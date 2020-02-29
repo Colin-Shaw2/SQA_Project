@@ -1,0 +1,2 @@
+06 buyOnly         BS 000001100
+00 admin           AA 000500000

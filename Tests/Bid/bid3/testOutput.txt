@@ -1,61 +1,26 @@
 Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
+Login successful!
+Enter Product Name:
+Enter Username:
+Current Bid $50
+Invalid amount
+Enter Product Name:
+Enter Username:
+Current Bid $50
+Invalid amount
+Enter Product Name:
+Enter Username:
+Current Bid $50
+Invalid amount
+Enter Product Name:
+Enter Username:
+Current Bid $50
+Invalid amount
+Enter Product Name:
+Enter Username:
+Current Bid $50
+Bid too small
+Enter Product Name:
+Enter Username:
+Current Bid $50
+Bid too small

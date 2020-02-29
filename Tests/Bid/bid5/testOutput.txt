@@ -1,23 +1,11 @@
 Please enter your username:
+Login successful!
+Enter Product Name:
+Enter Username:
 We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
+Enter Product Name:
+Enter Username:
+That is an invalid username
+Enter Product Name:
+Enter Username:
+That is an invalid username

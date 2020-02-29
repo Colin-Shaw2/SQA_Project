@@ -1,19 +1,11 @@
 Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
+Login successful!
+Please enter a username:
+Current Balance $100
+How much would you like to add?
+Credit added, Balance is $200
+Please enter a username:
+Current Balance $500000
+How much would you like to add?
+Credit added, Balance is $500100
+Logout successful!

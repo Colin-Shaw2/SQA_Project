@@ -1,13 +1,6 @@
 Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
+Login successful!
+Please enter a user name to be deleted
+That is an invalid username
+Please enter a user name to be deleted
+That is an invalid username

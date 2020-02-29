@@ -1,17 +1,10 @@
 Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
+Login successful!
+Please enter a username:
+Current Balance $500000
+How much would you like to add?
+Error Balance would be too high max value($999999.99)
+Please enter a username:
+Current Balance $1000
+How much would you like to add?
+Error Balance would be too high max value($999999.99)

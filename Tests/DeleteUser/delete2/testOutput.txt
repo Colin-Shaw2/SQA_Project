@@ -1,9 +1,4 @@
 Please enter your username:
+Login successful!
+Please enter a user name to be deleted
 We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:

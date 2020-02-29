@@ -1,15 +1,7 @@
 Please enter your username:
+Login successful!
+Please enter the buyer's username:
 We could not find that username
-Please enter your username:
+Please enter the buyer's username:
+Please enter the seller's username:
 We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
