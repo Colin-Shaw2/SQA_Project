@@ -152,7 +152,7 @@ public:
     }
     virtual void addCredit(int amount) = 0;
     virtual void advertise(string itemName, int minimumBid, int daysToBid) = 0;
-    virtual void bid(string itemName, string username, int amount, Item *item) = 0;
+    virtual void bid(string itemName, string username, int currentBid, int amount) = 0;
     virtual void createNewUser(string username, string userType, int credit) = 0;
     virtual void deleteUser(string username, string UserFileName) = 0;
     virtual void refund(string buyerUsername, string sellerUserName, int amount, string UserFileName) = 0;

@@ -691,16 +691,23 @@ int main(int argc, char const *argv[])
         currentState = STATE_WAITING;
         break;
       }
-
+      if(item->getSeller() == currentUser->getName()){
+        cout << "Cannot bid on your own items" << endl;
+        currentState = STATE_WAITING;
+        break;
+      }
+      
       cout << "Current Bid $" << item->getCurrentBid() << endl;
       cin >> amount;
+      if(cin.fail()){
+        cin.clear();
+        amount = -1;
+      }
       if(!isValidAmount(amount)){
         currentState = STATE_WAITING;
         break;
       }
-      currentUser->bid(itemName, username, amount, item);
-
-      cout << "Bid Successful!" << endl;
+      currentUser->bid(itemName, username, item->getCurrentBid(), amount);
 
       currentState = STATE_WAITING;
       break;

@@ -1,11 +1,5 @@
 Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
-We could not find that username
-Please enter your username:
+Login successful!
+Enter Product Name:
+Enter Username:
+Cannot bid on your own items

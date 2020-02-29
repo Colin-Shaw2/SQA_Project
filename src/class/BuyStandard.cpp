@@ -8,6 +8,7 @@
 #pragma once
 
 #include "User.cpp"
+#include <cmath>
 
 using namespace std;
 
@@ -58,16 +59,24 @@ public:
      * @param item      
      * @return void
      */
-    void bid(string itemName, string sellerName, int bid, Item *item){
-      int itemBid = item->getCurrentBid();
-      itemBid += itemBid * 0.05;
-      if(getBalance() < itemBid){
-        cout << "Insufficient funds" << endl;
+    void bid(string itemName, string sellerName, int currentBid, int bid){
+      int itemBid = currentBid;
+      itemBid += ceil(itemBid * 0.05);
+      if(bid < itemBid){
+        cout << "Bid too small" << endl;
         return;
       }
-      //setBalance(getBalance() - bid);
-      transactions.push_back(TransactionCodeMaker::makeBid(username, sellerName, itemName, bid));
+      else if(getBalance() < itemBid){
+        cout << "Insufficient funds" << endl;
+        return;
+      }else{
+        //setBalance(getBalance() - bid);
+        transactions.push_back(TransactionCodeMaker::makeBid(username, sellerName, itemName, bid));
+        cout << "Bid Successful!" << endl;
+      }
     };
+
+
     void createNewUser(string username, string userType, int credit){};//user is not allowed to create new users
     void deleteUser(string username, string UserFileName){};//user is not allowed to delete users
     void refund(string buyerUsername, string sellerUsername, int amount, string UserFileName){};//user is not allowed to refund

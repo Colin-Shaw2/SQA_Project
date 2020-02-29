@@ -1,2 +1,2 @@
 chair               admin            admin            010 000020
-product             admin            buySell          005 000100
+product             admin            buySell          005 000050
