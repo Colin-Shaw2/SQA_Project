@@ -676,6 +676,11 @@ int main(int argc, char const *argv[])
         currentState = STATE_WAITING;
         break;
       }
+      if(item->getSeller() == currentUser->getName()){
+        cout << "Cannot bid on your own items" << endl;
+        currentState = STATE_WAITING;
+        break;
+      }
       
       cout << "Current Bid $" << item->getCurrentBid() << endl;
       cin >> amount;
