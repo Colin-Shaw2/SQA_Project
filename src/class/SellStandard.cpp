@@ -35,7 +35,7 @@ public:
     void addCredit(int amount){
       int balance = getBalance();
       balance += amount;
-      setBalance(balance);
+      //setBalance(balance);
       setMaxCredit(amount);
       transactions.push_back(TransactionCodeMaker::makeAddCredit(username, userType, balance));
     };

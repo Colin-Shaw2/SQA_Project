@@ -1,5 +1,4 @@
 #!/bin/bash
-# My first script
 
 make compile
 
@@ -10,9 +9,9 @@ echo $defaultItemFile
 testTable="TestResults/testTable.csv"
 echo "Running Tests..."
 
-testsToRun="Tests/Bid/*/"
+testToRun="Tests/AddCredit/*/"
 
-for directory in $testsToRun ; do
+for directory in $testToRun ; do
     >"${directory}testTransactions.txt"
     # runs main using input.txt and and outputs it to testOutputs.txt
     # main.exe user item transaction
@@ -24,8 +23,8 @@ for directory in $testsToRun ; do
 done
 echo "Checking..."
 echo "TEST NAME, SUCCESS?" >> $testTable
-    
-for directory in $testsToRun ; do
+
+for directory in $testToRun ; do
     # compare to output files
     if diff -q "${directory}testTransactions.txt" "${directory}transactionoutputs.txt"; then
         #if true check other file

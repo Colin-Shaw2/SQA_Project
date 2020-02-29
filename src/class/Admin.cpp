@@ -45,7 +45,7 @@ public:
     void addCredit(int amount){
       int balance = getBalance();
       balance += amount;
-      setBalance(balance);
+      //setBalance(balance);
       setMaxCredit(amount);
       transactions.push_back(TransactionCodeMaker::makeAddCredit(username, userType, balance));
     };
@@ -95,6 +95,8 @@ public:
         transactions.push_back(TransactionCodeMaker::makeBid(username, sellerName, itemName, bid));
         cout << "Bid Successful!" << endl;
       }
+      //setBalance(getBalance() - bid);
+      transactions.push_back(TransactionCodeMaker::makeBid(username, sellerName, itemName, bid));
     };
     /**
      * createNewUser is called to create a new User.
