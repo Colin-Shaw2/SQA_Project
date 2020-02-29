@@ -481,23 +481,35 @@ int main(int argc, char const *argv[])
           currentState = STATE_WAITING;
           break;
         }
+        int currentMaxCredit = 0;
+        for (int i = 0; i < currentUser->accountsAddedTo.size(); i++)
+        {
+          if(user->getName() == currentUser->accountsAddedTo[i]){
+            currentMaxCredit = currentUser->amountAdded[i];
+            break;
+          }
+        }
         if(!(user->getBalance() + amount < 1000000)){
           cout << "Error Balance would be too high max value($999999.99)" << endl;
           currentState = STATE_WAITING;
           break;
         }
-        else if((user->getMaxCredit() > 1000) || (amount >1000)){
+        else if((currentMaxCredit > 1000) || (currentMaxCredit + amount >1000)){
           cout << "Cannot add more than $1000 in one session" << endl;
           currentState = STATE_WAITING;
           break;
         }else{
           user->addCredit(amount);
+          
+          currentUser->accountsAddedTo.push_back(user->getName());
+          currentUser->amountAdded.push_back(amount);
+
           currentUser->setTransactions(user->getTransactions());
         if (user->getName() == currentUser->getName()){
-          currentUser->setBalance(currentUser->getBalance() + amount);
+          //currentUser->setBalance(currentUser->getBalance() + amount);
           currentUser->setMaxCredit(currentUser->getMaxCredit() + amount);
         }
-          cout << "Credit added, Balance is $" <<user->getBalance() << endl;
+          cout << "Credit added, Balance is $" << user->getBalance() + amount << endl;
           
           currentState = STATE_WAITING;
           break;
@@ -525,7 +537,10 @@ int main(int argc, char const *argv[])
         }else{
           currentUser->addCredit(amount);
 
-          cout << "Credit added, Balance is $" <<currentUser->getBalance() << endl;
+          currentUser->accountsAddedTo.push_back(currentUser->getName());
+          currentUser->amountAdded.push_back(amount);
+
+          cout << "Credit added, Balance is $" << currentUser->getBalance() + amount << endl;
           
           currentState = STATE_WAITING;
           break;

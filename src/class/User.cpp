@@ -53,6 +53,8 @@ protected:
     // }
 
 public:
+    vector<string> accountsAddedTo;
+    vector<int> amountAdded;
     int refundAmount;
     string sellerUserName;
     string buyerUserName;
@@ -81,7 +83,7 @@ public:
 
     string getName(){return this->username;}
     int getBalance(){return this->balance;}
-    void setBalance(int balance){this->balance = balance;}
+    //void setBalance(int balance){this->balance = balance;}
     int getMaxCredit(){return this->maxCredit;}
     void setMaxCredit(int credit){this->maxCredit += credit;}
     string getUserType(){return this->userType;}

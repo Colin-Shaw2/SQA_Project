@@ -35,7 +35,7 @@ public:
     void addCredit(int amount){
       int balance = getBalance();
       balance += amount;
-      setBalance(balance);
+      //setBalance(balance);
       setMaxCredit(amount);
       transactions.push_back(TransactionCodeMaker::makeAddCredit(username, userType, balance));
     };
@@ -65,7 +65,7 @@ public:
         cout << "Insufficient funds" << endl;
         return;
       }
-      setBalance(getBalance() - bid);
+      //setBalance(getBalance() - bid);
       transactions.push_back(TransactionCodeMaker::makeBid(username, sellerName, itemName, bid));
     };
     void createNewUser(string username, string userType, int credit){};//user is not allowed to create new users
