@@ -23,35 +23,6 @@ protected:
     string userType;
 
 
-    /**
-     * Calls the transactionCodeMaker to create a transaction code and adds
-     * it to the transactions array
-     *
-     * @param   type an enum representing the type of stransaction that just happened
-     * @return  void
-     */
-    // void addTransaction(transactionType type){
-    //     string code = "";
-    //     switch(type)
-    //     {
-    //         case CREATE : code = TransactionCodeMaker::makeCreate(username, userType, balance);
-    //             break;
-    //         case DELETE : code = TransactionCodeMaker::makeDelete(username, userType, balance);
-    //             break;
-    //         case LOGOUT : code = TransactionCodeMaker::makeLogout(username, userType, balance);
-    //             break;
-    //         case ADD_CREDIT : code = TransactionCodeMaker::makeAddCredit(username, userType, balance);
-    //             break;
-    //         case REFUND : code = TransactionCodeMaker::makeRefund(username,"refunder", refundAmount);
-    //             break;
-    //         case ADVERTISE : code = TransactionCodeMaker::makeAdvertise(username, 0/*daysToAuction*/ , "Itemname", balance);
-    //             break;
-    //         case BID : code = TransactionCodeMaker::makeBid(username, "sellerName", "ItemName", /*Bid*/ 0);
-    //             break;
-    //     }
-    //     transactions.push_back(code);
-    // }
-
 public:
     vector<string> accountsAddedTo;
     vector<int> amountAdded;

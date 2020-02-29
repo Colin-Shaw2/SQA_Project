@@ -34,11 +34,9 @@ public:
     }
 
     /**
-     * Changes the items currentBid and topBidder
+     * The get functions return information from Item
      *
      *
-     * @param newPrice     the highest bid of the item
-     * @param bidder       the highest bidder's username
     */
     string getItemName(){
       return this->itemName;

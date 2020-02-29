@@ -297,7 +297,7 @@ int main(int argc, char const *argv[])
       quit = true;
       break;
     }
-
+    
     if(!loggedIn){
       if (input == "login")
       {
@@ -471,6 +471,7 @@ int main(int argc, char const *argv[])
           currentState = STATE_WAITING;
           break;
         }
+        //creates instance of the user
         User *user = getUser(username);
 
 
@@ -506,7 +507,6 @@ int main(int argc, char const *argv[])
 
           currentUser->setTransactions(user->getTransactions());
         if (user->getName() == currentUser->getName()){
-          //currentUser->setBalance(currentUser->getBalance() + amount);
           currentUser->setMaxCredit(currentUser->getMaxCredit() + amount);
         }
           cout << "Credit added, Balance is $" << user->getBalance() + amount << endl;

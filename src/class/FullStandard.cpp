@@ -69,8 +69,9 @@ public:
      * Writes to the items file
      *
      * @param itemName the name of the item
-     * @param username the user selling the item
-     * @param amount the amount to bid
+     * @param sellerName the user selling the item
+     * @param currentBid the bid on the current amount
+     * @param bid the amount to bid
      * @return void
      */
     void bid(string itemName, string sellerName, int currentBid, int bid){
