@@ -141,6 +141,9 @@ public:
         }
       }
       itemFile.close();
+      if(ownerItem.empty()){
+        return NULL;
+      }
       return new Item(itemName, daysItem, bidItem, ownerItem);
     }
 

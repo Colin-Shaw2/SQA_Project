@@ -669,7 +669,12 @@ int main(int argc, char const *argv[])
         break;
       }
       Item *item = currentUser->getItem(itemName, itemFileName);
-      
+      if(NULL == item){
+        cout << "Item does not exists" << endl;
+        currentState = STATE_WAITING;
+        break;
+      }
+    
       cout << "Enter Username:" << endl;
       cin >> username;
       if(!isValidUsername(username)){

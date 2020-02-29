@@ -88,16 +88,14 @@ public:
         cout << "Bid too small" << endl;
         return;
       }
-      else if(getBalance() < itemBid){
-        cout << "Insufficient funds" << endl;
+      else if(getBalance() < bid){
+        cout << "Insufficient Funds" << endl;
         return;
       }else{
-        setBalance(getBalance() - bid);
         transactions.push_back(TransactionCodeMaker::makeBid(username, sellerName, itemName, bid));
         cout << "Bid Successful!" << endl;
       }
     };
-
     /**
      * createNewUser is called to create a new User.
      * Writes to the users file

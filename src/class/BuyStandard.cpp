@@ -66,16 +66,14 @@ public:
         cout << "Bid too small" << endl;
         return;
       }
-      else if(getBalance() < itemBid){
-        cout << "Insufficient funds" << endl;
+      else if(getBalance() < bid){
+        cout << "Insufficient Funds" << endl;
         return;
       }else{
-        setBalance(getBalance() - bid);
         transactions.push_back(TransactionCodeMaker::makeBid(username, sellerName, itemName, bid));
         cout << "Bid Successful!" << endl;
       }
     };
-
 
     void createNewUser(string username, string userType, int credit){};//user is not allowed to create new users
     void deleteUser(string username, string UserFileName){};//user is not allowed to delete users
